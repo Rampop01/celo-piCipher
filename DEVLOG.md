@@ -9,3 +9,4 @@
 - Action: test: fix constants at 2026-06-01T18:07:38.272Z
 - Action: chore: optimize documentation at 2026-06-01T18:16:19.546Z
 - Action: style: adjust wallet connection at 2026-06-01T19:12:39.697Z
+- Action: refactor: cleanup state management at 2026-06-01T19:57:57.336Z
