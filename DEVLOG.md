@@ -33,3 +33,4 @@
 - Action: refactor: update constants at 2026-06-02T21:42:00.307Z
 - Action: docs: tweak wallet connection at 2026-06-02T22:06:14.970Z
 - Action: style: fix hooks at 2026-06-02T23:29:34.548Z
+- Action: style: adjust smart contract ABI at 2026-06-02T23:50:50.455Z
