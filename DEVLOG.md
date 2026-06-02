@@ -31,3 +31,4 @@
 - Action: test: cleanup constants at 2026-06-02T20:17:59.591Z
 - Action: fix: add state management at 2026-06-02T20:29:52.024Z
 - Action: refactor: update constants at 2026-06-02T21:42:00.307Z
+- Action: docs: tweak wallet connection at 2026-06-02T22:06:14.970Z
