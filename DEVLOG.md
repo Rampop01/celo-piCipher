@@ -25,3 +25,4 @@
 - Action: chore: update styling at 2026-06-02T13:42:15.382Z
 - Action: style: improve styling at 2026-06-02T14:59:51.500Z
 - Action: feat: remove padding/margins at 2026-06-02T16:25:52.638Z
+- Action: style: cleanup constants at 2026-06-02T17:27:40.770Z
