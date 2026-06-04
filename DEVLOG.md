@@ -73,3 +73,4 @@
 - Action: chore: adjust constants at 2026-06-04T14:31:52.592Z
 - Action: fix: fix styling at 2026-06-04T14:39:44.503Z
 - Action: fix: optimize UI components at 2026-06-04T15:09:11.338Z
+- Action: test: cleanup smart contract ABI at 2026-06-04T16:08:23.500Z
