@@ -58,3 +58,4 @@
 - Action: feat: refactor hooks at 2026-06-03T22:24:06.495Z
 - Action: style: refactor button states at 2026-06-03T23:30:26.725Z
 - Action: feat: fix constants at 2026-06-04T00:04:15.522Z
+- Action: style: remove constants at 2026-06-04T01:35:10.946Z
