@@ -79,3 +79,4 @@
 - Action: fix: improve wallet connection at 2026-06-04T19:00:12.051Z
 - Action: fix: cleanup smart contract ABI at 2026-06-04T19:15:14.257Z
 - Action: feat: tweak wallet connection at 2026-06-04T19:21:15.653Z
+- Action: chore: refactor documentation at 2026-06-05T01:09:37.973Z
