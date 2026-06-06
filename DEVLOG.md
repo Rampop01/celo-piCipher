@@ -108,3 +108,4 @@
 - Action: docs: adjust state management at 2026-06-05T23:22:33.437Z
 - Action: style: adjust button states at 2026-06-05T23:23:59.574Z
 - Action: docs: improve wallet connection at 2026-06-06T00:11:30.761Z
+- Action: docs: optimize smart contract ABI at 2026-06-06T03:01:52.084Z
