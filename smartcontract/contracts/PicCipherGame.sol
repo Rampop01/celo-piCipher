@@ -36,4 +36,22 @@ contract PicCipherGame {
     constructor() {
         owner = msg.sender;
     }
+
+    function createRound(uint8 _mode, bytes32 _answerHash) external onlyOwner {
+        require(_mode >= 1 && _mode <= 4, "Invalid mode");
+        
+        currentRoundId++;
+        rounds[currentRoundId] = GameRound({
+            roundId: currentRoundId,
+            mode: _mode,
+            answerHash: _answerHash,
+            isActive: true
+        });
+
+        emit RoundCreated(currentRoundId, _mode);
+    }
+
+    function getPlayerStats(address _player) external view returns (PlayerStats memory) {
+        return players[_player];
+    }
 }
