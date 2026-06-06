@@ -51,6 +51,48 @@ contract PicCipherGame {
         emit RoundCreated(currentRoundId, _mode);
     }
 
+    function submitAnswer(uint256 _roundId, string calldata _answer) external {
+        require(rounds[_roundId].isActive, "Round is not active");
+        require(!hasPlayedRound[msg.sender][_roundId], "Already played this round");
+
+        hasPlayedRound[msg.sender][_roundId] = true;
+        PlayerStats storage stats = players[msg.sender];
+        stats.gamesPlayed++;
+        stats.lastPlayedTimestamp = block.timestamp;
+
+        // Hash the submitted answer (converted to lowercase before hashing in frontend)
+        bytes32 submittedHash = keccak256(abi.encodePacked(_answer));
+        
+        bool isCorrect = (submittedHash == rounds[_roundId].answerHash);
+        uint256 pointsEarned = 0;
+
+        if (isCorrect) {
+            // Points = 10 * mode (e.g. 1-pic = 10pts, 4-pic = 40pts)
+            pointsEarned = 10 * rounds[_roundId].mode;
+            
+            // Streak logic
+            stats.currentStreak++;
+            if (stats.currentStreak > stats.bestStreak) {
+                stats.bestStreak = stats.currentStreak;
+            }
+            
+            // Bonus points for streaks
+            if (stats.currentStreak >= 5) {
+                pointsEarned += 5; // Flat +5 bonus for being on a hot streak
+                if (stats.currentStreak % 5 == 0) {
+                    emit StreakAchieved(msg.sender, stats.currentStreak);
+                }
+            }
+            
+            stats.totalScore += pointsEarned;
+        } else {
+            // Reset streak on wrong answer
+            stats.currentStreak = 0;
+        }
+
+        emit AnswerSubmitted(msg.sender, _roundId, isCorrect, pointsEarned);
+    }
+
     function getPlayerStats(address _player) external view returns (PlayerStats memory) {
         return players[_player];
     }
