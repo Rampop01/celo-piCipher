@@ -124,3 +124,4 @@
 - Action: fix: cleanup dependencies at 2026-06-06T19:00:40.441Z
 - Action: feat: update button states at 2026-06-06T19:23:04.070Z
 - Action: feat: improve wallet connection at 2026-06-06T19:53:04.556Z
+- Action: chore: tweak auth logic at 2026-06-06T20:04:20.445Z
