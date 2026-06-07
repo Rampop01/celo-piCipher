@@ -155,3 +155,4 @@
 - Action: docs: tweak smart contract ABI at 2026-06-07T15:40:06.271Z
 - Action: docs: update state management at 2026-06-07T15:49:33.889Z
 - Action: chore: add constants at 2026-06-07T16:40:59.383Z
+- Action: style: cleanup hooks at 2026-06-07T17:01:05.946Z
