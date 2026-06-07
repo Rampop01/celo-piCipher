@@ -145,3 +145,4 @@
 - Action: feat: update constants at 2026-06-07T08:01:56.109Z
 - Action: docs: cleanup wallet connection at 2026-06-07T08:32:32.867Z
 - Action: docs: refactor styling at 2026-06-07T09:21:57.368Z
+- Action: feat: update error handling at 2026-06-07T10:14:11.326Z
