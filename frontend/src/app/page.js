@@ -17,7 +17,7 @@ export default function Home() {
             </span>
             <button 
               onClick={logout}
-              className="px-4 py-2 text-sm font-medium bg-neutral-800 hover:bg-neutral-700 rounded-lg transition-colors"
+              className="gaming-btn px-4 py-2 text-sm bg-neutral-800 hover:bg-neutral-700 rounded-lg text-white"
             >
               Sign Out
             </button>
@@ -25,7 +25,7 @@ export default function Home() {
         ) : (
           <button 
             onClick={login}
-            className="px-5 py-2.5 text-sm font-medium bg-[#35D07F] hover:bg-[#2bb46a] text-black rounded-lg transition-colors shadow-[0_0_15px_rgba(53,208,127,0.3)]"
+            className="gaming-btn px-6 py-2.5 text-sm bg-[#35D07F] text-black rounded-lg"
           >
             Connect Wallet
           </button>
@@ -49,19 +49,19 @@ export default function Home() {
           ].map((m) => (
             <button
               key={m.mode}
-              className="relative overflow-hidden group p-1 rounded-2xl transition-transform hover:scale-105 active:scale-95 text-left"
+              className="gaming-btn neon-border relative overflow-hidden group p-1 rounded-2xl text-left"
             >
-              <div className={`absolute inset-0 bg-gradient-to-br ${m.color} opacity-40 group-hover:opacity-100 transition-opacity`} />
-              <div className="relative h-full bg-neutral-900 border border-neutral-800 p-8 rounded-xl flex flex-col items-start gap-4">
+              <div className={`absolute inset-0 bg-gradient-to-br ${m.color} opacity-20 group-hover:opacity-40 transition-opacity`} />
+              <div className="relative h-full bg-neutral-900/80 backdrop-blur p-8 rounded-xl flex flex-col items-start gap-4">
                 <div className="flex items-center gap-3">
-                  <span className={`w-8 h-8 flex items-center justify-center rounded-full bg-gradient-to-br ${m.color} text-black font-bold`}>
+                  <span className={`w-8 h-8 flex items-center justify-center rounded-full bg-gradient-to-br ${m.color} text-black font-bold shadow-[0_0_10px_currentColor]`}>
                     {m.pics}
                   </span>
-                  <h3 className="text-xl font-bold text-white">{m.title}</h3>
+                  <h3 className="text-xl font-bold text-white tracking-widest">{m.title}</h3>
                 </div>
-                <p className="text-neutral-400 text-sm">{m.desc}</p>
-                <span className="mt-4 text-xs font-semibold uppercase tracking-wider text-[#35D07F] group-hover:text-white transition-colors">
-                  Play Now &rarr;
+                <p className="text-neutral-400 text-sm font-sans tracking-normal">{m.desc}</p>
+                <span className="mt-4 text-xs font-semibold uppercase tracking-widest text-[#35D07F] group-hover:text-white transition-colors">
+                  Play Now &gt;&gt;&gt;
                 </span>
               </div>
             </button>
