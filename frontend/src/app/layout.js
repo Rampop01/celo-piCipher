@@ -17,7 +17,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${orbitron.variable} font-orbitron`}>
+    <html lang="en" className={`${orbitron.variable}`}>
       <body>
         <Providers>{children}</Providers>
       </body>
