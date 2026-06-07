@@ -67,7 +67,7 @@ export default function Home() {
             </div>
           </div>
         ) : (
-          <div className="w-full max-w-5xl animate-in fade-in slide-in-from-bottom-8 duration-700">
+          <div className="w-full max-w-5xl animate-in fade-in slide-in-from-bottom-8 duration-700 min-h-[60vh] flex flex-col justify-center">
             <div className="text-center mb-12">
               <h2 className="text-4xl md:text-5xl font-black uppercase tracking-widest text-white drop-shadow-[0_0_10px_rgba(255,255,255,0.5)]">
                 Select Difficulty
@@ -106,6 +106,40 @@ export default function Home() {
           </div>
         )}
       </main>
+
+      {/* How to Play Section */}
+      {!authenticated && (
+        <section className="relative z-10 border-t border-[#35D07F]/20 bg-black/80 backdrop-blur-md py-24">
+          <div className="max-w-6xl mx-auto px-6">
+            <h2 className="text-3xl md:text-5xl font-black uppercase tracking-widest text-center text-white drop-shadow-[0_0_10px_rgba(255,255,255,0.3)] mb-16">
+              SYSTEM_TUTORIAL
+            </h2>
+            
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+              {[
+                { step: "01", title: "ANALYZE", desc: "Examine AI-generated visuals. Fewer pictures revealed equals higher crypto bounties." },
+                { step: "02", title: "DECRYPT", desc: "Deduce the hidden connection between the abstract images provided by the system." },
+                { step: "03", title: "TRANSMIT", desc: "Use voice recognition to speak the hidden word directly into the terminal." }
+              ].map((s) => (
+                <div key={s.step} className="relative group p-8 border border-neutral-800 bg-neutral-900/50 hover:border-[#35D07F]/50 transition-colors">
+                  <div className="absolute -top-6 -left-6 text-7xl font-black text-neutral-800 group-hover:text-[#35D07F]/20 transition-colors z-0">
+                    {s.step}
+                  </div>
+                  <div className="relative z-10">
+                    <h3 className="text-xl font-bold text-white tracking-widest mb-4">{s.title}</h3>
+                    <p className="text-neutral-400 text-sm leading-relaxed tracking-wider font-sans">{s.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Footer */}
+      <footer className="relative z-10 border-t border-neutral-800 bg-black py-8 text-center text-xs tracking-[0.3em] text-neutral-600">
+        <p>PIC CIPHER v1.0.0 // CELO NETWORK // END OF TRANSMISSION</p>
+      </footer>
     </div>
   );
 }
