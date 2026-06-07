@@ -5,11 +5,11 @@ import { useEffect, useState } from "react";
 
 export default function Home() {
   const { login, authenticated, user, logout } = usePrivy();
-  const [glitchText, setGlitchText] = useState("PiCipher");
+  const [glitchText, setGlitchText] = useState("PIC CIPHER");
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setGlitchText((prev) => (prev === "PiCipher" ? "P!C1PH3R" : "PiCipher"));
+      setGlitchText((prev) => (prev === "PIC CIPHER" ? "P!C C1PH3R" : "PIC CIPHER"));
     }, 3000);
     return () => clearInterval(interval);
   }, []);
@@ -20,11 +20,12 @@ export default function Home() {
       <div className="pointer-events-none fixed inset-0 z-50 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.25)_50%),linear-gradient(90deg,rgba(255,0,0,0.06),rgba(0,255,0,0.02),rgba(0,0,255,0.06))] bg-[length:100%_4px,3px_100%] opacity-20"></div>
 
       <header className="relative z-10 flex items-center justify-between p-6 border-b border-[#35D07F]/20 bg-black/50 backdrop-blur-md">
-        <div className="flex items-center gap-2 select-none cursor-pointer group">
+        <div className="flex items-center gap-3 select-none cursor-pointer group">
           <div className="w-3 h-3 bg-[#35D07F] animate-pulse rounded-full shadow-[0_0_10px_#35D07F] group-hover:scale-125 transition-transform"></div>
           <div className="text-2xl font-black tracking-tighter flex items-center">
             <span className="text-white drop-shadow-[0_0_5px_rgba(255,255,255,0.8)]">Pi</span>
-            <span className="text-[#35D07F] drop-shadow-[0_0_8px_#35D07F]">Cipher</span>
+            <span className="text-[#35D07F] text-3xl drop-shadow-[0_0_12px_#35D07F] -ml-0.5 -mr-0.5">C</span>
+            <span className="text-white drop-shadow-[0_0_5px_rgba(255,255,255,0.8)]">ipher</span>
           </div>
         </div>
         
