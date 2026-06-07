@@ -23,6 +23,9 @@ contract PicCipherGame {
     mapping(uint256 => GameRound) public rounds;
     mapping(address => PlayerStats) public players;
     mapping(address => mapping(uint256 => bool)) public hasPlayedRound;
+    
+    address[] public allPlayers;
+    mapping(address => bool) public isPlayerRegistered;
 
     event RoundCreated(uint256 indexed roundId, uint8 mode);
     event AnswerSubmitted(address indexed player, uint256 indexed roundId, bool isCorrect, uint256 pointsEarned);
@@ -51,11 +54,22 @@ contract PicCipherGame {
         emit RoundCreated(currentRoundId, _mode);
     }
 
+    function deactivateRound(uint256 _roundId) external onlyOwner {
+        require(rounds[_roundId].isActive, "Round is already inactive");
+        rounds[_roundId].isActive = false;
+    }
+
     function submitAnswer(uint256 _roundId, string calldata _answer) external {
         require(rounds[_roundId].isActive, "Round is not active");
         require(!hasPlayedRound[msg.sender][_roundId], "Already played this round");
 
         hasPlayedRound[msg.sender][_roundId] = true;
+        
+        if (!isPlayerRegistered[msg.sender]) {
+            isPlayerRegistered[msg.sender] = true;
+            allPlayers.push(msg.sender);
+        }
+        
         PlayerStats storage stats = players[msg.sender];
         stats.gamesPlayed++;
         stats.lastPlayedTimestamp = block.timestamp;
@@ -95,5 +109,9 @@ contract PicCipherGame {
 
     function getPlayerStats(address _player) external view returns (PlayerStats memory) {
         return players[_player];
+    }
+
+    function getAllPlayers() external view returns (address[] memory) {
+        return allPlayers;
     }
 }
