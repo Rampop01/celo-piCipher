@@ -140,3 +140,4 @@
 - Action: feat: improve button states at 2026-06-07T05:28:27.874Z
 - Action: refactor: update button states at 2026-06-07T06:25:31.716Z
 - Action: fix: improve UI components at 2026-06-07T06:26:54.808Z
+- Action: refactor: remove smart contract ABI at 2026-06-07T07:42:54.616Z
