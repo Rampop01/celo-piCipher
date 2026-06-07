@@ -22,7 +22,7 @@ export default function Home() {
       <header className="relative z-10 flex items-center justify-between p-6 border-b border-[#35D07F]/20 bg-black/50 backdrop-blur-md">
         <div className="flex items-center gap-2">
           <div className="w-3 h-3 bg-[#35D07F] animate-pulse rounded-full shadow-[0_0_10px_#35D07F]"></div>
-          <h1 className="text-xl font-bold tracking-widest text-white drop-shadow-[0_0_5px_#35D07F]">SYSTEM_ONLINE</h1>
+          <h1 className="text-xl font-bold tracking-widest text-white drop-shadow-[0_0_5px_#35D07F]">PicCipher</h1>
         </div>
         
         {authenticated ? (
@@ -38,7 +38,7 @@ export default function Home() {
             </button>
           </div>
         ) : (
-          <span className="text-neutral-500 text-xs tracking-widest animate-pulse">AWAITING CONNECTION...</span>
+          <div></div>
         )}
       </header>
 
