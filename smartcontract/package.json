@@ -1,0 +1,14 @@
+{
+  "name": "piccipher-celo-contracts",
+  "version": "1.0.0",
+  "scripts": {
+    "test": "hardhat test"
+  },
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^5.0.0",
+    "hardhat": "^2.22.4"
+  },
+  "dependencies": {
+    "dotenv": "^17.4.2"
+  }
+}
