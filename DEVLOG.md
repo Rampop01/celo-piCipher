@@ -177,3 +177,4 @@
 - Action: fix: update wallet connection at 2026-06-08T11:53:01.237Z
 - Action: feat: update layout at 2026-06-08T12:56:10.193Z
 - Action: chore: add tests at 2026-06-08T13:00:22.956Z
+- Action: refactor: improve button states at 2026-06-08T13:43:02.156Z
