@@ -1,117 +1,111 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.24;
 
-contract PicCipherGame {
-    struct PlayerStats {
-        uint256 totalScore;
-        uint256 currentStreak;
-        uint256 bestStreak;
-        uint256 gamesPlayed;
-        uint256 lastPlayedTimestamp;
+import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
+import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
+import "@openzeppelin/contracts/access/Ownable.sol";
+
+contract PicCipherGame is ERC721, Ownable {
+    struct PlayerProfile {
+        string nickname;
+        uint256 currentStage;
+        bool isRegistered;
     }
 
-    struct GameRound {
-        uint256 roundId;
-        uint8 mode; // 1, 2, 3, or 4 pics
-        bytes32 answerHash; // Keccak256 hash of the correct answer
-        bool isActive;
-    }
+    IERC20 public cUSDToken;
+    uint256 public bypassFee = 0.05 ether; // 0.05 cUSD
+    uint256 public hintFee = 0.01 ether; // 0.01 cUSD
 
-    address public owner;
-    uint256 public currentRoundId;
+    uint256 public nextTokenId = 1;
+
+    mapping(address => PlayerProfile) public profiles;
+    mapping(uint256 => bytes32) public stageAnswerHashes;
     
-    mapping(uint256 => GameRound) public rounds;
-    mapping(address => PlayerStats) public players;
-    mapping(address => mapping(uint256 => bool)) public hasPlayedRound;
-    
-    address[] public allPlayers;
-    mapping(address => bool) public isPlayerRegistered;
+    event PlayerRegistered(address indexed player, string nickname, uint256 tokenId);
+    event StageCompleted(address indexed player, uint256 stageId);
+    event StageBypassed(address indexed player, uint256 stageId);
+    event HintPurchased(address indexed player, uint256 stageId);
+    event BadgeMinted(address indexed player, uint256 stageId, uint256 tokenId);
 
-    event RoundCreated(uint256 indexed roundId, uint8 mode);
-    event AnswerSubmitted(address indexed player, uint256 indexed roundId, bool isCorrect, uint256 pointsEarned);
-    event StreakAchieved(address indexed player, uint256 streakLength);
-
-    modifier onlyOwner() {
-        require(msg.sender == owner, "Only owner can call this");
-        _;
+    constructor(address _cUSDToken) ERC721("PicCipher Badges", "PCB") Ownable(msg.sender) {
+        cUSDToken = IERC20(_cUSDToken);
     }
 
-    constructor() {
-        owner = msg.sender;
+    function setCUSDToken(address _cUSDToken) external onlyOwner {
+        cUSDToken = IERC20(_cUSDToken);
     }
 
-    function createRound(uint8 _mode, bytes32 _answerHash) external onlyOwner {
-        require(_mode >= 1 && _mode <= 4, "Invalid mode");
-        
-        currentRoundId++;
-        rounds[currentRoundId] = GameRound({
-            roundId: currentRoundId,
-            mode: _mode,
-            answerHash: _answerHash,
-            isActive: true
+    function setFees(uint256 _bypassFee, uint256 _hintFee) external onlyOwner {
+        bypassFee = _bypassFee;
+        hintFee = _hintFee;
+    }
+
+    function setStageAnswerHash(uint256 _stageId, bytes32 _answerHash) external onlyOwner {
+        stageAnswerHashes[_stageId] = _answerHash;
+    }
+
+    function registerUser(string calldata _nickname) external {
+        require(!profiles[msg.sender].isRegistered, "Already registered");
+        require(bytes(_nickname).length > 0, "Nickname required");
+
+        profiles[msg.sender] = PlayerProfile({
+            nickname: _nickname,
+            currentStage: 1,
+            isRegistered: true
         });
 
-        emit RoundCreated(currentRoundId, _mode);
+        // Mint Beginner Badge
+        uint256 tokenId = nextTokenId++;
+        _mint(msg.sender, tokenId);
+
+        emit PlayerRegistered(msg.sender, _nickname, tokenId);
+        emit BadgeMinted(msg.sender, 0, tokenId); // Stage 0 = Beginner
     }
 
-    function deactivateRound(uint256 _roundId) external onlyOwner {
-        require(rounds[_roundId].isActive, "Round is already inactive");
-        rounds[_roundId].isActive = false;
-    }
-
-    function submitAnswer(uint256 _roundId, string calldata _answer) external {
-        require(rounds[_roundId].isActive, "Round is not active");
-        require(!hasPlayedRound[msg.sender][_roundId], "Already played this round");
-
-        hasPlayedRound[msg.sender][_roundId] = true;
+    function submitStageAnswer(string calldata _answer) external {
+        require(profiles[msg.sender].isRegistered, "Not registered");
+        uint256 currentStage = profiles[msg.sender].currentStage;
+        bytes32 correctHash = stageAnswerHashes[currentStage];
+        require(correctHash != bytes32(0), "Stage not available yet");
         
-        if (!isPlayerRegistered[msg.sender]) {
-            isPlayerRegistered[msg.sender] = true;
-            allPlayers.push(msg.sender);
+        bytes32 answerHash = sha256(abi.encodePacked(_answer));
+        require(answerHash == correctHash, "Incorrect answer");
+
+        _advanceStage(msg.sender);
+    }
+
+    function bypassStage() external {
+        require(profiles[msg.sender].isRegistered, "Not registered");
+        uint256 currentStage = profiles[msg.sender].currentStage;
+        require(stageAnswerHashes[currentStage] != bytes32(0), "Stage not available yet");
+
+        require(cUSDToken.transferFrom(msg.sender, owner(), bypassFee), "Fee transfer failed");
+        
+        emit StageBypassed(msg.sender, currentStage);
+        _advanceStage(msg.sender);
+    }
+
+    function buyHint() external {
+        require(profiles[msg.sender].isRegistered, "Not registered");
+        uint256 currentStage = profiles[msg.sender].currentStage;
+        require(stageAnswerHashes[currentStage] != bytes32(0), "Stage not available yet");
+
+        require(cUSDToken.transferFrom(msg.sender, owner(), hintFee), "Fee transfer failed");
+        
+        emit HintPurchased(msg.sender, currentStage);
+    }
+
+    function _advanceStage(address player) internal {
+        uint256 completedStage = profiles[player].currentStage;
+        profiles[player].currentStage += 1;
+        
+        emit StageCompleted(player, completedStage);
+
+        // Mint milestone badges
+        if (completedStage == 10 || completedStage == 25 || completedStage == 50) {
+            uint256 tokenId = nextTokenId++;
+            _mint(player, tokenId);
+            emit BadgeMinted(player, completedStage, tokenId);
         }
-        
-        PlayerStats storage stats = players[msg.sender];
-        stats.gamesPlayed++;
-        stats.lastPlayedTimestamp = block.timestamp;
-
-        // Hash the submitted answer (converted to lowercase before hashing in frontend)
-        bytes32 submittedHash = keccak256(abi.encodePacked(_answer));
-        
-        bool isCorrect = (submittedHash == rounds[_roundId].answerHash);
-        uint256 pointsEarned = 0;
-
-        if (isCorrect) {
-            // Points = 10 * mode (e.g. 1-pic = 10pts, 4-pic = 40pts)
-            pointsEarned = 10 * rounds[_roundId].mode;
-            
-            // Streak logic
-            stats.currentStreak++;
-            if (stats.currentStreak > stats.bestStreak) {
-                stats.bestStreak = stats.currentStreak;
-            }
-            
-            // Bonus points for streaks
-            if (stats.currentStreak >= 5) {
-                pointsEarned += 5; // Flat +5 bonus for being on a hot streak
-                if (stats.currentStreak % 5 == 0) {
-                    emit StreakAchieved(msg.sender, stats.currentStreak);
-                }
-            }
-            
-            stats.totalScore += pointsEarned;
-        } else {
-            // Reset streak on wrong answer
-            stats.currentStreak = 0;
-        }
-
-        emit AnswerSubmitted(msg.sender, _roundId, isCorrect, pointsEarned);
-    }
-
-    function getPlayerStats(address _player) external view returns (PlayerStats memory) {
-        return players[_player];
-    }
-
-    function getAllPlayers() external view returns (address[] memory) {
-        return allPlayers;
     }
 }
