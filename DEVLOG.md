@@ -166,3 +166,4 @@
 - Action: refactor: fix UI components at 2026-06-07T21:56:58.699Z
 - Action: test: fix error handling at 2026-06-07T23:06:58.590Z
 - Action: feat: update styling at 2026-06-08T00:35:38.296Z
+- Action: refactor: improve smart contract ABI at 2026-06-08T01:14:50.984Z
