@@ -76,41 +76,24 @@ export default function Home() {
           <section className="min-h-screen pt-32 pb-24 px-6 flex flex-col items-center justify-center">
             <div className="w-full max-w-6xl animate-in fade-in slide-in-from-bottom-8 duration-700">
               <div className="text-center mb-16">
-                <h2 className="text-5xl md:text-7xl font-black tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-white to-neutral-500 mb-6">
-                  CHOOSE YOUR DIFFICULTY
+                <h2 className="text-5xl md:text-7xl font-black tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-[#35D07F] to-[#1e9a58] mb-6 drop-shadow-[0_0_15px_rgba(53,208,127,0.3)]">
+                  ENTER THE GRID
                 </h2>
-                <p className="text-xl text-neutral-400 max-w-2xl mx-auto">
-                  Higher difficulties require you to guess the word using fewer images, but reward exponentially higher bounties.
+                <p className="text-xl text-neutral-400 max-w-2xl mx-auto font-mono">
+                  &gt; Decrypt the visual anomalies. Speak the truth. Progress through 50 stages of increasing difficulty to earn your Celo bounties and exclusive NFT Badges.
                 </p>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 w-full">
-                {[
-                  { mode: 1, title: "EXPERT", pics: 1, desc: "Only 1 image revealed. Master level deduction required.", color: "from-red-500 to-rose-900", border: "border-red-500/50 hover:border-red-500", glow: "shadow-[0_0_20px_rgba(239,68,68,0.2)]", hex: "#ef4444" },
-                  { mode: 2, title: "HARD", pics: 2, desc: "2 images revealed. High risk, high reward.", color: "from-orange-500 to-amber-900", border: "border-orange-500/50 hover:border-orange-500", glow: "shadow-[0_0_20px_rgba(249,115,22,0.2)]", hex: "#f97316" },
-                  { mode: 3, title: "NORMAL", pics: 3, desc: "3 images revealed. The standard experience.", color: "from-blue-500 to-indigo-900", border: "border-blue-500/50 hover:border-blue-500", glow: "shadow-[0_0_20px_rgba(59,130,246,0.2)]", hex: "#3b82f6" },
-                  { mode: 4, title: "EASY", pics: 4, desc: "All 4 images revealed. Minimal risk.", color: "from-[#35D07F] to-[#1e9a58]", border: "border-[#35D07F]/50 hover:border-[#35D07F]", glow: "shadow-[0_0_20px_rgba(53,208,127,0.2)]", hex: "#35D07F" },
-                ].map((m) => (
-                  <button
-                    key={m.mode}
-                    onClick={() => router.push(`/game/${m.mode}`)}
-                    className={`difficulty-card relative group p-8 bg-black/40 backdrop-blur-md border border-t-0 border-l-0 border-b-2 border-r-2 ${m.border} transition-all duration-300 hover:-translate-y-2 text-left flex flex-col h-80 overflow-hidden ${m.glow}`}
-                  >
-                    <div className={`absolute inset-0 bg-gradient-to-br ${m.color} opacity-0 group-hover:opacity-20 transition-opacity duration-500`} />
-                    
-                    <div className="flex-1 relative z-10">
-                      <span className={`text-6xl font-black text-transparent bg-clip-text bg-gradient-to-br ${m.color} opacity-80 group-hover:opacity-100 transition-opacity`}>
-                        0{m.pics}
-                      </span>
-                      <h3 className="text-2xl font-bold text-white mt-4">{m.title}</h3>
-                      <p className="text-neutral-400 mt-2 leading-relaxed">{m.desc}</p>
-                    </div>
-                    
-                    <div className="mt-auto flex items-center gap-2 text-sm font-bold tracking-wider uppercase opacity-50 group-hover:opacity-100 transition-opacity">
-                      Select Mode &rarr;
-                    </div>
-                  </button>
-                ))}
+              <div className="flex justify-center w-full">
+                <button
+                  onClick={() => router.push('/game/play')}
+                  className="group relative px-12 py-6 bg-black/40 backdrop-blur-md border-2 border-[#35D07F] hover:bg-[#35D07F]/10 transition-all duration-300 shadow-[0_0_30px_rgba(53,208,127,0.2)] hover:shadow-[0_0_50px_rgba(53,208,127,0.4)] overflow-hidden"
+                >
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#35D07F]/20 to-transparent -translate-x-full group-hover:animate-[shimmer_1.5s_infinite]" />
+                  <span className="relative z-10 text-2xl font-black text-[#35D07F] tracking-[0.2em] uppercase">
+                    START CAMPAIGN &rarr;
+                  </span>
+                </button>
               </div>
             </div>
           </section>

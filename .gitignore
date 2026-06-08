@@ -4,3 +4,9 @@ artifacts/
 cache/
 scripts/bot.js
 scripts/bot-fleet.json
+
+.env*
+fund*.js
+check*.js
+print*.js
+test.js
