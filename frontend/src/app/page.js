@@ -2,10 +2,12 @@
 
 import { usePrivy } from "@privy-io/react-auth";
 import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
 import { Mic, BrainCircuit, Coins, Trophy, Image as ImageIcon, Zap } from "lucide-react";
 
 export default function Home() {
   const { login, authenticated, user, logout } = usePrivy();
+  const router = useRouter();
   const [scrolled, setScrolled] = useState(false);
   const [glitchText, setGlitchText] = useState("PIC CIPHER");
 
@@ -91,6 +93,7 @@ export default function Home() {
                 ].map((m) => (
                   <button
                     key={m.mode}
+                    onClick={() => router.push(`/game/${m.mode}`)}
                     className={`difficulty-card relative group p-8 bg-black/40 backdrop-blur-md border border-t-0 border-l-0 border-b-2 border-r-2 ${m.border} transition-all duration-300 hover:-translate-y-2 text-left flex flex-col h-80 overflow-hidden ${m.glow}`}
                   >
                     <div className={`absolute inset-0 bg-gradient-to-br ${m.color} opacity-0 group-hover:opacity-20 transition-opacity duration-500`} />
