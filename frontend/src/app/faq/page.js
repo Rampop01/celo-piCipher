@@ -20,6 +20,7 @@ export default function FAQ() {
             <div key={i} onClick={() => toggle(i)} className="border border-white/10 p-4 cursor-pointer bg-white/5 hover:bg-white/10 transition-colors">
               <div className="flex justify-between items-center">
                 <span className="font-bold text-lg">{item.q}</span>
+                <ChevronRight className={`w-5 h-5 transition-transform duration-300 ${activeIndex === i ? 'rotate-90 text-[#35D07F]' : 'text-neutral-500'}`} />
               </div>
               <div className={`overflow-hidden transition-all duration-300 ${activeIndex === i ? 'max-h-40 mt-4 opacity-100' : 'max-h-0 opacity-0'}`}>
                 <p className="text-neutral-400">{item.a}</p>
