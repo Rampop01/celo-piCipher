@@ -23,27 +23,33 @@ export default function FAQ() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-black text-white p-4 sm:p-6 md:p-12 font-mono">
-      <div className="max-w-4xl mx-auto border-l-2 border-r-2 border-[#35D07F]/30 min-h-[80vh] p-4 sm:p-8 flex flex-col">
+    <div className="min-h-screen bg-black text-white p-4 sm:p-6 md:p-12 font-mono selection:bg-[#35D07F] selection:text-black">
+      <div className="max-w-4xl mx-auto border-l-2 border-r-2 border-[#35D07F]/30 min-h-[80vh] p-4 sm:p-8 flex flex-col relative shadow-[0_0_30px_rgba(53,208,127,0.05)]">
+        {/* Decorative corner accents */}
+        <div className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-[#35D07F]" />
+        <div className="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-[#35D07F]" />
+        <div className="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-[#35D07F]" />
+        <div className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-[#35D07F]" />
+
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-12 gap-4">
-          <h1 className="text-3xl sm:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-[#35D07F] to-[#1e9a58] tracking-widest uppercase">{glitchTitle}</h1>
-          <Link href="/" className="px-4 py-2 border border-white/20 hover:border-white/60 text-xs transition-colors whitespace-nowrap">[ RETURN ]</Link>
+          <h1 className="text-3xl sm:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-[#35D07F] to-[#1e9a58] tracking-widest uppercase drop-shadow-[0_0_10px_rgba(53,208,127,0.3)]">{glitchTitle}</h1>
+          <Link href="/" className="px-4 py-2 border border-white/20 hover:border-white/60 text-xs transition-colors whitespace-nowrap hover:bg-white/5">[ RETURN ]</Link>
         </div>
         <div className="flex flex-col gap-4 flex-grow">
           {faqData.map((item, i) => (
-            <div key={i} onClick={() => toggle(i)} className="border border-white/10 p-5 cursor-pointer bg-white/5 hover:bg-white/10 transition-colors">
+            <div key={i} onClick={() => toggle(i)} className="border border-white/10 p-5 cursor-pointer bg-white/5 hover:bg-white/10 transition-colors group">
               <div className="flex justify-between items-center">
-                <span className="font-bold text-base sm:text-lg tracking-wide">{item.q}</span>
-                <ChevronRight className={`w-5 h-5 transition-transform duration-300 ${activeIndex === i ? 'rotate-90 text-[#35D07F]' : 'text-neutral-500'}`} />
+                <span className={`font-bold text-base sm:text-lg tracking-wide transition-colors ${activeIndex === i ? 'text-[#35D07F]' : 'text-white'}`}>{item.q}</span>
+                <ChevronRight className={`w-5 h-5 transition-transform duration-300 ${activeIndex === i ? 'rotate-90 text-[#35D07F]' : 'text-neutral-500 group-hover:text-white'}`} />
               </div>
               <div className={`overflow-hidden transition-all duration-300 ${activeIndex === i ? 'max-h-40 mt-4 opacity-100 border-t border-white/10 pt-4' : 'max-h-0 opacity-0'}`}>
-                <p className="text-neutral-400 text-sm sm:text-base leading-relaxed">{item.a}</p>
+                <p className="text-neutral-400 text-sm sm:text-base leading-relaxed font-sans">{item.a}</p>
               </div>
             </div>
           ))}
         </div>
         <div className="mt-12 text-center text-xs text-neutral-600 tracking-widest">
-          <p>STILL HAVE QUESTIONS? [ DISCORD_LINK_PENDING ]</p>
+          <p>STILL HAVE QUESTIONS? <a href="#" className="hover:text-white transition-colors">[ JOIN_DISCORD ]</a></p>
         </div>
       </div>
     </div>
