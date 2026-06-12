@@ -42,6 +42,7 @@ export default function GamePlay() {
   const [transcript, setTranscript] = useState("");
   const [feedback, setFeedback] = useState({ type: "", message: "" });
   const [isMiniPay, setIsMiniPay] = useState(false);
+  const [revealedImages, setRevealedImages] = useState([false, false, false, false]);
 
   // Refs
   const recognitionRef = useRef(null);
@@ -92,6 +93,7 @@ export default function GamePlay() {
       setCurrentStageData(stage);
       setShowHint(false);
       setTranscript("");
+      setRevealedImages([false, false, false, false]);
     } else {
       // You beat the game!
       setCurrentStageData({ isComplete: true });
@@ -112,6 +114,14 @@ export default function GamePlay() {
       utterance.rate = 1.1;
       window.speechSynthesis.speak(utterance);
     }
+  };
+
+  const revealImage = (index) => {
+    if (revealedImages[index]) return;
+    const newRevealed = [...revealedImages];
+    newRevealed[index] = true;
+    setRevealedImages(newRevealed);
+    speakText(`Decrypting visual anomaly 0${index + 1}. Reward multiplier decreased.`);
   };
 
   // Register User
@@ -338,21 +348,31 @@ export default function GamePlay() {
 
       <div className="max-w-4xl mx-auto p-4 md:p-8 mt-4">
         
-        {/* Main Image View */}
-        <div className="w-full aspect-square md:aspect-video border-2 border-[#35D07F]/50 relative group overflow-hidden mb-8 shadow-[0_0_30px_rgba(53,208,127,0.1)]">
-          {currentStageData?.imageUrl ? (
-            <img 
-              src={currentStageData.imageUrl} 
-              alt="Cipher Image" 
-              className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity"
-            />
-          ) : (
-            <div className="w-full h-full flex items-center justify-center bg-neutral-900">
-              <Lock className="w-12 h-12 text-[#35D07F]/30" />
-            </div>
-          )}
-          
-          <div className="absolute inset-0 pointer-events-none bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.25)_50%),linear-gradient(90deg,rgba(255,0,0,0.06),rgba(0,255,0,0.02),rgba(0,0,255,0.06))] bg-[length:100%_4px,3px_100%] opacity-30 mix-blend-overlay"></div>
+        {/* Main Image View (2x2 Grid) */}
+        <div className="w-full aspect-square md:aspect-video grid grid-cols-2 gap-4 mb-8">
+          {[0, 1, 2, 3].map((index) => {
+             const filters = ["", "hue-rotate-90 saturate-200", "invert sepia", "grayscale contrast-200"];
+             return (
+               <div key={index} 
+                    className="border-2 border-[#35D07F]/50 relative group overflow-hidden bg-black/50 flex items-center justify-center cursor-pointer shadow-[0_0_15px_rgba(53,208,127,0.1)] hover:border-[#35D07F] transition-colors"
+                    onClick={() => revealImage(index)}>
+                  {revealedImages[index] ? (
+                    <img 
+                      src={currentStageData?.imageUrl} 
+                      alt={`Cipher Anomaly ${index+1}`} 
+                      className={`w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-all duration-700 ${filters[index]}`}
+                    />
+                  ) : (
+                    <div className="flex flex-col items-center justify-center text-[#35D07F]/50 group-hover:text-[#35D07F] transition-colors">
+                      <Lock className="w-8 h-8 mb-2 group-hover:scale-110 transition-transform" />
+                      <span className="font-mono text-xs tracking-widest text-center">REVEAL<br/>ANOMALY_0{index+1}</span>
+                    </div>
+                  )}
+                  {/* Scanline Overlay */}
+                  <div className="absolute inset-0 pointer-events-none bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.25)_50%),linear-gradient(90deg,rgba(255,0,0,0.06),rgba(0,255,0,0.02),rgba(0,0,255,0.06))] bg-[length:100%_4px,3px_100%] opacity-30 mix-blend-overlay"></div>
+               </div>
+             )
+          })}
         </div>
 
         {/* Micro-transaction HUD */}
