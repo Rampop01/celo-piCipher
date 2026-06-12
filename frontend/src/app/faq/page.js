@@ -17,13 +17,13 @@ export default function FAQ() {
         <h1 className="text-5xl font-black mb-12 text-transparent bg-clip-text bg-gradient-to-r from-[#35D07F] to-[#1e9a58] tracking-widest uppercase">FAQ_DATABASE</h1>
         <div className="flex flex-col gap-4">
           {faqData.map((item, i) => (
-            <div key={i} onClick={() => toggle(i)} className="border border-white/10 p-4 cursor-pointer bg-white/5 hover:bg-white/10 transition-colors">
+            <div key={i} onClick={() => toggle(i)} className="border border-white/10 p-5 cursor-pointer bg-white/5 hover:bg-white/10 transition-colors">
               <div className="flex justify-between items-center">
-                <span className="font-bold text-lg">{item.q}</span>
+                <span className="font-bold text-lg tracking-wide">{item.q}</span>
                 <ChevronRight className={`w-5 h-5 transition-transform duration-300 ${activeIndex === i ? 'rotate-90 text-[#35D07F]' : 'text-neutral-500'}`} />
               </div>
-              <div className={`overflow-hidden transition-all duration-300 ${activeIndex === i ? 'max-h-40 mt-4 opacity-100' : 'max-h-0 opacity-0'}`}>
-                <p className="text-neutral-400">{item.a}</p>
+              <div className={`overflow-hidden transition-all duration-300 ${activeIndex === i ? 'max-h-40 mt-4 opacity-100 border-t border-white/10 pt-4' : 'max-h-0 opacity-0'}`}>
+                <p className="text-neutral-400 leading-relaxed">{item.a}</p>
               </div>
             </div>
           ))}
