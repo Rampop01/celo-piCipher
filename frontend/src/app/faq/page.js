@@ -5,7 +5,8 @@ import Link from "next/link";
 
 const faqData = [
   { q: "What is PiCipher?", a: "A fully decentralized AI-generated visual decryption game with voice input mechanics." },
-  { q: "How do I play?", a: "Connect your wallet, analyze the 4 images, guess the shared concept using your microphone, and earn Celo bounties." }
+  { q: "How do I play?", a: "Connect your wallet, analyze the 4 images, guess the shared concept using your microphone, and earn Celo bounties." },
+  { q: "Why use voice input instead of typing?", a: "To make the gameplay more fluid and immersive. You have only seconds to react to the visual anomalies." }
 ];
 
 export default function FAQ() {
