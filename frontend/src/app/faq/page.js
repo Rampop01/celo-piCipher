@@ -9,13 +9,14 @@ const faqData = [
 
 export default function FAQ() {
   const [activeIndex, setActiveIndex] = useState(null);
+  const toggle = (i) => setActiveIndex(activeIndex === i ? null : i);
 
   return (
     <div className="min-h-screen bg-black text-white p-6 md:p-12 font-mono">
       <div className="max-w-4xl mx-auto border-l-2 border-r-2 border-[#35D07F]/30 min-h-[80vh] p-8">
         <div className="flex flex-col gap-4">
           {faqData.map((item, i) => (
-            <div key={i} className="border border-white/10 p-4">{item.q}</div>
+            <div key={i} onClick={() => toggle(i)} className="border border-white/10 p-4 cursor-pointer">{item.q}</div>
           ))}
         </div>
       </div>
