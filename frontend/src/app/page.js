@@ -91,7 +91,7 @@ export default function Home() {
                 >
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#35D07F]/20 to-transparent -translate-x-full group-hover:animate-[shimmer_1.5s_infinite]" />
                   <span className="relative z-10 text-2xl font-black text-[#35D07F] tracking-[0.2em] uppercase">
-                    START CAMPAIGN &rarr;
+                    START GAME &rarr;
                   </span>
                 </button>
               </div>
