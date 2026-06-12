@@ -1,6 +1,6 @@
 "use client";
 import { ChevronRight } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 
 const faqData = [
@@ -10,13 +10,21 @@ const faqData = [
 
 export default function FAQ() {
   const [activeIndex, setActiveIndex] = useState(null);
+  const [glitchTitle, setGlitchTitle] = useState("FAQ_DATABASE");
   const toggle = (i) => setActiveIndex(activeIndex === i ? null : i);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setGlitchTitle((prev) => (prev === "FAQ_DATABASE" ? "F@Q_D4T4B4S3" : "FAQ_DATABASE"));
+    }, 4000);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <div className="min-h-screen bg-black text-white p-4 sm:p-6 md:p-12 font-mono">
       <div className="max-w-4xl mx-auto border-l-2 border-r-2 border-[#35D07F]/30 min-h-[80vh] p-4 sm:p-8">
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-12 gap-4">
-          <h1 className="text-3xl sm:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-[#35D07F] to-[#1e9a58] tracking-widest uppercase">FAQ_DATABASE</h1>
+          <h1 className="text-3xl sm:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-[#35D07F] to-[#1e9a58] tracking-widest uppercase">{glitchTitle}</h1>
           <Link href="/" className="px-4 py-2 border border-white/20 hover:border-white/60 text-xs transition-colors whitespace-nowrap">[ RETURN ]</Link>
         </div>
         <div className="flex flex-col gap-4">
