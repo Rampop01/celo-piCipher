@@ -3,8 +3,8 @@ import { ChevronRight } from "lucide-react";
 import { useState } from "react";
 
 const faqData = [
-  { q: "What is PiCipher?", a: "" },
-  { q: "How do I play?", a: "" }
+  { q: "What is PiCipher?", a: "A fully decentralized AI-generated visual decryption game with voice input mechanics." },
+  { q: "How do I play?", a: "Connect your wallet, analyze the 4 images, guess the shared concept using your microphone, and earn Celo bounties." }
 ];
 
 export default function FAQ() {
