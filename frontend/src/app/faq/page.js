@@ -1,6 +1,7 @@
 "use client";
 import { ChevronRight } from "lucide-react";
 import { useState } from "react";
+import Link from "next/link";
 
 const faqData = [
   { q: "What is PiCipher?", a: "A fully decentralized AI-generated visual decryption game with voice input mechanics." },
@@ -14,7 +15,10 @@ export default function FAQ() {
   return (
     <div className="min-h-screen bg-black text-white p-6 md:p-12 font-mono">
       <div className="max-w-4xl mx-auto border-l-2 border-r-2 border-[#35D07F]/30 min-h-[80vh] p-8">
-        <h1 className="text-5xl font-black mb-12 text-transparent bg-clip-text bg-gradient-to-r from-[#35D07F] to-[#1e9a58] tracking-widest uppercase">FAQ_DATABASE</h1>
+        <div className="flex justify-between items-center mb-12">
+          <h1 className="text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-[#35D07F] to-[#1e9a58] tracking-widest uppercase">FAQ_DATABASE</h1>
+          <Link href="/" className="px-4 py-2 border border-white/20 hover:border-white/60 text-xs transition-colors">[ RETURN ]</Link>
+        </div>
         <div className="flex flex-col gap-4">
           {faqData.map((item, i) => (
             <div key={i} onClick={() => toggle(i)} className="border border-white/10 p-5 cursor-pointer bg-white/5 hover:bg-white/10 transition-colors">
