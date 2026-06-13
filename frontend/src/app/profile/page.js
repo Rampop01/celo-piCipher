@@ -6,6 +6,15 @@ import { usePrivy } from "@privy-io/react-auth";
 export default function Profile() {
   const { user, authenticated } = usePrivy();
 
+  const mockStats = {
+    rank: "NEON_VIPER",
+    level: 42,
+    totalBounty: "8,450 CELO",
+    stagesCleared: 124,
+    perfectClears: 32,
+    accuracy: "94.2%"
+  };
+
   return (
     <div className="min-h-screen bg-black text-white p-6 font-mono">
       <header className="flex justify-between items-center mb-12 border-b border-[#35D07F]/30 pb-6">
