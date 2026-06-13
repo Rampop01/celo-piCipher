@@ -15,6 +15,13 @@ export default function Profile() {
     accuracy: "94.2%"
   };
 
+  const recentActivity = [
+    { type: "STAGE_CLEARED", stage: 124, reward: "50 CELO", time: "2h ago" },
+    { type: "STAGE_CLEARED", stage: 123, reward: "45 CELO", time: "5h ago" },
+    { type: "PERFECT_CLEAR", stage: 122, reward: "100 CELO", time: "1d ago" },
+    { type: "BOUNTY_CLAIMED", amount: "500 CELO", time: "2d ago" },
+  ];
+
   return (
     <div className="min-h-screen bg-black text-white p-6 font-mono">
       <header className="flex justify-between items-center mb-12 border-b border-[#35D07F]/30 pb-6">
