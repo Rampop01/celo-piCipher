@@ -33,6 +33,16 @@ export default function Profile() {
             [ RETURN_HOME ]
           </Link>
         </header>
+
+        {authenticated ? (
+          <div>Loading stats...</div>
+        ) : (
+          <div className="text-center py-20 border border-neutral-800 bg-neutral-900/20">
+            <Shield className="w-16 h-16 text-neutral-600 mx-auto mb-4" />
+            <h2 className="text-2xl font-bold text-neutral-400 mb-2">ACCESS DENIED</h2>
+            <p className="text-neutral-500 mb-6">Please connect your wallet to view operative profile.</p>
+          </div>
+        )}
       </div>
     </div>
   );
