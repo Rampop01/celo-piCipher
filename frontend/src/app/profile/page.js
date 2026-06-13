@@ -66,6 +66,24 @@ export default function Profile() {
                   <span className="font-bold tracking-wider text-xl">{mockStats.level}</span>
                 </div>
               </div>
+
+              <div className="border border-[#35D07F]/20 p-6 bg-black">
+                <h3 className="text-xl font-bold mb-6 text-[#35D07F] flex items-center gap-2">
+                  <Hexagon className="w-5 h-5" /> ACQUIRED_BADGES
+                </h3>
+                <div className="flex flex-wrap gap-4">
+                  {[1, 2, 3, 4, 5].map((badge) => (
+                    <div key={badge} className="w-16 h-16 border-2 border-[#35D07F]/40 rotate-45 flex items-center justify-center hover:border-[#35D07F] transition-colors cursor-pointer group bg-black">
+                      <div className="-rotate-45 text-[#35D07F]/50 group-hover:text-[#35D07F] group-hover:scale-110 transition-transform font-bold">
+                        B{badge}
+                      </div>
+                    </div>
+                  ))}
+                  <div className="w-16 h-16 border-2 border-neutral-800 rotate-45 flex items-center justify-center bg-black">
+                    <div className="-rotate-45 text-neutral-600 font-bold">?</div>
+                  </div>
+                </div>
+              </div>
             </div>
             <div className="border-l border-[#35D07F]/20 pl-8">
               {/* Sidebar / Activity Log */}
