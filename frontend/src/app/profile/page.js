@@ -7,10 +7,7 @@ export default function Profile() {
   const { user, authenticated } = usePrivy();
 
   const mockStats = { rank: "NEON_VIPER", level: 42, totalBounty: "8,450 CELO", stagesCleared: 124, perfectClears: 32, accuracy: "94.2%" };
-  const recentActivity = [
-    { type: "STAGE_CLEARED", stage: 124, reward: "50 CELO", time: "2h ago" },
-    { type: "PERFECT_CLEAR", stage: 122, reward: "100 CELO", time: "1d ago" }
-  ];
+  const recentActivity = [{ type: "STAGE_CLEARED", stage: 124, reward: "50 CELO", time: "2h ago" }, { type: "PERFECT_CLEAR", stage: 122, reward: "100 CELO", time: "1d ago" }];
 
   return (
     <div className="min-h-screen bg-black text-white p-6 md:p-12 font-mono">
@@ -35,7 +32,14 @@ export default function Profile() {
         </header>
 
         {authenticated ? (
-          <div>Loading stats...</div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="md:col-span-2 space-y-8">
+              {/* Main Stats Panel */}
+            </div>
+            <div className="border-l border-[#35D07F]/20 pl-8">
+              {/* Sidebar / Activity Log */}
+            </div>
+          </div>
         ) : (
           <div className="text-center py-20 border border-neutral-800 bg-neutral-900/20">
             <Shield className="w-16 h-16 text-neutral-600 mx-auto mb-4" />
