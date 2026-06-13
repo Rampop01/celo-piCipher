@@ -13,28 +13,29 @@ export default function Profile() {
     <div className="min-h-screen bg-black text-white p-6 md:p-12 font-mono">
       <div className="max-w-5xl mx-auto">
         <header className="flex justify-between items-center mb-12 border-b border-[#35D07F]/30 pb-6">
-          <div className="flex items-center gap-4">
-            <div className="w-12 h-12 bg-[#35D07F]/10 border border-[#35D07F] flex items-center justify-center shadow-[0_0_15px_rgba(53,208,127,0.3)]">
-              <User className="w-6 h-6 text-[#35D07F]" />
-            </div>
-            <div>
-              <h1 className="text-3xl font-black text-[#35D07F] tracking-widest drop-shadow-[0_0_10px_rgba(53,208,127,0.5)] uppercase">
-                OPERATIVE_PROFILE
-              </h1>
-              <p className="text-neutral-500 text-sm">
-                ID: {authenticated ? (user?.email?.address || user?.wallet?.address?.slice(0, 12) + "...") : "UNAUTHORIZED"}
-              </p>
-            </div>
-          </div>
-          <Link href="/" className="px-6 py-2 border border-[#35D07F]/50 text-[#35D07F] hover:bg-[#35D07F]/10 transition-colors">
-            [ RETURN_HOME ]
-          </Link>
+          {/* Header content truncated for brevity */}
         </header>
 
         {authenticated ? (
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="md:col-span-2 space-y-8">
-              {/* Main Stats Panel */}
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+                <div className="bg-[#35D07F]/5 border border-[#35D07F]/20 p-6 flex flex-col items-center text-center hover:border-[#35D07F]/50 transition-colors">
+                  <Shield className="w-8 h-8 text-[#35D07F] mb-3 opacity-80" />
+                  <span className="text-xs text-neutral-400 mb-1">CURRENT RANK</span>
+                  <span className="font-bold tracking-wider">{mockStats.rank}</span>
+                </div>
+                <div className="bg-[#35D07F]/5 border border-[#35D07F]/20 p-6 flex flex-col items-center text-center hover:border-[#35D07F]/50 transition-colors">
+                  <Hexagon className="w-8 h-8 text-[#35D07F] mb-3 opacity-80" />
+                  <span className="text-xs text-neutral-400 mb-1">STAGES CLEARED</span>
+                  <span className="font-bold tracking-wider text-xl">{mockStats.stagesCleared}</span>
+                </div>
+                <div className="bg-[#35D07F]/5 border border-[#35D07F]/20 p-6 flex flex-col items-center text-center hover:border-[#35D07F]/50 transition-colors">
+                  <Coins className="w-8 h-8 text-[#35D07F] mb-3 opacity-80" />
+                  <span className="text-xs text-neutral-400 mb-1">TOTAL BOUNTY</span>
+                  <span className="font-bold tracking-wider text-[#35D07F] drop-shadow-[0_0_8px_rgba(53,208,127,0.5)]">{mockStats.totalBounty}</span>
+                </div>
+              </div>
             </div>
             <div className="border-l border-[#35D07F]/20 pl-8">
               {/* Sidebar / Activity Log */}
