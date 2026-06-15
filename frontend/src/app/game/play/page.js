@@ -8,6 +8,7 @@ import { ethers } from "ethers";
 import { GAME_VAULT } from "../../../data/vault";
 import { useSoundEffects } from "../../../hooks/useSoundEffects";
 import VictoryScreen from "../../../components/VictoryScreen";
+import OnboardingOverlay from "../../../components/OnboardingOverlay";
 
 // Contract Addresses
 const GAME_CONTRACT_ADDRESS = process.env.NEXT_PUBLIC_CONTRACT_ADDRESS || "0xa8fE1f02F2f7a6A305AEa11C0927Fa5d35949778";
@@ -46,6 +47,7 @@ export default function GamePlay() {
   const [feedback, setFeedback] = useState({ type: "", message: "" });
   const [isMiniPay, setIsMiniPay] = useState(false);
   const [revealedImages, setRevealedImages] = useState([false, false, false, false]);
+  const [showOnboarding, setShowOnboarding] = useState(false);
 
   // Refs
   const recognitionRef = useRef(null);
@@ -60,7 +62,19 @@ export default function GamePlay() {
     } else if (!authenticated) {
       router.push("/");
     }
+
+    if (typeof window !== "undefined") {
+      const hasSeenOnboarding = localStorage.getItem("hasSeenOnboarding");
+      if (!hasSeenOnboarding) {
+        setShowOnboarding(true);
+      }
+    }
   }, [authenticated, wallets]);
+
+  const handleOnboardingComplete = () => {
+    localStorage.setItem("hasSeenOnboarding", "true");
+    setShowOnboarding(false);
+  };
 
   // Load user profile from contract
   const loadProfile = async () => {
@@ -337,6 +351,7 @@ export default function GamePlay() {
   // Main Game View
   return (
     <div className="min-h-screen bg-black text-white pb-24">
+      {showOnboarding && <OnboardingOverlay onComplete={handleOnboardingComplete} networkName="Celo" />}
       {/* Top HUD */}
       <div className="w-full border-b border-[#35D07F]/30 bg-black/80 backdrop-blur sticky top-0 z-50 p-4 flex justify-between items-center font-mono">
         <div className="flex items-center gap-4">
