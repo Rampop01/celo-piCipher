@@ -319,8 +319,9 @@ export default function GamePlay() {
             type="text" 
             value={nicknameInput}
             onChange={(e) => {
+              const val = e.target.value.replace(/[^a-zA-Z0-9_-]/g, '').slice(0, 15);
               playKeystroke();
-              setNicknameInput(e.target.value);
+              setNicknameInput(val);
             }}
             placeholder="NICKNAME" 
             className="w-full bg-transparent border-b-2 border-[#35D07F]/50 focus:border-[#35D07F] outline-none py-3 text-xl font-mono text-[#35D07F] placeholder:text-[#35D07F]/30 mb-8"
@@ -444,8 +445,9 @@ export default function GamePlay() {
                   type="text" 
                   value={transcript}
                   onChange={(e) => {
+                    const val = e.target.value.toUpperCase().slice(0, 50);
                     playKeystroke();
-                    setTranscript(e.target.value.toUpperCase());
+                    setTranscript(val);
                   }}
                   placeholder="... AWAITING VOCAL INPUT ..." 
                   className="w-full max-w-sm bg-transparent border-b-2 border-neutral-700 focus:border-[#35D07F] outline-none py-2 text-center text-xl font-mono text-white placeholder:text-neutral-700"
