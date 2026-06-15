@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import { Mic, MicOff, AlertCircle, Play, FastForward, CheckCircle2, Lock } from "lucide-react";
 import { ethers } from "ethers";
 import { GAME_VAULT } from "../../../data/vault";
+import { useSoundEffects } from "../../../hooks/useSoundEffects";
 
 // Contract Addresses
 const GAME_CONTRACT_ADDRESS = process.env.NEXT_PUBLIC_CONTRACT_ADDRESS || "0xa8fE1f02F2f7a6A305AEa11C0927Fa5d35949778";
@@ -30,6 +31,7 @@ export default function GamePlay() {
   const { authenticated, user } = usePrivy();
   const { wallets } = useWallets();
   const router = useRouter();
+  const { playBlip, playKeystroke, playSuccess, playError, playUnlock } = useSoundEffects();
 
   // State
   const [profile, setProfile] = useState(null);
@@ -118,6 +120,7 @@ export default function GamePlay() {
 
   const revealImage = (index) => {
     if (revealedImages[index]) return;
+    playBlip();
     const newRevealed = [...revealedImages];
     newRevealed[index] = true;
     setRevealedImages(newRevealed);
@@ -137,10 +140,12 @@ export default function GamePlay() {
       setFeedback({ type: "loading", message: "Minting Beginner Badge..." });
       await tx.wait();
       
+      playSuccess();
       setFeedback({ type: "success", message: "Identity registered!" });
       speakText(`Identity confirmed. Welcome, ${nicknameInput}.`);
       await loadProfile();
     } catch (error) {
+      playError();
       console.error(error);
       setFeedback({ type: "error", message: "Registration failed." });
     } finally {
@@ -207,12 +212,15 @@ export default function GamePlay() {
         const tx = await contract.submitStageAnswer(guess);
         await tx.wait();
         
+        playUnlock();
         loadProfile(); // Load next stage
       } catch (err) {
+        playError();
         console.error(err);
         setFeedback({ type: "error", message: "Blockchain submission failed." });
       }
     } else {
+      playError();
       speakText("Incorrect. Security systems alerted.");
       setFeedback({ type: "error", message: `Incorrect guess: ${guess}` });
     }
@@ -236,10 +244,12 @@ export default function GamePlay() {
       const tx = await contract.bypassStage();
       await tx.wait();
 
+      playSuccess();
       speakText("Stage bypassed using cUSD.");
       setFeedback({ type: "success", message: "Stage bypassed!" });
       loadProfile();
     } catch (err) {
+      playError();
       console.error(err);
       setFeedback({ type: "error", message: "Bypass failed." });
     }
@@ -262,10 +272,12 @@ export default function GamePlay() {
       const tx = await contract.buyHint();
       await tx.wait();
 
+      playUnlock();
       setShowHint(true);
       speakText("Hint unlocked.");
       setFeedback({ type: "success", message: "Hint purchased!" });
     } catch (err) {
+      playError();
       console.error(err);
       setFeedback({ type: "error", message: "Hint purchase failed." });
     }
@@ -291,7 +303,10 @@ export default function GamePlay() {
           <input 
             type="text" 
             value={nicknameInput}
-            onChange={(e) => setNicknameInput(e.target.value)}
+            onChange={(e) => {
+              playKeystroke();
+              setNicknameInput(e.target.value);
+            }}
             placeholder="NICKNAME" 
             className="w-full bg-transparent border-b-2 border-[#35D07F]/50 focus:border-[#35D07F] outline-none py-3 text-xl font-mono text-[#35D07F] placeholder:text-[#35D07F]/30 mb-8"
           />
@@ -420,7 +435,10 @@ export default function GamePlay() {
                <input 
                   type="text" 
                   value={transcript}
-                  onChange={(e) => setTranscript(e.target.value.toUpperCase())}
+                  onChange={(e) => {
+                    playKeystroke();
+                    setTranscript(e.target.value.toUpperCase());
+                  }}
                   placeholder="... AWAITING VOCAL INPUT ..." 
                   className="w-full max-w-sm bg-transparent border-b-2 border-neutral-700 focus:border-[#35D07F] outline-none py-2 text-center text-xl font-mono text-white placeholder:text-neutral-700"
                 />
