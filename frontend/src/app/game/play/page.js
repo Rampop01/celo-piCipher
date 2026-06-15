@@ -7,6 +7,7 @@ import { Mic, MicOff, AlertCircle, Play, FastForward, CheckCircle2, Lock } from 
 import { ethers } from "ethers";
 import { GAME_VAULT } from "../../../data/vault";
 import { useSoundEffects } from "../../../hooks/useSoundEffects";
+import VictoryScreen from "../../../components/VictoryScreen";
 
 // Contract Addresses
 const GAME_CONTRACT_ADDRESS = process.env.NEXT_PUBLIC_CONTRACT_ADDRESS || "0xa8fE1f02F2f7a6A305AEa11C0927Fa5d35949778";
@@ -330,15 +331,7 @@ export default function GamePlay() {
 
   // Game Completed View
   if (currentStageData?.isComplete) {
-    return (
-      <div className="min-h-screen bg-black text-white flex flex-col items-center justify-center p-6">
-        <Trophy className="w-24 h-24 text-yellow-500 mb-8 animate-bounce" />
-        <h1 className="text-5xl font-black text-yellow-500 mb-4">CAMPAIGN COMPLETE</h1>
-        <p className="text-xl text-neutral-400 font-mono text-center">
-          You have successfully hacked all 50 stages. <br/> Your NFT Badges prove your dominance.
-        </p>
-      </div>
-    );
+    return <VictoryScreen profile={profile} networkName="Celo" />;
   }
 
   // Main Game View
