@@ -1,18 +1,77 @@
 "use client";
 import { User, Shield, Zap, Hexagon, History, Coins } from "lucide-react";
 import Link from "next/link";
-import { usePrivy } from "@privy-io/react-auth";
+import { usePrivy, useWallets } from "@privy-io/react-auth";
+import { useState, useEffect } from "react";
+import { ethers } from "ethers";
+
+const GAME_CONTRACT_ADDRESS = process.env.NEXT_PUBLIC_CONTRACT_ADDRESS || "0xa8fE1f02F2f7a6A305AEa11C0927Fa5d35949778";
+
+const GAME_ABI = [
+  "function profiles(address) view returns (string nickname, uint256 currentStage, bool isRegistered)"
+];
 
 export default function Profile() {
   const { user, authenticated } = usePrivy();
+  const { wallets } = useWallets();
 
-  const mockStats = { rank: "NEON_VIPER", level: 42, totalBounty: "8,450 CELO", stagesCleared: 124, perfectClears: 32, accuracy: "94.2%" };
-  const recentActivity = [
-    { type: "STAGE_CLEARED", stage: 124, reward: "50 CELO", time: "2h ago" },
-    { type: "STAGE_CLEARED", stage: 123, reward: "45 CELO", time: "5h ago" },
-    { type: "PERFECT_CLEAR", stage: 122, reward: "100 CELO", time: "1d ago" },
-    { type: "BOUNTY_CLAIMED", amount: "500 CELO", time: "2d ago" },
-  ];
+  const [profile, setProfile] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    if (authenticated && wallets.length > 0) {
+      loadProfile();
+    } else {
+      setIsLoading(false);
+    }
+  }, [authenticated, wallets]);
+
+  const loadProfile = async () => {
+    try {
+      setIsLoading(true);
+      const eProvider = await wallets[0].getEthereumProvider();
+      const provider = new ethers.BrowserProvider(eProvider);
+      const contract = new ethers.Contract(GAME_CONTRACT_ADDRESS, GAME_ABI, provider);
+      const userAddress = wallets[0].address;
+
+      const userProfile = await contract.profiles(userAddress);
+      
+      if (userProfile.isRegistered) {
+        setProfile({
+          nickname: userProfile.nickname,
+          currentStage: Number(userProfile.currentStage),
+          isRegistered: true
+        });
+      }
+    } catch (error) {
+      console.error("Error loading profile", error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  if (isLoading) {
+    return (
+      <div className="min-h-screen bg-black text-[#35D07F] flex items-center justify-center font-mono text-xl animate-pulse">
+        [ FETCHING OPERATIVE DATA... ]
+      </div>
+    );
+  }
+
+  const stage = profile ? profile.currentStage : 1;
+  const stagesCleared = Math.max(0, stage - 1);
+  const totalBounty = stagesCleared * 50; // Mock calculation based on progress
+
+  // Derive rank based on stages cleared
+  let rank = "ROOKIE_GLITCH";
+  if (stagesCleared > 2) rank = "CYBER_NOMAD";
+  if (stagesCleared > 5) rank = "NEON_VIPER";
+  if (stagesCleared > 9) rank = "GRID_OVERLORD";
+
+  const recentActivity = profile ? [
+    { type: "IDENTITY_SYNCED", stage: null, reward: null, time: "Just now" },
+    ...(stagesCleared > 0 ? [{ type: "STAGE_CLEARED", stage: stagesCleared, reward: "50 CELO", time: "Recent" }] : [])
+  ] : [];
 
   return (
     <div className="min-h-screen bg-black text-white p-6 md:p-12 font-mono">
@@ -28,6 +87,7 @@ export default function Profile() {
               </h1>
               <p className="text-neutral-500 text-sm">
                 ID: {authenticated ? (user?.email?.address || user?.wallet?.address?.slice(0, 12) + "...") : "UNAUTHORIZED"}
+                {profile && <span className="ml-2 text-[#35D07F]">| ALIAS: {profile.nickname}</span>}
               </p>
             </div>
           </div>
@@ -36,39 +96,39 @@ export default function Profile() {
           </Link>
         </header>
 
-        {authenticated ? (
+        {authenticated && profile ? (
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="md:col-span-2 space-y-8">
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
                 <div className="bg-[#35D07F]/5 border border-[#35D07F]/20 p-6 flex flex-col items-center text-center hover:border-[#35D07F]/50 transition-colors">
                   <Shield className="w-8 h-8 text-[#35D07F] mb-3 opacity-80" />
                   <span className="text-xs text-neutral-400 mb-1">CURRENT RANK</span>
-                  <span className="font-bold tracking-wider">{mockStats.rank}</span>
+                  <span className="font-bold tracking-wider">{rank}</span>
                 </div>
                 <div className="bg-[#35D07F]/5 border border-[#35D07F]/20 p-6 flex flex-col items-center text-center hover:border-[#35D07F]/50 transition-colors">
                   <Hexagon className="w-8 h-8 text-[#35D07F] mb-3 opacity-80" />
                   <span className="text-xs text-neutral-400 mb-1">STAGES CLEARED</span>
-                  <span className="font-bold tracking-wider text-xl">{mockStats.stagesCleared}</span>
+                  <span className="font-bold tracking-wider text-xl">{stagesCleared}</span>
                 </div>
                 <div className="bg-[#35D07F]/5 border border-[#35D07F]/20 p-6 flex flex-col items-center text-center hover:border-[#35D07F]/50 transition-colors">
                   <Coins className="w-8 h-8 text-[#35D07F] mb-3 opacity-80" />
                   <span className="text-xs text-neutral-400 mb-1">TOTAL BOUNTY</span>
-                  <span className="font-bold tracking-wider text-[#35D07F] drop-shadow-[0_0_8px_rgba(53,208,127,0.5)]">{mockStats.totalBounty}</span>
+                  <span className="font-bold tracking-wider text-[#35D07F] drop-shadow-[0_0_8px_rgba(53,208,127,0.5)]">{totalBounty} cUSD</span>
                 </div>
                 <div className="bg-[#35D07F]/5 border border-[#35D07F]/20 p-6 flex flex-col items-center text-center hover:border-[#35D07F]/50 transition-colors">
                   <Zap className="w-8 h-8 text-[#35D07F] mb-3 opacity-80" />
                   <span className="text-xs text-neutral-400 mb-1">PERFECT CLEARS</span>
-                  <span className="font-bold tracking-wider text-xl text-yellow-500 drop-shadow-[0_0_8px_rgba(234,179,8,0.5)]">{mockStats.perfectClears}</span>
+                  <span className="font-bold tracking-wider text-xl text-yellow-500 drop-shadow-[0_0_8px_rgba(234,179,8,0.5)]">--</span>
                 </div>
                 <div className="bg-[#35D07F]/5 border border-[#35D07F]/20 p-6 flex flex-col items-center text-center hover:border-[#35D07F]/50 transition-colors">
                   <History className="w-8 h-8 text-[#35D07F] mb-3 opacity-80" />
                   <span className="text-xs text-neutral-400 mb-1">ACCURACY</span>
-                  <span className="font-bold tracking-wider text-xl">{mockStats.accuracy}</span>
+                  <span className="font-bold tracking-wider text-xl">--</span>
                 </div>
                 <div className="bg-[#35D07F]/5 border border-[#35D07F]/20 p-6 flex flex-col items-center text-center hover:border-[#35D07F]/50 transition-colors">
                   <User className="w-8 h-8 text-[#35D07F] mb-3 opacity-80" />
                   <span className="text-xs text-neutral-400 mb-1">OPERATIVE LEVEL</span>
-                  <span className="font-bold tracking-wider text-xl">{mockStats.level}</span>
+                  <span className="font-bold tracking-wider text-xl">{stage}</span>
                 </div>
               </div>
 
@@ -77,10 +137,10 @@ export default function Profile() {
                   <Hexagon className="w-5 h-5" /> ACQUIRED_BADGES
                 </h3>
                 <div className="flex flex-wrap gap-4">
-                  {[1, 2, 3, 4, 5].map((badge) => (
-                    <div key={badge} className="w-16 h-16 border-2 border-[#35D07F]/40 rotate-45 flex items-center justify-center hover:border-[#35D07F] transition-colors cursor-pointer group bg-black">
+                  {Array.from({ length: Math.min(5, stagesCleared) }).map((_, i) => (
+                    <div key={i} className="w-16 h-16 border-2 border-[#35D07F]/40 rotate-45 flex items-center justify-center hover:border-[#35D07F] transition-colors cursor-pointer group bg-black shadow-[0_0_15px_rgba(53,208,127,0.2)]">
                       <div className="-rotate-45 text-[#35D07F]/50 group-hover:text-[#35D07F] group-hover:scale-110 transition-transform font-bold">
-                        B{badge}
+                        B{i + 1}
                       </div>
                     </div>
                   ))}
@@ -105,11 +165,13 @@ export default function Profile() {
                         <span className="text-[10px] text-neutral-500">{log.time}</span>
                       </div>
                       <p className="text-xs text-neutral-300">
-                        {log.stage ? `Cleared Stage ${log.stage}` : "Withdrawal processed"}
+                        {log.stage ? `Cleared Stage ${log.stage}` : "Profile Loaded successfully"}
                       </p>
-                      <p className="text-xs font-bold mt-2 text-yellow-500">
-                        + {log.reward || log.amount}
-                      </p>
+                      {log.reward && (
+                        <p className="text-xs font-bold mt-2 text-yellow-500">
+                          + {log.reward}
+                        </p>
+                      )}
                     </div>
                   </div>
                 ))}
@@ -119,8 +181,13 @@ export default function Profile() {
         ) : (
           <div className="text-center py-20 border border-neutral-800 bg-neutral-900/20">
             <Shield className="w-16 h-16 text-neutral-600 mx-auto mb-4" />
-            <h2 className="text-2xl font-bold text-neutral-400 mb-2">ACCESS DENIED</h2>
-            <p className="text-neutral-500 mb-6">Please connect your wallet to view operative profile.</p>
+            <h2 className="text-2xl font-bold text-neutral-400 mb-2">{authenticated ? "UNREGISTERED OPERATIVE" : "ACCESS DENIED"}</h2>
+            <p className="text-neutral-500 mb-6">{authenticated ? "You must enter the grid and register a nickname to view your profile." : "Please connect your wallet to view operative profile."}</p>
+            {authenticated && (
+              <Link href="/game/play" className="px-6 py-2 bg-[#35D07F] text-black font-bold hover:bg-white transition-colors">
+                [ ENTER GRID ]
+              </Link>
+            )}
           </div>
         )}
       </div>
