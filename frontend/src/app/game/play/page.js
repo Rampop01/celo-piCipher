@@ -90,7 +90,8 @@ export default function GamePlay() {
       if (userProfile.isRegistered) {
         setProfile({
           nickname: userProfile.nickname,
-          currentStage: Number(userProfile.currentStage)
+          currentStage: Number(userProfile.currentStage),
+          isRegistered: true
         });
         loadStage(Number(userProfile.currentStage));
         speakText(`Welcome back to the grid, ${userProfile.nickname}.`);
