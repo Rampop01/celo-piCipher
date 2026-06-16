@@ -1,8 +1,8 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Mic, Eye, HelpCircle, Check, TerminalSquare } from "lucide-react";
 import { useSoundEffects } from "../hooks/useSoundEffects";
 
-export default function OnboardingOverlay({ onComplete, networkName }) {
+export default function OnboardingOverlay({ onComplete, networkName, speakText }) {
   const [step, setStep] = useState(0);
   const { playBlip, playSuccess } = useSoundEffects();
 
@@ -28,6 +28,12 @@ export default function OnboardingOverlay({ onComplete, networkName }) {
       content: "Stuck? Purchase encrypted hints or execute a bypass script using network tokens. This will guarantee your progression."
     }
   ];
+
+  useEffect(() => {
+    if (speakText && steps[step]) {
+      speakText(steps[step].content);
+    }
+  }, [step]);
 
   const handleNext = () => {
     playBlip();
