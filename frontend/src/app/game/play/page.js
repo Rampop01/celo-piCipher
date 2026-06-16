@@ -3,12 +3,14 @@
 import { usePrivy, useWallets } from "@privy-io/react-auth";
 import { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
-import { Mic, MicOff, AlertCircle, Play, FastForward, CheckCircle2, Lock } from "lucide-react";
+import Link from "next/link";
+import { Mic, MicOff, AlertCircle, Play, FastForward, CheckCircle2, Lock, Home, Trophy, User } from "lucide-react";
 import { ethers } from "ethers";
 import { GAME_VAULT } from "../../../data/vault";
 import { useSoundEffects } from "../../../hooks/useSoundEffects";
 import VictoryScreen from "../../../components/VictoryScreen";
 import OnboardingOverlay from "../../../components/OnboardingOverlay";
+import TiltCard from "../../../components/TiltCard";
 
 // Contract Addresses
 const GAME_CONTRACT_ADDRESS = process.env.NEXT_PUBLIC_CONTRACT_ADDRESS || "0xa8fE1f02F2f7a6A305AEa11C0927Fa5d35949778";
@@ -365,19 +367,33 @@ export default function GamePlay() {
     <div className="min-h-screen bg-transparent text-white pb-24">
       {showOnboarding && <OnboardingOverlay onComplete={handleOnboardingComplete} networkName="CELO" speakText={speakText} />}
       {/* Top HUD */}
-      <div className="w-full border-b border-[#35D07F]/30 bg-transparent/80 backdrop-blur sticky top-0 z-50 p-4 flex justify-between items-center font-mono">
-        <div className="flex items-center gap-4">
-          <span className="text-[#35D07F] font-bold tracking-widest uppercase">
-            {profile?.nickname || "UNKNOWN"}
-          </span>
-          {isMiniPay && (
-            <span className="bg-yellow-500/20 text-yellow-500 text-xs px-2 py-1 rounded border border-yellow-500/50">
-              MINIPAY ACTIVE
+      <div className="w-full border-b border-[#35D07F]/30 bg-black/60 backdrop-blur-md sticky top-0 z-50 p-4 flex justify-between items-center font-mono shadow-[0_4px_20px_rgba(53,208,127,0.1)]">
+        <div className="flex items-center gap-6">
+          <Link href="/" className="text-white/60 hover:text-[#35D07F] transition-colors flex items-center gap-2 text-sm">
+            <Home className="w-4 h-4" /> <span className="hidden md:inline">HOME</span>
+          </Link>
+          <div className="flex items-center gap-4 border-l border-white/10 pl-6">
+            <span className="text-[#35D07F] font-bold tracking-widest uppercase">
+              {profile?.nickname || "UNKNOWN"}
             </span>
-          )}
+            {isMiniPay && (
+              <span className="bg-yellow-500/20 text-yellow-500 text-xs px-2 py-1 rounded border border-yellow-500/50">
+                MINIPAY
+              </span>
+            )}
+          </div>
         </div>
-        <div className="text-xl font-black text-white drop-shadow-[0_0_5px_#35D07F]">
-          STAGE {profile?.currentStage}
+        
+        <div className="flex items-center gap-6">
+          <Link href="/leaderboard" className="text-white/60 hover:text-[#35D07F] transition-colors flex items-center gap-2 text-sm">
+             <Trophy className="w-4 h-4" /> <span className="hidden md:inline">RANKS</span>
+          </Link>
+          <Link href="/profile" className="text-white/60 hover:text-[#35D07F] transition-colors flex items-center gap-2 text-sm">
+             <User className="w-4 h-4" /> <span className="hidden md:inline">PROFILE</span>
+          </Link>
+          <div className="text-right border-l border-white/10 pl-6">
+            <div className="text-xs text-neutral-500">STAGE {profile?.currentStage}</div>
+          </div>
         </div>
       </div>
 
@@ -388,24 +404,26 @@ export default function GamePlay() {
           {[0, 1, 2, 3].map((index) => {
              const filters = ["", "hue-rotate-90 saturate-200", "invert sepia", "grayscale contrast-200"];
               return (
-               <div key={index} 
-                    className="border border-[#35D07F]/30 relative group overflow-hidden backdrop-blur-md bg-black/40 flex items-center justify-center cursor-pointer shadow-[0_0_20px_rgba(53,208,127,0.1)] hover:shadow-[0_0_30px_rgba(53,208,127,0.3)] hover:border-[#35D07F] transition-all duration-300"
-                    onClick={() => revealImage(index)}>
-                  {revealedImages[index] ? (
-                    <img 
-                      src={currentStageData?.imageUrl} 
-                      alt={`Cipher Anomaly ${index+1}`} 
-                      className={`w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-all duration-700 ${filters[index]}`}
-                    />
-                  ) : (
-                    <div className="flex flex-col items-center justify-center text-[#35D07F]/40 group-hover:text-[#35D07F] transition-colors">
-                      <Lock className="w-8 h-8 mb-2 group-hover:scale-110 transition-transform" />
-                      <span className="font-mono text-xs tracking-widest text-center animate-glitch-1">DATA<br/>ENCRYPTED</span>
-                    </div>
-                  )}
-                  {/* Scanline Overlay */}
-                  <div className="absolute inset-0 pointer-events-none bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.25)_50%),linear-gradient(90deg,rgba(255,0,0,0.06),rgba(0,255,0,0.02),rgba(0,0,255,0.06))] bg-[length:100%_4px,3px_100%] opacity-40 mix-blend-overlay"></div>
-               </div>
+               <TiltCard key={index} className="w-full h-full">
+                 <div 
+                      className="border border-[#35D07F]/30 relative group overflow-hidden backdrop-blur-md bg-black/40 flex items-center justify-center cursor-pointer shadow-[0_0_20px_rgba(53,208,127,0.1)] hover:shadow-[0_0_30px_rgba(53,208,127,0.3)] hover:border-[#35D07F] transition-all duration-300 w-full h-full"
+                      onClick={() => revealImage(index)}>
+                    {revealedImages[index] ? (
+                      <img 
+                        src={currentStageData?.imageUrl} 
+                        alt={`Cipher Anomaly ${index+1}`} 
+                        className={`w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-all duration-700 ${filters[index]}`}
+                      />
+                    ) : (
+                      <div className="flex flex-col items-center justify-center text-[#35D07F]/40 group-hover:text-[#35D07F] transition-colors">
+                        <Lock className="w-8 h-8 mb-2 group-hover:scale-110 transition-transform" />
+                        <span className="font-mono text-xs tracking-widest text-center transition-transform group-hover:animate-glitch-skew">DATA<br/>ENCRYPTED</span>
+                      </div>
+                    )}
+                    {/* Scanline Overlay */}
+                    <div className="absolute inset-0 pointer-events-none bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.25)_50%),linear-gradient(90deg,rgba(255,0,0,0.06),rgba(0,255,0,0.02),rgba(0,0,255,0.06))] bg-[length:100%_4px,3px_100%] opacity-40 mix-blend-overlay"></div>
+                 </div>
+               </TiltCard>
              )
           })}
         </div>
@@ -414,13 +432,13 @@ export default function GamePlay() {
         <div className="grid grid-cols-2 gap-4 mb-8">
           <button 
             onClick={handleBuyHint}
-            className="flex items-center justify-center gap-2 p-3 border border-yellow-500/50 text-yellow-500 hover:bg-yellow-500/10 font-mono text-xs md:text-sm transition-all"
+            className="flex items-center justify-center gap-2 px-3 py-4 neo-btn text-yellow-500 font-mono text-xs md:text-sm"
           >
             <AlertCircle className="w-4 h-4" /> 0.01 cUSD HINT
           </button>
           <button 
             onClick={handleBypass}
-            className="flex items-center justify-center gap-2 p-3 border border-red-500/50 text-red-500 hover:bg-red-500/10 font-mono text-xs md:text-sm transition-all"
+            className="flex items-center justify-center gap-2 px-3 py-4 neo-btn text-red-500 font-mono text-xs md:text-sm"
           >
             <FastForward className="w-4 h-4" /> 0.05 cUSD BYPASS
           </button>
@@ -453,7 +471,6 @@ export default function GamePlay() {
 
             <div className="w-full flex justify-center mb-6">
                  <div className="flex items-center text-[#35D07F] font-mono text-2xl w-full max-w-sm border-b border-[#35D07F]/50 focus-within:border-[#35D07F] focus-within:shadow-[0_4px_15px_-3px_rgba(53,208,127,0.3)] pb-2 transition-all">
-                   <span className="mr-3 text-[#35D07F]/70">root@node:~$</span>
                    <input 
                       type="text" 
                       value={transcript}

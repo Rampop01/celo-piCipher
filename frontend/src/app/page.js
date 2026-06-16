@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import { Shield, Coins, Zap, ChevronRight, Lock, Image as ImageIcon, CheckCircle, Globe, Hexagon, Crosshair, Cpu, Database, Eye, Terminal, Trophy, Mic, BrainCircuit, User } from "lucide-react";
 import Link from "next/link";
 import GlitchText from "../components/GlitchText";
+import TiltCard from "../components/TiltCard";
 
 export default function Home() {
   const { login, authenticated, user, logout } = usePrivy();
@@ -189,12 +190,14 @@ export default function Home() {
                   { icon: Mic, title: "VOICE CONTROL", desc: "No typing required. Hold the microphone, speak your answer into the ether, and let the Web Speech API process it." },
                   { icon: Coins, title: "CRYPTO BOUNTIES", desc: "Correct answers trigger an on-chain smart contract function, instantly rewarding your wallet with Celo tokens." }
                 ].map((feature, i) => (
-                  <div key={i} className="difficulty-card p-8 bg-black/60 border-2 border-[#35D07F]/20 hover:border-[#35D07F] transition-all duration-300 hover:shadow-[0_0_30px_rgba(53,208,127,0.2)] group relative overflow-hidden">
-                    <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#35D07F] to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                    <feature.icon className="w-12 h-12 text-[#35D07F] mb-6 drop-shadow-[0_0_8px_#35D07F]" />
-                    <h3 className="text-2xl font-bold mb-4 tracking-widest">{feature.title}</h3>
-                    <p className="text-neutral-400 leading-relaxed font-mono text-sm">&gt; {feature.desc}</p>
-                  </div>
+                  <TiltCard key={i} className="h-full">
+                    <div className="difficulty-card h-full p-8 bg-black/60 border-2 border-[#35D07F]/20 hover:border-[#35D07F] transition-all duration-300 hover:shadow-[0_0_30px_rgba(53,208,127,0.2)] group relative overflow-hidden">
+                      <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#35D07F] to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                      <feature.icon className="w-12 h-12 text-[#35D07F] mb-6 drop-shadow-[0_0_8px_#35D07F]" />
+                      <h3 className="text-2xl font-bold mb-4 tracking-widest">{feature.title}</h3>
+                      <p className="text-neutral-400 leading-relaxed font-mono text-sm">&gt; {feature.desc}</p>
+                    </div>
+                  </TiltCard>
                 ))}
               </div>
             </section>

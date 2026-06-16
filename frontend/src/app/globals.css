@@ -91,3 +91,33 @@
 .neon-border {
   @apply border border-[#35D07F]/40 shadow-[0_0_15px_rgba(53,208,127,0.15)];
 }
+
+.neo-btn {
+  background: rgba(20, 20, 20, 0.6);
+  backdrop-filter: blur(10px);
+  box-shadow: 
+    5px 5px 10px rgba(0, 0, 0, 0.8), 
+    -2px -2px 8px rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(53, 208, 127, 0.2);
+  border-radius: 8px;
+  color: #35D07F;
+  transition: all 0.2s ease-in-out;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: bold;
+}
+
+.neo-btn:hover {
+  box-shadow: 
+    8px 8px 15px rgba(0, 0, 0, 0.9), 
+    -3px -3px 10px rgba(255, 255, 255, 0.08);
+  transform: translateY(-2px);
+  border-color: rgba(53, 208, 127, 0.5);
+}
+
+.neo-btn:active {
+  box-shadow: 
+    inset 4px 4px 8px rgba(0, 0, 0, 0.8), 
+    inset -2px -2px 8px rgba(255, 255, 255, 0.05);
+  transform: translateY(2px);
+}
