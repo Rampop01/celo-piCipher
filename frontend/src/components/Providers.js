@@ -2,6 +2,8 @@
 
 import { PrivyProvider } from "@privy-io/react-auth";
 
+import { celo } from "viem/chains";
+
 export default function Providers({ children }) {
   const appId = process.env.NEXT_PUBLIC_PRIVY_APP_ID;
 
@@ -14,6 +16,8 @@ export default function Providers({ children }) {
     <PrivyProvider
       appId={appId}
       config={{
+        defaultChain: celo,
+        supportedChains: [celo],
         loginMethods: ["email", "wallet"],
         appearance: {
           theme: "dark",
