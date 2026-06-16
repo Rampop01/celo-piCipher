@@ -46,7 +46,7 @@ export default function GamePlay() {
   const [transcript, setTranscript] = useState("");
   const [feedback, setFeedback] = useState({ type: "", message: "" });
   const [isMiniPay, setIsMiniPay] = useState(false);
-  const [revealedImages, setRevealedImages] = useState([false, false, false, false]);
+  const [revealedImages, setRevealedImages] = useState([true, false, false, false]);
   const [showOnboarding, setShowOnboarding] = useState(false);
 
   // Refs
@@ -80,7 +80,8 @@ export default function GamePlay() {
   const loadProfile = async () => {
     try {
       setIsLoading(true);
-      const provider = await wallets[0].getEthersProvider();
+      const eProvider = await wallets[0].getEthereumProvider();
+      const provider = new ethers.BrowserProvider(eProvider);
       const contract = new ethers.Contract(GAME_CONTRACT_ADDRESS, GAME_ABI, provider);
       const userAddress = wallets[0].address;
 
@@ -110,7 +111,7 @@ export default function GamePlay() {
       setCurrentStageData(stage);
       setShowHint(false);
       setTranscript("");
-      setRevealedImages([false, false, false, false]);
+      setRevealedImages([true, false, false, false]);
     } else {
       // You beat the game!
       setCurrentStageData({ isComplete: true });
@@ -147,8 +148,9 @@ export default function GamePlay() {
     if (!nicknameInput) return;
     try {
       setIsRegistering(true);
-      const provider = await wallets[0].getEthersProvider();
-      const signer = provider.getSigner();
+      const eProvider = await wallets[0].getEthereumProvider();
+      const provider = new ethers.BrowserProvider(eProvider);
+      const signer = await provider.getSigner();
       const contract = new ethers.Contract(GAME_CONTRACT_ADDRESS, GAME_ABI, signer);
       
       const tx = await contract.registerUser(nicknameInput);
@@ -160,6 +162,11 @@ export default function GamePlay() {
       speakText(`Identity confirmed. Welcome, ${nicknameInput}.`);
       await loadProfile();
     } catch (error) {
+      if (error?.message?.includes("Already registered") || error?.revert?.args?.includes("Already registered")) {
+        speakText(`Identity already exists. Welcome back, ${nicknameInput}.`);
+        await loadProfile();
+        return;
+      }
       playError();
       console.error(error);
       setFeedback({ type: "error", message: "Registration failed." });
@@ -218,8 +225,9 @@ export default function GamePlay() {
       setFeedback({ type: "success", message: "Correct! Submitting to blockchain..." });
       
       try {
-        const provider = await wallets[0].getEthersProvider();
-        const signer = provider.getSigner();
+        const eProvider = await wallets[0].getEthereumProvider();
+        const provider = new ethers.BrowserProvider(eProvider);
+        const signer = await provider.getSigner();
         const contract = new ethers.Contract(GAME_CONTRACT_ADDRESS, GAME_ABI, signer);
         
         // Use hardcoded bypass for hackathon speed since hashing on client matches hashing on contract
@@ -245,8 +253,9 @@ export default function GamePlay() {
   const handleBypass = async () => {
     try {
       setFeedback({ type: "loading", message: "Approving cUSD..." });
-      const provider = await wallets[0].getEthersProvider();
-      const signer = provider.getSigner();
+      const eProvider = await wallets[0].getEthereumProvider();
+      const provider = new ethers.BrowserProvider(eProvider);
+      const signer = await provider.getSigner();
       
       const contract = new ethers.Contract(GAME_CONTRACT_ADDRESS, GAME_ABI, signer);
       const fee = await contract.bypassFee();
@@ -273,8 +282,9 @@ export default function GamePlay() {
   const handleBuyHint = async () => {
     try {
       setFeedback({ type: "loading", message: "Approving cUSD..." });
-      const provider = await wallets[0].getEthersProvider();
-      const signer = provider.getSigner();
+      const eProvider = await wallets[0].getEthereumProvider();
+      const provider = new ethers.BrowserProvider(eProvider);
+      const signer = await provider.getSigner();
       
       const contract = new ethers.Contract(GAME_CONTRACT_ADDRESS, GAME_ABI, signer);
       const fee = await contract.hintFee();
@@ -352,7 +362,7 @@ export default function GamePlay() {
   // Main Game View
   return (
     <div className="min-h-screen bg-black text-white pb-24">
-      {showOnboarding && <OnboardingOverlay onComplete={handleOnboardingComplete} networkName="Celo" />}
+      {showOnboarding && <OnboardingOverlay onComplete={handleOnboardingComplete} networkName="CELO" speakText={speakText} />}
       {/* Top HUD */}
       <div className="w-full border-b border-[#35D07F]/30 bg-black/80 backdrop-blur sticky top-0 z-50 p-4 flex justify-between items-center font-mono">
         <div className="flex items-center gap-4">
