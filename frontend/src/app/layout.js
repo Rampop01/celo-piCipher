@@ -36,10 +36,13 @@ export const metadata = {
   },
 };
 
+import CyberBackground from "../components/CyberBackground";
+
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${orbitron.variable}`}>
       <body>
+        <CyberBackground />
         <Providers>{children}</Providers>
       </body>
     </html>

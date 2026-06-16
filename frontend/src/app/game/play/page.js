@@ -220,8 +220,8 @@ export default function GamePlay() {
   };
 
   const checkAnswer = async (guess) => {
-    if (!currentStageData) return;
-    if (guess === currentStageData.word) {
+    if (!currentStageData || !guess) return;
+    if (guess.toUpperCase().trim() === currentStageData.word.toUpperCase().trim()) {
       speakText("Access granted. Impressive hacking.");
       setFeedback({ type: "success", message: "Correct! Submitting to blockchain..." });
       
@@ -311,7 +311,7 @@ export default function GamePlay() {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-black text-[#35D07F] flex items-center justify-center font-mono text-xl animate-pulse">
+      <div className="min-h-screen bg-transparent text-[#35D07F] flex items-center justify-center font-mono text-xl animate-pulse">
         [ CONNECTING TO MAINFRAME... ]
       </div>
     );
@@ -320,8 +320,8 @@ export default function GamePlay() {
   // Registration View
   if (profile && !profile.isRegistered) {
     return (
-      <div className="min-h-screen bg-black text-white flex flex-col items-center justify-center p-6">
-        <div className="w-full max-w-md p-8 border-2 border-[#35D07F] bg-black/50 backdrop-blur shadow-[0_0_30px_rgba(53,208,127,0.2)]">
+      <div className="min-h-screen bg-transparent text-white flex flex-col items-center justify-center p-6">
+        <div className="w-full max-w-md p-8 border-2 border-[#35D07F] bg-transparent/50 backdrop-blur shadow-[0_0_30px_rgba(53,208,127,0.2)]">
           <h2 className="text-3xl font-black mb-6 text-[#35D07F]">REGISTER IDENTITY</h2>
           <p className="text-neutral-400 mb-8 font-mono text-sm">
             You must mint your Beginner Badge NFT to enter the grid. Enter a hacker alias below.
@@ -362,10 +362,10 @@ export default function GamePlay() {
 
   // Main Game View
   return (
-    <div className="min-h-screen bg-black text-white pb-24">
+    <div className="min-h-screen bg-transparent text-white pb-24">
       {showOnboarding && <OnboardingOverlay onComplete={handleOnboardingComplete} networkName="CELO" speakText={speakText} />}
       {/* Top HUD */}
-      <div className="w-full border-b border-[#35D07F]/30 bg-black/80 backdrop-blur sticky top-0 z-50 p-4 flex justify-between items-center font-mono">
+      <div className="w-full border-b border-[#35D07F]/30 bg-transparent/80 backdrop-blur sticky top-0 z-50 p-4 flex justify-between items-center font-mono">
         <div className="flex items-center gap-4">
           <span className="text-[#35D07F] font-bold tracking-widest uppercase">
             {profile?.nickname || "UNKNOWN"}
@@ -387,9 +387,9 @@ export default function GamePlay() {
         <div className="w-full aspect-square md:aspect-video grid grid-cols-2 gap-4 mb-8">
           {[0, 1, 2, 3].map((index) => {
              const filters = ["", "hue-rotate-90 saturate-200", "invert sepia", "grayscale contrast-200"];
-             return (
+              return (
                <div key={index} 
-                    className="border-2 border-[#35D07F]/50 relative group overflow-hidden bg-black/50 flex items-center justify-center cursor-pointer shadow-[0_0_15px_rgba(53,208,127,0.1)] hover:border-[#35D07F] transition-colors"
+                    className="border border-[#35D07F]/30 relative group overflow-hidden backdrop-blur-md bg-black/40 flex items-center justify-center cursor-pointer shadow-[0_0_20px_rgba(53,208,127,0.1)] hover:shadow-[0_0_30px_rgba(53,208,127,0.3)] hover:border-[#35D07F] transition-all duration-300"
                     onClick={() => revealImage(index)}>
                   {revealedImages[index] ? (
                     <img 
@@ -398,13 +398,13 @@ export default function GamePlay() {
                       className={`w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-all duration-700 ${filters[index]}`}
                     />
                   ) : (
-                    <div className="flex flex-col items-center justify-center text-[#35D07F]/50 group-hover:text-[#35D07F] transition-colors">
+                    <div className="flex flex-col items-center justify-center text-[#35D07F]/40 group-hover:text-[#35D07F] transition-colors">
                       <Lock className="w-8 h-8 mb-2 group-hover:scale-110 transition-transform" />
-                      <span className="font-mono text-xs tracking-widest text-center">REVEAL<br/>ANOMALY_0{index+1}</span>
+                      <span className="font-mono text-xs tracking-widest text-center animate-glitch-1">DATA<br/>ENCRYPTED</span>
                     </div>
                   )}
                   {/* Scanline Overlay */}
-                  <div className="absolute inset-0 pointer-events-none bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.25)_50%),linear-gradient(90deg,rgba(255,0,0,0.06),rgba(0,255,0,0.02),rgba(0,0,255,0.06))] bg-[length:100%_4px,3px_100%] opacity-30 mix-blend-overlay"></div>
+                  <div className="absolute inset-0 pointer-events-none bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.25)_50%),linear-gradient(90deg,rgba(255,0,0,0.06),rgba(0,255,0,0.02),rgba(0,0,255,0.06))] bg-[length:100%_4px,3px_100%] opacity-40 mix-blend-overlay"></div>
                </div>
              )
           })}
@@ -434,35 +434,38 @@ export default function GamePlay() {
         )}
 
         {/* Input Area */}
-        <div className="w-full p-6 border border-[#35D07F]/30 bg-black/50 relative">
-          <div className="absolute -top-3 left-4 bg-black px-2 text-xs text-[#35D07F] font-mono">
-            VOICE_OVERRIDE.exe
+        <div className="w-full p-6 border border-[#35D07F]/40 backdrop-blur-lg bg-black/60 relative shadow-[0_0_30px_rgba(53,208,127,0.1)]">
+          <div className="absolute -top-3 left-4 bg-black px-2 text-xs text-[#35D07F] font-mono border border-[#35D07F]/50">
+            TERMINAL_INPUT.exe
           </div>
           
-          <div className="flex flex-col items-center">
+          <div className="flex flex-col items-center mt-4">
             <button
               onClick={toggleListening}
-              className={`w-24 h-24 rounded-full flex items-center justify-center mb-6 transition-all duration-300 ${
+              className={`w-20 h-20 rounded-full flex items-center justify-center mb-8 transition-all duration-300 ${
                 isListening 
                   ? "bg-red-500/20 border-2 border-red-500 shadow-[0_0_30px_rgba(239,68,68,0.5)] animate-pulse" 
-                  : "bg-[#35D07F]/10 border-2 border-[#35D07F]/50 hover:border-[#35D07F] hover:shadow-[0_0_20px_rgba(53,208,127,0.3)]"
+                  : "bg-[#35D07F]/10 border border-[#35D07F]/50 hover:border-[#35D07F] hover:shadow-[0_0_20px_rgba(53,208,127,0.4)]"
               }`}
             >
-              {isListening ? <Mic className="w-10 h-10 text-red-500" /> : <MicOff className="w-10 h-10 text-[#35D07F]" />}
+              {isListening ? <Mic className="w-8 h-8 text-red-500" /> : <MicOff className="w-8 h-8 text-[#35D07F]" />}
             </button>
 
-            <div className="w-full flex justify-center gap-2 mb-4">
-               <input 
-                  type="text" 
-                  value={transcript}
-                  onChange={(e) => {
-                    const val = e.target.value.toUpperCase().slice(0, 50);
-                    playKeystroke();
-                    setTranscript(val);
-                  }}
-                  placeholder="... AWAITING VOCAL INPUT ..." 
-                  className="w-full max-w-sm bg-transparent border-b-2 border-neutral-700 focus:border-[#35D07F] outline-none py-2 text-center text-xl font-mono text-white placeholder:text-neutral-700"
-                />
+            <div className="w-full flex justify-center mb-6">
+                 <div className="flex items-center text-[#35D07F] font-mono text-2xl w-full max-w-sm border-b border-[#35D07F]/50 focus-within:border-[#35D07F] focus-within:shadow-[0_4px_15px_-3px_rgba(53,208,127,0.3)] pb-2 transition-all">
+                   <span className="mr-3 text-[#35D07F]/70">root@node:~$</span>
+                   <input 
+                      type="text" 
+                      value={transcript}
+                      onChange={(e) => {
+                        const val = e.target.value.toUpperCase().slice(0, 50);
+                        playKeystroke();
+                        setTranscript(val);
+                      }}
+                      placeholder="_" 
+                      className="w-full bg-transparent outline-none text-[#35D07F] placeholder:text-[#35D07F]/30"
+                    />
+                 </div>
             </div>
 
             {transcript && !isListening && (

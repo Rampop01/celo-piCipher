@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { Shield, Coins, Zap, ChevronRight, Lock, Image as ImageIcon, CheckCircle, Globe, Hexagon, Crosshair, Cpu, Database, Eye, Terminal, Trophy, Mic, BrainCircuit, User } from "lucide-react";
 import Link from "next/link";
+import GlitchText from "../components/GlitchText";
 
 export default function Home() {
   const { login, authenticated, user, logout } = usePrivy();
@@ -26,19 +27,19 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-black text-neutral-50 font-sans selection:bg-[#35D07F] selection:text-black">
+    <div className="min-h-screen bg-transparent text-neutral-50 font-sans selection:bg-[#35D07F] selection:text-black">
       {/* Background gradients */}
       <div className="fixed inset-0 z-0 pointer-events-none">
-        <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-[#35D07F]/20 rounded-full blur-[120px]" />
-        <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-[#1e9a58]/20 rounded-full blur-[120px]" />
+        <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-[#35D07F]/10 rounded-full blur-[120px]" />
+        <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-[#1e9a58]/10 rounded-full blur-[120px]" />
       </div>
 
       {/* Navbar */}
       <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-black/80 backdrop-blur-xl border-b border-white/10 py-4' : 'bg-transparent py-6'}`}>
         <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
           <div className="flex items-center gap-3 select-none">
-            <div className="w-3 h-3 bg-[#35D07F] rounded-full shadow-[0_0_10px_#35D07F] animate-pulse"></div>
-            <div className="text-3xl font-black tracking-tighter flex items-center">
+            <div className="w-3 h-3 bg-[#35D07F] rounded-full shadow-[0_0_15px_#35D07F] animate-pulse"></div>
+            <div className="text-3xl font-black tracking-tighter flex items-center drop-shadow-[0_0_10px_rgba(53,208,127,0.5)]">
               <span className="text-white">Pi</span>
               <span className="text-[#35D07F] text-4xl -ml-0.5 -mr-0.5">C</span>
               <span className="text-white">ipher</span>
@@ -88,9 +89,8 @@ export default function Home() {
           <section className="min-h-screen pt-32 pb-24 px-6 flex flex-col items-center justify-center">
             <div className="w-full max-w-6xl animate-in fade-in slide-in-from-bottom-8 duration-700">
               <div className="text-center mb-16">
-                <h2 className="text-5xl md:text-7xl font-black tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-[#35D07F] to-[#1e9a58] mb-6 drop-shadow-[0_0_15px_rgba(53,208,127,0.3)]">
-                  ENTER THE GRID
-                </h2>
+                <GlitchText text="ENTER THE GRID" className="text-5xl md:text-7xl mb-6 drop-shadow-[0_0_15px_rgba(53,208,127,0.5)]" />
+
                 <p className="text-xl text-neutral-400 max-w-2xl mx-auto font-mono">
                   &gt; Decrypt the visual anomalies. Speak the truth. Progress through 50 stages of increasing difficulty to earn your Celo bounties and exclusive NFT Badges.
                 </p>

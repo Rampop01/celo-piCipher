@@ -7,14 +7,50 @@
 
 @layer base {
   body {
-    @apply bg-neutral-950 text-neutral-50;
+    @apply bg-transparent text-neutral-50;
     font-family: var(--font-orbitron), sans-serif;
-    background-image: 
-      radial-gradient(circle at 15% 50%, rgba(53, 208, 127, 0.05), transparent 25%),
-      radial-gradient(circle at 85% 30%, rgba(53, 208, 127, 0.08), transparent 25%);
-    background-attachment: fixed;
   }
 }
+
+@keyframes glitch-anim-1 {
+  0% { clip-path: inset(20% 0 80% 0); transform: translate(-2px, 1px); }
+  20% { clip-path: inset(60% 0 10% 0); transform: translate(2px, -1px); }
+  40% { clip-path: inset(40% 0 50% 0); transform: translate(-2px, 2px); }
+  60% { clip-path: inset(80% 0 5% 0); transform: translate(2px, -2px); }
+  80% { clip-path: inset(10% 0 70% 0); transform: translate(-1px, 1px); }
+  100% { clip-path: inset(30% 0 50% 0); transform: translate(1px, -1px); }
+}
+
+@keyframes glitch-anim-2 {
+  0% { clip-path: inset(10% 0 60% 0); transform: translate(2px, -1px); }
+  20% { clip-path: inset(30% 0 20% 0); transform: translate(-2px, 1px); }
+  40% { clip-path: inset(70% 0 10% 0); transform: translate(2px, -2px); }
+  60% { clip-path: inset(20% 0 50% 0); transform: translate(-2px, 2px); }
+  80% { clip-path: inset(50% 0 30% 0); transform: translate(1px, -1px); }
+  100% { clip-path: inset(5% 0 80% 0); transform: translate(-1px, 1px); }
+}
+
+@keyframes glitch-skew {
+  0% { transform: skew(0deg); }
+  20% { transform: skew(-5deg); }
+  40% { transform: skew(5deg); }
+  60% { transform: skew(-2deg); }
+  80% { transform: skew(2deg); }
+  100% { transform: skew(0deg); }
+}
+
+.animate-glitch-1 {
+  animation: glitch-anim-1 2.5s infinite linear alternate-reverse;
+}
+
+.animate-glitch-2 {
+  animation: glitch-anim-2 3s infinite linear alternate-reverse;
+}
+
+.animate-glitch-skew {
+  animation: glitch-skew 5s infinite linear alternate-reverse;
+}
+
 
 .gaming-btn {
   @apply relative transition-all duration-300 transform font-bold uppercase tracking-wider;
