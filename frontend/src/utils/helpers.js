@@ -55,3 +55,4 @@ export const hexToRgb = (hex) => { const r = parseInt(hex.slice(1,3),16); const 
 export const rgbToHex = (r,g,b) => '#' + [r,g,b].map(x => x.toString(16).padStart(2,'0')).join('');
 export const classNames = (...classes) => classes.filter(Boolean).join(' ');
 export const isBrowser = () => typeof window !== 'undefined';
+export const isNode = () => typeof process !== 'undefined' && process.versions != null && process.versions.node != null;
