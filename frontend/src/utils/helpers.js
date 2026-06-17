@@ -14,3 +14,4 @@ export const getTimestamp = () => Date.now();
 export const getISODate = () => new Date().toISOString();
 export const getYear = () => new Date().getFullYear();
 export const getMonth = () => new Date().getMonth() + 1;
+export const getDay = () => new Date().getDate();
