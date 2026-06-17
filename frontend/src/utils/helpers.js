@@ -19,3 +19,4 @@ export const addDays = (d, days) => new Date(d.getTime() + days * 86400000);
 export const subDays = (d, days) => new Date(d.getTime() - days * 86400000);
 export const isArray = (arr) => Array.isArray(arr);
 export const isObject = (obj) => obj !== null && typeof obj === 'object' && !Array.isArray(obj);
+export const isString = (val) => typeof val === 'string';
