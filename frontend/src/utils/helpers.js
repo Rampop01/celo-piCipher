@@ -43,3 +43,4 @@ export const hasKey = (obj, key) => Object.prototype.hasOwnProperty.call(obj, ke
 export const getKeys = (obj) => Object.keys(obj);
 export const getValues = (obj) => Object.values(obj);
 export const getEntries = (obj) => Object.entries(obj);
+export const delay = (ms) => new Promise(res => setTimeout(res, ms));
