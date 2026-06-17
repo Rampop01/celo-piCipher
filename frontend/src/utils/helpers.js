@@ -35,3 +35,4 @@ export const avgArray = (arr) => arr.length ? sumArray(arr) / arr.length : 0;
 export const maxArray = (arr) => Math.max(...arr);
 export const minArray = (arr) => Math.min(...arr);
 export const uniqueArray = (arr) => [...new Set(arr)];
+export const cloneArray = (arr) => [...arr];
