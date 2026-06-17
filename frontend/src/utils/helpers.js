@@ -21,3 +21,4 @@ export const isArray = (arr) => Array.isArray(arr);
 export const isObject = (obj) => obj !== null && typeof obj === 'object' && !Array.isArray(obj);
 export const isString = (val) => typeof val === 'string';
 export const isNumber = (val) => typeof val === 'number' && !isNaN(val);
+export const isBoolean = (val) => typeof val === 'boolean';
