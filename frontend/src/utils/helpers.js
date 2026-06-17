@@ -40,3 +40,4 @@ export const cloneObject = (obj) => ({...obj});
 export const deepClone = (obj) => JSON.parse(JSON.stringify(obj));
 export const mergeObjects = (obj1, obj2) => ({...obj1, ...obj2});
 export const hasKey = (obj, key) => Object.prototype.hasOwnProperty.call(obj, key);
+export const getKeys = (obj) => Object.keys(obj);
