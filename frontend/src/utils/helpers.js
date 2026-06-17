@@ -11,3 +11,4 @@ export const toFixed4 = (num) => Number(num).toFixed(4);
 export const parseJSON = (str) => { try { return JSON.parse(str); } catch { return null; } };
 export const stringifyJSON = (obj) => JSON.stringify(obj, null, 2);
 export const getTimestamp = () => Date.now();
+export const getISODate = () => new Date().toISOString();
