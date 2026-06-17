@@ -16,3 +16,4 @@ export const getYear = () => new Date().getFullYear();
 export const getMonth = () => new Date().getMonth() + 1;
 export const getDay = () => new Date().getDate();
 export const addDays = (d, days) => new Date(d.getTime() + days * 86400000);
+export const subDays = (d, days) => new Date(d.getTime() - days * 86400000);
