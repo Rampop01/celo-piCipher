@@ -12,3 +12,4 @@ export const parseJSON = (str) => { try { return JSON.parse(str); } catch { retu
 export const stringifyJSON = (obj) => JSON.stringify(obj, null, 2);
 export const getTimestamp = () => Date.now();
 export const getISODate = () => new Date().toISOString();
+export const getYear = () => new Date().getFullYear();
