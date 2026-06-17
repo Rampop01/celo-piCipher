@@ -50,3 +50,4 @@ export const noop = () => {};
 export const identity = (v) => v;
 export const alwaysTrue = () => true;
 export const alwaysFalse = () => false;
+export const pxToRem = (px, base = 16) => `${px / base}rem`;
