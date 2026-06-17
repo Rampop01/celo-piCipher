@@ -44,3 +44,4 @@ export const getKeys = (obj) => Object.keys(obj);
 export const getValues = (obj) => Object.values(obj);
 export const getEntries = (obj) => Object.entries(obj);
 export const delay = (ms) => new Promise(res => setTimeout(res, ms));
+export const debounce = (fn, ms) => { let id; return (...a) => { clearTimeout(id); id = setTimeout(() => fn(...a), ms); }; };
