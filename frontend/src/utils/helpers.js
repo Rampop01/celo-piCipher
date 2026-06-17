@@ -37,3 +37,4 @@ export const minArray = (arr) => Math.min(...arr);
 export const uniqueArray = (arr) => [...new Set(arr)];
 export const cloneArray = (arr) => [...arr];
 export const cloneObject = (obj) => ({...obj});
+export const deepClone = (obj) => JSON.parse(JSON.stringify(obj));
