@@ -49,3 +49,4 @@ export const throttle = (fn, ms) => { let wait = false; return (...a) => { if (!
 export const noop = () => {};
 export const identity = (v) => v;
 export const alwaysTrue = () => true;
+export const alwaysFalse = () => false;
