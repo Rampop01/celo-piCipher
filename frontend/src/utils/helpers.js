@@ -48,3 +48,4 @@ export const debounce = (fn, ms) => { let id; return (...a) => { clearTimeout(id
 export const throttle = (fn, ms) => { let wait = false; return (...a) => { if (!wait) { fn(...a); wait = true; setTimeout(() => wait = false, ms); } }; };
 export const noop = () => {};
 export const identity = (v) => v;
+export const alwaysTrue = () => true;
