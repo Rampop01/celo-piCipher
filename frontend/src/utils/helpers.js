@@ -6,3 +6,4 @@ export const uppercase = (s) => s.toUpperCase();
 export const trimSpaces = (s) => s.trim();
 export const isNotEmpty = (val) => val !== null && val !== undefined && val !== '';
 export const isEmpty = (val) => !isNotEmpty(val);
+export const toFixed2 = (num) => Number(num).toFixed(2);
