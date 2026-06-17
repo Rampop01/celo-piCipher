@@ -23,3 +23,4 @@ export const isString = (val) => typeof val === 'string';
 export const isNumber = (val) => typeof val === 'number' && !isNaN(val);
 export const isBoolean = (val) => typeof val === 'boolean';
 export const isFunction = (val) => typeof val === 'function';
+export const generateUUID = () => crypto.randomUUID ? crypto.randomUUID() : Math.random().toString(36).substring(2);
