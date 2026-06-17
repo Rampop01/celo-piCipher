@@ -28,3 +28,4 @@ export const randomInt = (min, max) => Math.floor(Math.random() * (max - min + 1
 export const randomFloat = (min, max) => Math.random() * (max - min) + min;
 export const clamp = (num, min, max) => Math.min(Math.max(num, min), max);
 export const lerp = (start, end, amt) => (1 - amt) * start + amt * end;
+export const degreesToRadians = (deg) => deg * (Math.PI / 180);
