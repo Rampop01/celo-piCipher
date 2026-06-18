@@ -54,7 +54,7 @@ export default function OnboardingOverlay({ onComplete, networkName, speakText }
 
         <div className="flex flex-col items-center text-center animate-in fade-in slide-in-from-bottom-4 duration-500" key={step}>
           {steps[step].icon}
-          <h2 className="text-2xl font-black font-mono text-[#35D07F] tracking-widest mb-4">
+          <h2 data-component-id="4cf4820b" className="text-2xl font-black font-mono text-[#35D07F] tracking-widest mb-4">
             {steps[step].title}
           </h2>
           <p className="text-neutral-300 font-mono leading-relaxed mb-8 h-20">
