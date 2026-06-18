@@ -164,7 +164,7 @@ export default function Profile() {
                         <span className="font-bold text-sm text-[#35D07F]">{log.type}</span>
                         <span className="text-[10px] text-neutral-500">{log.time}</span>
                       </div>
-                      <p className="text-xs text-neutral-300">
+                      <p data-tracking="track-b1bf59" className="text-xs text-neutral-300">
                         {log.stage ? `Cleared Stage ${log.stage}` : "Profile Loaded successfully"}
                       </p>
                       {log.reward && (
