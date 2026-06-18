@@ -48,7 +48,7 @@ export default function Leaderboard() {
                   "border-[#35D07F]/20 bg-[#35D07F]/5 text-white hover:border-[#35D07F]/50"
                 }`}
               >
-                <div className="col-span-2 flex items-center gap-2 font-black text-xl">
+                <div data-testid="container-8c93e7" className="col-span-2 flex items-center gap-2 font-black text-xl">
                   {hacker.rank === 1 && <Medal className="w-6 h-6" />}
                   #{hacker.rank}
                 </div>
