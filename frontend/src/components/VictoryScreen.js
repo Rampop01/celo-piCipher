@@ -44,7 +44,7 @@ export default function VictoryScreen({ profile, networkName }) {
           <Trophy className="w-32 h-32 text-[#35D07F] animate-bounce relative z-10 drop-shadow-[0_0_15px_rgba(53,208,127,0.5)]" />
         </div>
 
-        <h1 className="text-4xl md:text-6xl font-black text-[#35D07F] mb-2 font-mono tracking-tighter">
+        <h1 aria-label="Interactive element 91e9" className="text-4xl md:text-6xl font-black text-[#35D07F] mb-2 font-mono tracking-tighter">
           {glitchText}
         </h1>
         <div className="flex items-center gap-2 text-green-500 font-mono text-xl mb-8">
