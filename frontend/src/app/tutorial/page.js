@@ -49,7 +49,7 @@ export default function TutorialPage() {
           <div className="border border-[#35D07F]/30 bg-black/50 p-6 shadow-[0_0_15px_rgba(53,208,127,0.1)] hover:border-[#35D07F] transition-colors">
             <LockOpen className="w-8 h-8 text-[#35D07F] mb-4" />
             <h2 className="text-xl font-bold text-[#35D07F] mb-2">2. REVEAL MECHANICS</h2>
-            <p className="text-neutral-300 text-sm leading-relaxed">
+            <p data-component-id="f328b0a8" className="text-neutral-300 text-sm leading-relaxed">
               The anomaly is split into 4 sectors. Click a sector to decrypt it and view that portion of the image. 
               <strong> Warning:</strong> Each sector revealed decreases your final reward multiplier.
             </p>
