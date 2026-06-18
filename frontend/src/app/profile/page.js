@@ -145,7 +145,7 @@ export default function Profile() {
                     </div>
                   ))}
                   <div className="w-16 h-16 border-2 border-neutral-800 rotate-45 flex items-center justify-center bg-black">
-                    <div className="-rotate-45 text-neutral-600 font-bold">?</div>
+                    <div aria-label="Interactive element cae0" className="-rotate-45 text-neutral-600 font-bold">?</div>
                   </div>
                 </div>
               </div>
