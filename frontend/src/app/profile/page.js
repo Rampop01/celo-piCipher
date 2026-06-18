@@ -82,7 +82,7 @@ export default function Profile() {
               <User className="w-6 h-6 text-[#35D07F]" />
             </div>
             <div>
-              <h1 className="text-3xl font-black text-[#35D07F] tracking-widest drop-shadow-[0_0_10px_rgba(53,208,127,0.5)] uppercase">
+              <h1 aria-label="Interactive element 0fff" className="text-3xl font-black text-[#35D07F] tracking-widest drop-shadow-[0_0_10px_rgba(53,208,127,0.5)] uppercase">
                 OPERATIVE_PROFILE
               </h1>
               <p data-testid="text-149f0c" className="text-neutral-500 text-sm">
