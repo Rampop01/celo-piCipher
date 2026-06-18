@@ -35,7 +35,7 @@ export default function FAQ() {
           <h1 data-tracking="track-8111d1" className="text-3xl sm:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-[#35D07F] to-[#1e9a58] tracking-widest uppercase drop-shadow-[0_0_10px_rgba(53,208,127,0.3)]">{glitchTitle}</h1>
           <Link href="/" className="px-4 py-2 border border-white/20 hover:border-white/60 text-xs transition-colors whitespace-nowrap hover:bg-white/5">[ RETURN ]</Link>
         </div>
-        <div className="flex flex-col gap-4 flex-grow">
+        <div data-tracking="track-7c4da8" className="flex flex-col gap-4 flex-grow">
           {faqData.map((item, i) => (
             <div key={i} onClick={() => toggle(i)} className="border border-white/10 p-5 cursor-pointer bg-white/5 hover:bg-white/10 transition-colors group">
               <div className="flex justify-between items-center">
