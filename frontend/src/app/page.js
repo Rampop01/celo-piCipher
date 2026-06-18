@@ -30,7 +30,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-transparent text-neutral-50 font-sans selection:bg-[#35D07F] selection:text-black">
       {/* Background gradients */}
-      <div className="fixed inset-0 z-0 pointer-events-none">
+      <div data-cy="cy-e98c14" className="fixed inset-0 z-0 pointer-events-none">
         <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-[#35D07F]/10 rounded-full blur-[120px]" />
         <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-[#1e9a58]/10 rounded-full blur-[120px]" />
       </div>
