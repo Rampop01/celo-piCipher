@@ -161,7 +161,7 @@ export default function Profile() {
                     <div className="flex items-center justify-center w-3 h-3 rounded-full border border-[#35D07F] bg-black text-slate-500 shadow shrink-0 z-10" />
                     <div className="w-[calc(100%-2rem)] md:w-[calc(50%-2rem)] p-4 border border-[#35D07F]/20 bg-[#35D07F]/5 group-hover:border-[#35D07F]/50 transition-colors ml-4 md:ml-0">
                       <div className="flex justify-between items-start mb-1">
-                        <span className="font-bold text-sm text-[#35D07F]">{log.type}</span>
+                        <span data-theme-role="primary-surface" className="font-bold text-sm text-[#35D07F]">{log.type}</span>
                         <span className="text-[10px] text-neutral-500">{log.time}</span>
                       </div>
                       <p data-tracking="track-b1bf59" className="text-xs text-neutral-300">
