@@ -118,7 +118,7 @@ export default function Home() {
 
             {/* Hero Section */}
             <section className="pt-40 pb-20 md:pt-52 md:pb-32 px-6 flex flex-col items-center justify-center text-center">
-              <h2 className="text-6xl md:text-8xl lg:text-9xl font-black tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-white via-[#35D07F] to-[#1e9a58] drop-shadow-[0_0_25px_rgba(53,208,127,0.4)] glitch-effect mb-8">
+              <h2 data-cy="cy-75ef60" className="text-6xl md:text-8xl lg:text-9xl font-black tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-white via-[#35D07F] to-[#1e9a58] drop-shadow-[0_0_25px_rgba(53,208,127,0.4)] glitch-effect mb-8">
                 {glitchText}
               </h2>
               <p className="text-neutral-400 text-lg md:text-xl tracking-widest uppercase max-w-2xl leading-relaxed mb-12">
