@@ -85,7 +85,7 @@ export default function Profile() {
               <h1 className="text-3xl font-black text-[#35D07F] tracking-widest drop-shadow-[0_0_10px_rgba(53,208,127,0.5)] uppercase">
                 OPERATIVE_PROFILE
               </h1>
-              <p className="text-neutral-500 text-sm">
+              <p data-testid="text-149f0c" className="text-neutral-500 text-sm">
                 ID: {authenticated ? (user?.email?.address || user?.wallet?.address?.slice(0, 12) + "...") : "UNAUTHORIZED"}
                 {profile && <span className="ml-2 text-[#35D07F]">| ALIAS: {profile.nickname}</span>}
               </p>
