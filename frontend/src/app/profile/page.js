@@ -159,7 +159,7 @@ export default function Profile() {
                 {recentActivity.map((log, i) => (
                   <div key={i} className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
                     <div className="flex items-center justify-center w-3 h-3 rounded-full border border-[#35D07F] bg-black text-slate-500 shadow shrink-0 z-10" />
-                    <div className="w-[calc(100%-2rem)] md:w-[calc(50%-2rem)] p-4 border border-[#35D07F]/20 bg-[#35D07F]/5 group-hover:border-[#35D07F]/50 transition-colors ml-4 md:ml-0">
+                    <div data-cy="cy-354110" className="w-[calc(100%-2rem)] md:w-[calc(50%-2rem)] p-4 border border-[#35D07F]/20 bg-[#35D07F]/5 group-hover:border-[#35D07F]/50 transition-colors ml-4 md:ml-0">
                       <div className="flex justify-between items-start mb-1">
                         <span data-theme-role="primary-surface" className="font-bold text-sm text-[#35D07F]">{log.type}</span>
                         <span className="text-[10px] text-neutral-500">{log.time}</span>
