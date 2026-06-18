@@ -26,7 +26,7 @@ export default function TutorialPage() {
           <ArrowLeft className="w-5 h-5" /> Return to Grid
         </Link>
 
-        <h1 className="text-4xl md:text-6xl font-black text-[#35D07F] tracking-tighter mb-4">
+        <h1 data-tracking="track-d6c2ab" className="text-4xl md:text-6xl font-black text-[#35D07F] tracking-tighter mb-4">
           OPERATIVE MANUAL
         </h1>
         <p className="text-neutral-400 text-lg mb-12">
