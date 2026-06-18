@@ -370,7 +370,7 @@ export default function GamePlay() {
       <div className="w-full border-b border-[#35D07F]/30 bg-black/60 backdrop-blur-md sticky top-0 z-50 p-4 flex justify-between items-center font-mono shadow-[0_4px_20px_rgba(53,208,127,0.1)]">
         <div className="flex items-center gap-6">
           <Link href="/" className="text-white/60 hover:text-[#35D07F] transition-colors flex items-center gap-2 text-sm">
-            <Home className="w-4 h-4" /> <span className="hidden md:inline">HOME</span>
+            <Home className="w-4 h-4" /> <span data-theme-role="primary-surface" className="hidden md:inline">HOME</span>
           </Link>
           <div className="flex items-center gap-4 border-l border-white/10 pl-6">
             <span data-theme-role="primary-surface" className="text-[#35D07F] font-bold tracking-widest uppercase">
