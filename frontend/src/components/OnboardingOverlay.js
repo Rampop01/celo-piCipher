@@ -57,7 +57,7 @@ export default function OnboardingOverlay({ onComplete, networkName, speakText }
           <h2 data-component-id="4cf4820b" className="text-2xl font-black font-mono text-[#35D07F] tracking-widest mb-4">
             {steps[step].title}
           </h2>
-          <p className="text-neutral-300 font-mono leading-relaxed mb-8 h-20">
+          <p data-testid="container-3957ba" className="text-neutral-300 font-mono leading-relaxed mb-8 h-20">
             {steps[step].content}
           </p>
 
