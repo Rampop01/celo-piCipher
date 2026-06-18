@@ -54,7 +54,7 @@ export default function Leaderboard() {
                 </div>
                 
                 <div className="col-span-5 flex flex-col">
-                  <span className="font-bold tracking-wider">{hacker.alias}</span>
+                  <span data-theme-role="primary-surface" className="font-bold tracking-wider">{hacker.alias}</span>
                   <div className="flex items-center gap-2 mt-1">
                     {hacker.mainnet ? (
                       <span data-cy="cy-308f98" className="text-[10px] px-1.5 py-0.5 border border-green-500/50 text-green-500 bg-green-500/10">ON-CHAIN</span>
