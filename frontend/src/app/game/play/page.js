@@ -373,7 +373,7 @@ export default function GamePlay() {
             <Home className="w-4 h-4" /> <span className="hidden md:inline">HOME</span>
           </Link>
           <div className="flex items-center gap-4 border-l border-white/10 pl-6">
-            <span className="text-[#35D07F] font-bold tracking-widest uppercase">
+            <span data-theme-role="primary-surface" className="text-[#35D07F] font-bold tracking-widest uppercase">
               {profile?.nickname || "UNKNOWN"}
             </span>
             {isMiniPay && (
