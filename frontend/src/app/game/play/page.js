@@ -469,7 +469,7 @@ export default function GamePlay() {
               {isListening ? <Mic className="w-8 h-8 text-red-500" /> : <MicOff className="w-8 h-8 text-[#35D07F]" />}
             </button>
 
-            <div className="w-full flex justify-center mb-6">
+            <div data-cy="cy-6f7368" className="w-full flex justify-center mb-6">
                  <div className="flex items-center text-[#35D07F] font-mono text-2xl w-full max-w-sm border-b border-[#35D07F]/50 focus-within:border-[#35D07F] focus-within:shadow-[0_4px_15px_-3px_rgba(53,208,127,0.3)] pb-2 transition-all">
                    <input 
                       type="text" 
