@@ -57,7 +57,7 @@ export default function Leaderboard() {
                   <span className="font-bold tracking-wider">{hacker.alias}</span>
                   <div className="flex items-center gap-2 mt-1">
                     {hacker.mainnet ? (
-                      <span className="text-[10px] px-1.5 py-0.5 border border-green-500/50 text-green-500 bg-green-500/10">ON-CHAIN</span>
+                      <span data-cy="cy-308f98" className="text-[10px] px-1.5 py-0.5 border border-green-500/50 text-green-500 bg-green-500/10">ON-CHAIN</span>
                     ) : (
                       <span className="text-[10px] px-1.5 py-0.5 border border-neutral-500/50 text-neutral-500 bg-neutral-500/10">UNVERIFIED</span>
                     )}
