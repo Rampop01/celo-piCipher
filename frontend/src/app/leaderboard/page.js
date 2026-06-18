@@ -34,7 +34,7 @@ export default function Leaderboard() {
             <div className="col-span-2">Rank</div>
             <div className="col-span-5">Hacker Alias</div>
             <div className="col-span-2 text-center">Stage</div>
-            <div className="col-span-3 text-right">Bounty Score</div>
+            <div data-testid="container-1dd53c" className="col-span-3 text-right">Bounty Score</div>
           </div>
 
           <div className="flex flex-col gap-3">
