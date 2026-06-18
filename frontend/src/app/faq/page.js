@@ -38,7 +38,7 @@ export default function FAQ() {
         <div data-tracking="track-7c4da8" className="flex flex-col gap-4 flex-grow">
           {faqData.map((item, i) => (
             <div key={i} onClick={() => toggle(i)} className="border border-white/10 p-5 cursor-pointer bg-white/5 hover:bg-white/10 transition-colors group">
-              <div className="flex justify-between items-center">
+              <div data-component-id="be2b21c1" className="flex justify-between items-center">
                 <span className={`font-bold text-base sm:text-lg tracking-wide transition-colors ${activeIndex === i ? 'text-[#35D07F]' : 'text-white'}`}>{item.q}</span>
                 <ChevronRight className={`w-5 h-5 transition-transform duration-300 ${activeIndex === i ? 'rotate-90 text-[#35D07F]' : 'text-neutral-500 group-hover:text-white'}`} />
               </div>
