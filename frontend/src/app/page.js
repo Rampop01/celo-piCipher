@@ -41,7 +41,7 @@ export default function Home() {
           <div className="flex items-center gap-3 select-none">
             <div className="w-3 h-3 bg-[#35D07F] rounded-full shadow-[0_0_15px_#35D07F] animate-pulse"></div>
             <div className="text-3xl font-black tracking-tighter flex items-center drop-shadow-[0_0_10px_rgba(53,208,127,0.5)]">
-              <span className="text-white">Pi</span>
+              <span data-testid="text-8ccd26" className="text-white">Pi</span>
               <span className="text-[#35D07F] text-4xl -ml-0.5 -mr-0.5">C</span>
               <span className="text-white">ipher</span>
             </div>
