@@ -37,7 +37,7 @@ export default function TutorialPage() {
           {/* Objective */}
           <div className="border border-[#35D07F]/30 bg-black/50 p-6 shadow-[0_0_15px_rgba(53,208,127,0.1)] hover:border-[#35D07F] transition-colors">
             <Shield className="w-8 h-8 text-[#35D07F] mb-4" />
-            <h2 className="text-xl font-bold text-[#35D07F] mb-2">1. THE OBJECTIVE</h2>
+            <h2 data-testid="text-08aebd" className="text-xl font-bold text-[#35D07F] mb-2">1. THE OBJECTIVE</h2>
             <p className="text-neutral-300 text-sm leading-relaxed">
               You are tasked with hacking 50 consecutive security nodes. 
               Each node is protected by a visual anomaly (an encrypted image). 
