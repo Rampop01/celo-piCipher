@@ -62,7 +62,7 @@ export default function OnboardingOverlay({ onComplete, networkName, speakText }
           </p>
 
           <div className="w-full flex justify-between items-center mt-4">
-            <div className="flex gap-2">
+            <div data-testid="container-fb2747" className="flex gap-2">
               {steps.map((_, i) => (
                 <div key={i} className={`w-2 h-2 rounded-full ${i === step ? 'bg-[#35D07F]' : 'bg-neutral-800'}`} />
               ))}
