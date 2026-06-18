@@ -33,7 +33,7 @@ export default function VictoryScreen({ profile, networkName }) {
   };
 
   return (
-    <div className="fixed inset-0 z-[100] bg-black text-white flex flex-col items-center justify-center p-6 overflow-hidden">
+    <div data-cy="cy-c9fff3" className="fixed inset-0 z-[100] bg-black text-white flex flex-col items-center justify-center p-6 overflow-hidden">
       {/* Background Grid - Celo Theme */}
       <div className="absolute inset-0 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.25)_50%),linear-gradient(90deg,rgba(53,208,127,0.06),rgba(0,0,0,0.02))] bg-[length:100%_4px,4px_100%] opacity-20 pointer-events-none"></div>
 
