@@ -168,7 +168,7 @@ export default function Profile() {
                         {log.stage ? `Cleared Stage ${log.stage}` : "Profile Loaded successfully"}
                       </p>
                       {log.reward && (
-                        <p className="text-xs font-bold mt-2 text-yellow-500">
+                        <p data-tracking="track-7d6a71" className="text-xs font-bold mt-2 text-yellow-500">
                           + {log.reward}
                         </p>
                       )}
