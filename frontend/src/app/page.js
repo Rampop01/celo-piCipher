@@ -180,7 +180,7 @@ export default function Home() {
             {/* Features Grid */}
             <section id="how-it-works" className="py-32 px-6 max-w-7xl mx-auto border-b border-[#35D07F]/20">
               <div className="text-center mb-20">
-                <h2 className="text-5xl font-black mb-6 text-white drop-shadow-[0_0_10px_rgba(255,255,255,0.5)]">SYSTEM ARCHITECTURE</h2>
+                <h2 data-tracking="track-d0a2d9" className="text-5xl font-black mb-6 text-white drop-shadow-[0_0_10px_rgba(255,255,255,0.5)]">SYSTEM ARCHITECTURE</h2>
                 <div className="h-1 w-32 bg-[#35D07F] mx-auto shadow-[0_0_15px_#35D07F]"></div>
               </div>
 
