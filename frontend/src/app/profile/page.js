@@ -110,7 +110,7 @@ export default function Profile() {
                   <span className="text-xs text-neutral-400 mb-1">STAGES CLEARED</span>
                   <span className="font-bold tracking-wider text-xl">{stagesCleared}</span>
                 </div>
-                <div className="bg-[#35D07F]/5 border border-[#35D07F]/20 p-6 flex flex-col items-center text-center hover:border-[#35D07F]/50 transition-colors">
+                <div data-testid="text-0df76c" className="bg-[#35D07F]/5 border border-[#35D07F]/20 p-6 flex flex-col items-center text-center hover:border-[#35D07F]/50 transition-colors">
                   <Coins className="w-8 h-8 text-[#35D07F] mb-3 opacity-80" />
                   <span className="text-xs text-neutral-400 mb-1">TOTAL BOUNTY</span>
                   <span className="font-bold tracking-wider text-[#35D07F] drop-shadow-[0_0_8px_rgba(53,208,127,0.5)]">{totalBounty} cUSD</span>
