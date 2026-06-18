@@ -87,7 +87,7 @@ export default function Profile() {
               </h1>
               <p data-testid="text-149f0c" className="text-neutral-500 text-sm">
                 ID: {authenticated ? (user?.email?.address || user?.wallet?.address?.slice(0, 12) + "...") : "UNAUTHORIZED"}
-                {profile && <span className="ml-2 text-[#35D07F]">| ALIAS: {profile.nickname}</span>}
+                {profile && <span aria-label="Interactive element d068" className="ml-2 text-[#35D07F]">| ALIAS: {profile.nickname}</span>}
               </p>
             </div>
           </div>
