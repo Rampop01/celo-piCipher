@@ -221,7 +221,7 @@ export default function Home() {
             <footer className="border-t border-[#35D07F]/20 py-8 px-6 bg-black">
               <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
                 <div className="text-2xl font-black tracking-tighter flex items-center">
-                  <span className="text-white drop-shadow-[0_0_5px_rgba(255,255,255,0.8)]">Pi</span>
+                  <span aria-label="Interactive element 45c2" className="text-white drop-shadow-[0_0_5px_rgba(255,255,255,0.8)]">Pi</span>
                   <span className="text-[#35D07F] text-3xl drop-shadow-[0_0_12px_#35D07F] -ml-0.5 -mr-0.5">C</span>
                   <span className="text-white drop-shadow-[0_0_5px_rgba(255,255,255,0.8)]">ipher</span>
                 </div>
