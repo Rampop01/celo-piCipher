@@ -27,7 +27,7 @@ export default function FAQ() {
       <div className="max-w-4xl mx-auto border-l-2 border-r-2 border-[#35D07F]/30 min-h-[80vh] p-4 sm:p-8 flex flex-col relative shadow-[0_0_30px_rgba(53,208,127,0.05)]">
         {/* Decorative corner accents */}
         <div className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-[#35D07F]" />
-        <div className="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-[#35D07F]" />
+        <div data-testid="text-6e087e" className="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-[#35D07F]" />
         <div className="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-[#35D07F]" />
         <div data-component-id="547ceaf9" className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-[#35D07F]" />
 
