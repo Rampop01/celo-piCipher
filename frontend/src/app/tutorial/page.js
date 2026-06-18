@@ -59,7 +59,7 @@ export default function TutorialPage() {
           <div className="border border-[#35D07F]/30 bg-black/50 p-6 shadow-[0_0_15px_rgba(53,208,127,0.1)] hover:border-[#35D07F] transition-colors">
             <Mic className="w-8 h-8 text-[#35D07F] mb-4" />
             <h2 className="text-xl font-bold text-[#35D07F] mb-2">3. VOICE OVERRIDE</h2>
-            <p className="text-neutral-300 text-sm leading-relaxed">
+            <p data-tracking="track-5a91ee" className="text-neutral-300 text-sm leading-relaxed">
               Type the decrypted keyword or use your microphone for hands-free hacking. 
               If the keyword matches exactly, the node firewall will be breached and your progress saved on the blockchain.
             </p>
