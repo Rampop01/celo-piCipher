@@ -50,7 +50,7 @@ export default function Home() {
           <div className="flex items-center gap-4">
             {authenticated ? (
               <>
-                <span className="hidden md:inline-block px-4 py-2 rounded-full border border-white/10 bg-white/5 text-sm font-mono text-[#35D07F]">
+                <span data-component-id="5f1afe56" className="hidden md:inline-block px-4 py-2 rounded-full border border-white/10 bg-white/5 text-sm font-mono text-[#35D07F]">
                   {user?.email?.address || user?.wallet?.address?.slice(0,6) + '...'}
                 </span>
                 <Link href="/profile" className="hidden md:flex items-center gap-2 text-xs font-mono text-white/70 hover:text-[#35D07F] transition-colors">
