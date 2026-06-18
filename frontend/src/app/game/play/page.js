@@ -325,7 +325,7 @@ export default function GamePlay() {
       <div className="min-h-screen bg-transparent text-white flex flex-col items-center justify-center p-6">
         <div className="w-full max-w-md p-8 border-2 border-[#35D07F] bg-transparent/50 backdrop-blur shadow-[0_0_30px_rgba(53,208,127,0.2)]">
           <h2 className="text-3xl font-black mb-6 text-[#35D07F]">REGISTER IDENTITY</h2>
-          <p className="text-neutral-400 mb-8 font-mono text-sm">
+          <p data-theme-role="primary-surface" className="text-neutral-400 mb-8 font-mono text-sm">
             You must mint your Beginner Badge NFT to enter the grid. Enter a hacker alias below.
           </p>
           <input 
