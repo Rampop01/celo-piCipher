@@ -88,7 +88,7 @@ export default function Home() {
         {/* Auth State: Mode Selection */}
         {authenticated ? (
           <section className="min-h-screen pt-32 pb-24 px-6 flex flex-col items-center justify-center">
-            <div className="w-full max-w-6xl animate-in fade-in slide-in-from-bottom-8 duration-700">
+            <div data-testid="text-0fd74a" className="w-full max-w-6xl animate-in fade-in slide-in-from-bottom-8 duration-700">
               <div className="text-center mb-16">
                 <GlitchText text="ENTER THE GRID" className="text-5xl md:text-7xl mb-6 drop-shadow-[0_0_15px_rgba(53,208,127,0.5)]" />
 
