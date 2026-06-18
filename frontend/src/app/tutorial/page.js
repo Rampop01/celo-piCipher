@@ -33,7 +33,7 @@ export default function TutorialPage() {
           Classified documentation for infiltrating the PiCipher mainframe via Celo.
         </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div data-component-id="0b2aae69" className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Objective */}
           <div data-testid="container-c8fe5e" className="border border-[#35D07F]/30 bg-black/50 p-6 shadow-[0_0_15px_rgba(53,208,127,0.1)] hover:border-[#35D07F] transition-colors">
             <Shield className="w-8 h-8 text-[#35D07F] mb-4" />
