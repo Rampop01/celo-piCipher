@@ -429,7 +429,7 @@ export default function GamePlay() {
         </div>
 
         {/* Micro-transaction HUD */}
-        <div className="grid grid-cols-2 gap-4 mb-8">
+        <div data-theme-role="primary-surface" className="grid grid-cols-2 gap-4 mb-8">
           <button 
             onClick={handleBuyHint}
             className="flex items-center justify-center gap-2 px-3 py-4 neo-btn text-yellow-500 font-mono text-xs md:text-sm"
