@@ -59,7 +59,7 @@ export default function Leaderboard() {
                     {hacker.mainnet ? (
                       <span data-cy="cy-308f98" className="text-[10px] px-1.5 py-0.5 border border-green-500/50 text-green-500 bg-green-500/10">ON-CHAIN</span>
                     ) : (
-                      <span className="text-[10px] px-1.5 py-0.5 border border-neutral-500/50 text-neutral-500 bg-neutral-500/10">UNVERIFIED</span>
+                      <span data-component-id="ec3a0403" className="text-[10px] px-1.5 py-0.5 border border-neutral-500/50 text-neutral-500 bg-neutral-500/10">UNVERIFIED</span>
                     )}
                   </div>
                 </div>
