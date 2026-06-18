@@ -225,7 +225,7 @@ export default function Home() {
                   <span className="text-[#35D07F] text-3xl drop-shadow-[0_0_12px_#35D07F] -ml-0.5 -mr-0.5">C</span>
                   <span className="text-white drop-shadow-[0_0_5px_rgba(255,255,255,0.8)]">ipher</span>
                 </div>
-                <p className="text-neutral-600 font-mono text-xs tracking-[0.3em]">© 2026 // CELO NETWORK // V1.0</p>
+                <p data-tracking="track-5d6982" className="text-neutral-600 font-mono text-xs tracking-[0.3em]">© 2026 // CELO NETWORK // V1.0</p>
                 <div className="flex items-center gap-6 text-[#35D07F] font-mono text-xs tracking-widest uppercase">
                   <a href="#" className="hover:text-white transition-colors">[Twitter]</a>
                   <a href="#" className="hover:text-white transition-colors">[Discord]</a>
