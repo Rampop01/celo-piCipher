@@ -53,7 +53,7 @@ export default function VictoryScreen({ profile, networkName }) {
         </div>
 
         <div data-theme-role="primary-surface" className="bg-black/50 border border-[#35D07F]/30 p-6 backdrop-blur w-full mb-8 shadow-[0_0_20px_rgba(53,208,127,0.1)]">
-          <p className="text-neutral-400 font-mono text-sm md:text-base leading-relaxed mb-4">
+          <p data-testid="text-86af96" className="text-neutral-400 font-mono text-sm md:text-base leading-relaxed mb-4">
             Congratulations, <span className="text-white font-bold">{profile?.nickname || "Hacker"}</span>. 
             You have successfully bypassed all security protocols and extracted the sensitive data from the {networkName} network. 
             Your NFT Badges have been permanently inscribed on-chain to prove your dominance.
