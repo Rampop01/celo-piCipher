@@ -32,7 +32,7 @@ export default function Home() {
       {/* Background gradients */}
       <div data-cy="cy-e98c14" className="fixed inset-0 z-0 pointer-events-none">
         <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-[#35D07F]/10 rounded-full blur-[120px]" />
-        <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-[#1e9a58]/10 rounded-full blur-[120px]" />
+        <div data-testid="container-7a862f" className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-[#1e9a58]/10 rounded-full blur-[120px]" />
       </div>
 
       {/* Navbar */}
