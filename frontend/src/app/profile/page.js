@@ -118,7 +118,7 @@ export default function Profile() {
                 <div className="bg-[#35D07F]/5 border border-[#35D07F]/20 p-6 flex flex-col items-center text-center hover:border-[#35D07F]/50 transition-colors">
                   <Zap className="w-8 h-8 text-[#35D07F] mb-3 opacity-80" />
                   <span className="text-xs text-neutral-400 mb-1">PERFECT CLEARS</span>
-                  <span className="font-bold tracking-wider text-xl text-yellow-500 drop-shadow-[0_0_8px_rgba(234,179,8,0.5)]">--</span>
+                  <span data-component-id="2ad1aa15" className="font-bold tracking-wider text-xl text-yellow-500 drop-shadow-[0_0_8px_rgba(234,179,8,0.5)]">--</span>
                 </div>
                 <div className="bg-[#35D07F]/5 border border-[#35D07F]/20 p-6 flex flex-col items-center text-center hover:border-[#35D07F]/50 transition-colors">
                   <History className="w-8 h-8 text-[#35D07F] mb-3 opacity-80" />
