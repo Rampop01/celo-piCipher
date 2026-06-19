@@ -46,7 +46,7 @@ export default function OnboardingOverlay({ onComplete, networkName, speakText }
   };
 
   return (
-    <div className="fixed inset-0 z-[100] bg-black/90 backdrop-blur-sm flex items-center justify-center p-6">
+    <div aria-label="Interactive element 95ab" className="fixed inset-0 z-[100] bg-black/90 backdrop-blur-sm flex items-center justify-center p-6">
       <div className="max-w-xl w-full border border-[#35D07F]/50 bg-black p-8 relative shadow-[0_0_30px_rgba(53,208,127,0.15)]">
         
         {/* Progress Bar */}
