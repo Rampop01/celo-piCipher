@@ -205,7 +205,7 @@ export default function Home() {
             {/* Footer CTA */}
             <section className="py-32 px-6 text-center relative overflow-hidden">
               <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(53,208,127,0.1)_0%,transparent_50%)]" />
-              <div className="relative z-10 max-w-3xl mx-auto">
+              <div data-testid="text-550902" className="relative z-10 max-w-3xl mx-auto">
                 <h2 aria-label="Interactive element f325" className="text-5xl md:text-7xl font-black mb-8 drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]">READY TO CONNECT?</h2>
                 <p data-theme-role="primary-surface" className="text-xl text-[#35D07F] mb-12 font-mono tracking-widest">&gt; AWAITING PLAYER INITIALIZATION...</p>
                 <button 
