@@ -15,7 +15,7 @@ export default function TutorialPage() {
   return (
     <div className="min-h-screen bg-black text-white font-mono p-6 relative overflow-hidden">
       {/* Background Grid - Celo Theme */}
-      <div className="absolute inset-0 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.25)_50%),linear-gradient(90deg,rgba(53,208,127,0.06),rgba(0,0,0,0.02))] bg-[length:100%_4px,4px_100%] opacity-30 pointer-events-none"></div>
+      <div data-testid="container-b2e3f7" className="absolute inset-0 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.25)_50%),linear-gradient(90deg,rgba(53,208,127,0.06),rgba(0,0,0,0.02))] bg-[length:100%_4px,4px_100%] opacity-30 pointer-events-none"></div>
 
       <div className="max-w-4xl mx-auto relative z-10">
         <Link 
