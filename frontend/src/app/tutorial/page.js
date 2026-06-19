@@ -76,7 +76,7 @@ export default function TutorialPage() {
           </div>
         </div>
 
-        <div className="mt-12 text-center">
+        <div aria-label="Interactive element 7f27" className="mt-12 text-center">
           <Link 
             href="/game/play" 
             className="inline-block gaming-btn py-4 px-12 bg-[#35D07F] text-black font-black text-xl hover:bg-white transition-colors"
