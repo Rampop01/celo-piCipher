@@ -69,7 +69,7 @@ export default function Leaderboard() {
                   {hacker.stage}
                 </div>
 
-                <div className="col-span-3 text-right font-black tracking-widest flex items-center justify-end gap-2">
+                <div data-testid="container-316e86" className="col-span-3 text-right font-black tracking-widest flex items-center justify-end gap-2">
                   {hacker.score.toLocaleString()}
                   <Cpu className="w-4 h-4 opacity-50" />
                 </div>
