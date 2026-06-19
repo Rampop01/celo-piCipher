@@ -92,7 +92,7 @@ export default function Home() {
               <div className="text-center mb-16">
                 <GlitchText text="ENTER THE GRID" className="text-5xl md:text-7xl mb-6 drop-shadow-[0_0_15px_rgba(53,208,127,0.5)]" />
 
-                <p className="text-xl text-neutral-400 max-w-2xl mx-auto font-mono">
+                <p data-testid="container-e8dfc6" className="text-xl text-neutral-400 max-w-2xl mx-auto font-mono">
                   &gt; Decrypt the visual anomalies. Speak the truth. Progress through 50 stages of increasing difficulty to earn your Celo bounties and exclusive NFT Badges.
                 </p>
               </div>
