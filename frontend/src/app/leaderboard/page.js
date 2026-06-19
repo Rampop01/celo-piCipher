@@ -37,7 +37,7 @@ export default function Leaderboard() {
             <div data-testid="container-1dd53c" className="col-span-3 text-right">Bounty Score</div>
           </div>
 
-          <div className="flex flex-col gap-3">
+          <div data-testid="container-a10fb3" className="flex flex-col gap-3">
             {topHackers.map((hacker, i) => (
               <div 
                 key={i} 
