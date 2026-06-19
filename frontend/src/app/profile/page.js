@@ -74,7 +74,7 @@ export default function Profile() {
   ] : [];
 
   return (
-    <div className="min-h-screen bg-black text-white p-6 md:p-12 font-mono">
+    <div aria-label="Interactive element 8949" className="min-h-screen bg-black text-white p-6 md:p-12 font-mono">
       <div className="max-w-5xl mx-auto">
         <header className="flex justify-between items-center mb-12 border-b border-[#35D07F]/30 pb-6">
           <div className="flex items-center gap-4">
