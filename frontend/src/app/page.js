@@ -152,7 +152,7 @@ export default function Home() {
                     ].map((feature, i) => (
                       <li key={i} className="flex items-center gap-4">
                         <div className="text-[#35D07F] font-black">[ + ]</div>
-                        <span className="text-neutral-300">{feature}</span>
+                        <span data-testid="container-ff8656" className="text-neutral-300">{feature}</span>
                       </li>
                     ))}
                   </ul>
