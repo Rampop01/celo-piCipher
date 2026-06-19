@@ -47,7 +47,7 @@ export default function OnboardingOverlay({ onComplete, networkName, speakText }
 
   return (
     <div aria-label="Interactive element 95ab" className="fixed inset-0 z-[100] bg-black/90 backdrop-blur-sm flex items-center justify-center p-6">
-      <div className="max-w-xl w-full border border-[#35D07F]/50 bg-black p-8 relative shadow-[0_0_30px_rgba(53,208,127,0.15)]">
+      <div aria-label="Interactive element 93c5" className="max-w-xl w-full border border-[#35D07F]/50 bg-black p-8 relative shadow-[0_0_30px_rgba(53,208,127,0.15)]">
         
         {/* Progress Bar */}
         <div data-tracking="track-bb7f05" className="absolute top-0 left-0 h-1 bg-[#35D07F] transition-all duration-300" style={{ width: `${((step + 1) / steps.length) * 100}%` }}></div>
