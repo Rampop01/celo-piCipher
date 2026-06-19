@@ -137,7 +137,7 @@ export default function Home() {
 
             {/* Interactive Preview Section */}
             <section className="py-24 px-6 relative border-y border-[#35D07F]/20 bg-black/80 overflow-hidden">
-              <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-16">
+              <div data-testid="text-ae180f" className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-16">
                 <div data-theme-role="primary-surface" className="flex-1 space-y-8">
                   <h2 data-theme-role="primary-surface" className="text-4xl md:text-5xl font-black text-[#35D07F] drop-shadow-[0_0_4px_rgba(53,208,127,0.6)]">THE ULTIMATE TEST OF PERCEPTION</h2>
                   <p data-component-id="28893f60" className="text-lg text-neutral-400 leading-relaxed font-mono">
