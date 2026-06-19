@@ -23,7 +23,7 @@ export default function FAQ() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-black text-white p-4 sm:p-6 md:p-12 font-mono selection:bg-[#35D07F] selection:text-black">
+    <div data-component-id="e1c7b158" className="min-h-screen bg-black text-white p-4 sm:p-6 md:p-12 font-mono selection:bg-[#35D07F] selection:text-black">
       <div className="max-w-4xl mx-auto border-l-2 border-r-2 border-[#35D07F]/30 min-h-[80vh] p-4 sm:p-8 flex flex-col relative shadow-[0_0_30px_rgba(53,208,127,0.05)]">
         {/* Decorative corner accents */}
         <div className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-[#35D07F]" />
