@@ -99,7 +99,7 @@ export default function Profile() {
         {authenticated && profile ? (
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="md:col-span-2 space-y-8">
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+              <div data-cy="cy-45e6ed" className="grid grid-cols-2 sm:grid-cols-3 gap-4">
                 <div className="bg-[#35D07F]/5 border border-[#35D07F]/20 p-6 flex flex-col items-center text-center hover:border-[#35D07F]/50 transition-colors">
                   <Shield className="w-8 h-8 text-[#35D07F] mb-3 opacity-80" />
                   <span className="text-xs text-neutral-400 mb-1">CURRENT RANK</span>
