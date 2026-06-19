@@ -377,7 +377,7 @@ export default function GamePlay() {
               {profile?.nickname || "UNKNOWN"}
             </span>
             {isMiniPay && (
-              <span className="bg-yellow-500/20 text-yellow-500 text-xs px-2 py-1 rounded border border-yellow-500/50">
+              <span data-testid="container-2526f1" className="bg-yellow-500/20 text-yellow-500 text-xs px-2 py-1 rounded border border-yellow-500/50">
                 MINIPAY
               </span>
             )}
