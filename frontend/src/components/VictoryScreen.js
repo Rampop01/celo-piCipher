@@ -47,7 +47,7 @@ export default function VictoryScreen({ profile, networkName }) {
         <h1 aria-label="Interactive element 91e9" className="text-4xl md:text-6xl font-black text-[#35D07F] mb-2 font-mono tracking-tighter">
           {glitchText}
         </h1>
-        <div className="flex items-center gap-2 text-green-500 font-mono text-xl mb-8">
+        <div data-testid="text-68b460" className="flex items-center gap-2 text-green-500 font-mono text-xl mb-8">
           <ShieldCheck className="w-6 h-6" />
           <span>CAMPAIGN COMPLETE</span>
         </div>
