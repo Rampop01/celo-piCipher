@@ -69,7 +69,7 @@ export default function TutorialPage() {
           <div className="border border-[#35D07F]/30 bg-black/50 p-6 shadow-[0_0_15px_rgba(53,208,127,0.1)] hover:border-[#35D07F] transition-colors">
             <Terminal className="w-8 h-8 text-[#35D07F] mb-4" />
             <h2 data-component-id="479a385e" className="text-xl font-bold text-[#35D07F] mb-2">4. STRATEGIC TOOLS</h2>
-            <p className="text-neutral-300 text-sm leading-relaxed">
+            <p data-component-id="d2079091" className="text-neutral-300 text-sm leading-relaxed">
               If a node's encryption is too complex, you may use cUSD tokens on Celo to purchase a text hint or completely bypass the node. 
               These actions require fast, low-cost on-chain transactions using MiniPay or any web3 wallet.
             </p>
