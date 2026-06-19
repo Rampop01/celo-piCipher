@@ -368,7 +368,7 @@ export default function GamePlay() {
       {showOnboarding && <OnboardingOverlay onComplete={handleOnboardingComplete} networkName="CELO" speakText={speakText} />}
       {/* Top HUD */}
       <div className="w-full border-b border-[#35D07F]/30 bg-black/60 backdrop-blur-md sticky top-0 z-50 p-4 flex justify-between items-center font-mono shadow-[0_4px_20px_rgba(53,208,127,0.1)]">
-        <div className="flex items-center gap-6">
+        <div data-component-id="3ae73c0a" className="flex items-center gap-6">
           <Link href="/" className="text-white/60 hover:text-[#35D07F] transition-colors flex items-center gap-2 text-sm">
             <Home className="w-4 h-4" /> <span data-theme-role="primary-surface" className="hidden md:inline">HOME</span>
           </Link>
