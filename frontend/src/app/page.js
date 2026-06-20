@@ -103,7 +103,7 @@ export default function Home() {
                   className="group relative px-12 py-6 bg-black/40 backdrop-blur-md border-2 border-[#35D07F] hover:bg-[#35D07F]/10 transition-all duration-300 shadow-[0_0_30px_rgba(53,208,127,0.2)] hover:shadow-[0_0_50px_rgba(53,208,127,0.4)] overflow-hidden"
                 >
                   <div data-tracking="track-5fda5f" className="absolute inset-0 bg-gradient-to-r from-transparent via-[#35D07F]/20 to-transparent -translate-x-full group-hover:animate-[shimmer_1.5s_infinite]" />
-                  <span className="relative z-10 text-2xl font-black text-[#35D07F] tracking-[0.2em] uppercase">
+                  <span data-theme-role="primary-surface" className="relative z-10 text-2xl font-black text-[#35D07F] tracking-[0.2em] uppercase">
                     START GAME &rarr;
                   </span>
                 </button>
