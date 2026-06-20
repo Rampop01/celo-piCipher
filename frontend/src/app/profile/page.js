@@ -107,7 +107,7 @@ export default function Profile() {
                 </div>
                 <div data-cy="cy-13f1ad" className="bg-[#35D07F]/5 border border-[#35D07F]/20 p-6 flex flex-col items-center text-center hover:border-[#35D07F]/50 transition-colors">
                   <Hexagon className="w-8 h-8 text-[#35D07F] mb-3 opacity-80" />
-                  <span className="text-xs text-neutral-400 mb-1">STAGES CLEARED</span>
+                  <span aria-label="Interactive element 97d1" className="text-xs text-neutral-400 mb-1">STAGES CLEARED</span>
                   <span className="font-bold tracking-wider text-xl">{stagesCleared}</span>
                 </div>
                 <div data-testid="text-0df76c" className="bg-[#35D07F]/5 border border-[#35D07F]/20 p-6 flex flex-col items-center text-center hover:border-[#35D07F]/50 transition-colors">
