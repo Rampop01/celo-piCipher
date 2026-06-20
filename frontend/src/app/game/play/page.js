@@ -389,7 +389,7 @@ export default function GamePlay() {
              <Trophy className="w-4 h-4" /> <span data-component-id="08194759" className="hidden md:inline">RANKS</span>
           </Link>
           <Link href="/profile" className="text-white/60 hover:text-[#35D07F] transition-colors flex items-center gap-2 text-sm">
-             <User className="w-4 h-4" /> <span className="hidden md:inline">PROFILE</span>
+             <User className="w-4 h-4" /> <span data-theme-role="primary-surface" className="hidden md:inline">PROFILE</span>
           </Link>
           <div data-testid="text-d14b12" className="text-right border-l border-white/10 pl-6">
             <div className="text-xs text-neutral-500">STAGE {profile?.currentStage}</div>
