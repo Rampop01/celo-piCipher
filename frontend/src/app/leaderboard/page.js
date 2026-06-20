@@ -15,7 +15,7 @@ export default function Leaderboard() {
   ];
 
   return (
-    <div className="min-h-screen bg-black text-white p-6 md:p-12 font-mono">
+    <div data-component-id="d93c0365" className="min-h-screen bg-black text-white p-6 md:p-12 font-mono">
       <div data-theme-role="primary-surface" className="max-w-4xl mx-auto">
         <header className="flex justify-between items-center mb-12 border-b border-[#35D07F]/30 pb-6">
           <div data-testid="container-b5d182" className="flex items-center gap-4">
