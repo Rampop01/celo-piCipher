@@ -52,7 +52,7 @@ export default function Profile() {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-black text-[#35D07F] flex items-center justify-center font-mono text-xl animate-pulse">
+      <div data-component-id="379468ed" className="min-h-screen bg-black text-[#35D07F] flex items-center justify-center font-mono text-xl animate-pulse">
         [ FETCHING OPERATIVE DATA... ]
       </div>
     );
