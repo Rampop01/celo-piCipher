@@ -162,7 +162,7 @@ export default function Profile() {
                     <div data-cy="cy-354110" className="w-[calc(100%-2rem)] md:w-[calc(50%-2rem)] p-4 border border-[#35D07F]/20 bg-[#35D07F]/5 group-hover:border-[#35D07F]/50 transition-colors ml-4 md:ml-0">
                       <div className="flex justify-between items-start mb-1">
                         <span data-theme-role="primary-surface" className="font-bold text-sm text-[#35D07F]">{log.type}</span>
-                        <span className="text-[10px] text-neutral-500">{log.time}</span>
+                        <span data-theme-role="primary-surface" className="text-[10px] text-neutral-500">{log.time}</span>
                       </div>
                       <p data-tracking="track-b1bf59" className="text-xs text-neutral-300">
                         {log.stage ? `Cleared Stage ${log.stage}` : "Profile Loaded successfully"}
