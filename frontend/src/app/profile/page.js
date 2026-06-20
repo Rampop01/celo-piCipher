@@ -97,7 +97,7 @@ export default function Profile() {
         </header>
 
         {authenticated && profile ? (
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div data-cy="cy-e2fdd6" className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="md:col-span-2 space-y-8">
               <div data-cy="cy-45e6ed" className="grid grid-cols-2 sm:grid-cols-3 gap-4">
                 <div className="bg-[#35D07F]/5 border border-[#35D07F]/20 p-6 flex flex-col items-center text-center hover:border-[#35D07F]/50 transition-colors">
