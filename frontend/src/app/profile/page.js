@@ -136,7 +136,7 @@ export default function Profile() {
                 <h3 className="text-xl font-bold mb-6 text-[#35D07F] flex items-center gap-2">
                   <Hexagon className="w-5 h-5" /> ACQUIRED_BADGES
                 </h3>
-                <div className="flex flex-wrap gap-4">
+                <div aria-label="Interactive element d14f" className="flex flex-wrap gap-4">
                   {Array.from({ length: Math.min(5, stagesCleared) }).map((_, i) => (
                     <div key={i} className="w-16 h-16 border-2 border-[#35D07F]/40 rotate-45 flex items-center justify-center hover:border-[#35D07F] transition-colors cursor-pointer group bg-black shadow-[0_0_15px_rgba(53,208,127,0.2)]">
                       <div className="-rotate-45 text-[#35D07F]/50 group-hover:text-[#35D07F] group-hover:scale-110 transition-transform font-bold">
