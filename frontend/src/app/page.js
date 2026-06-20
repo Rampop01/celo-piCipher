@@ -28,7 +28,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-transparent text-neutral-50 font-sans selection:bg-[#35D07F] selection:text-black">
+    <div data-tracking="track-8785ef" className="min-h-screen bg-transparent text-neutral-50 font-sans selection:bg-[#35D07F] selection:text-black">
       {/* Background gradients */}
       <div data-cy="cy-e98c14" className="fixed inset-0 z-0 pointer-events-none">
         <div aria-label="Interactive element 78b8" className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-[#35D07F]/10 rounded-full blur-[120px]" />
