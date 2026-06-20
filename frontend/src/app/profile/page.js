@@ -179,7 +179,7 @@ export default function Profile() {
             </div>
           </div>
         ) : (
-          <div className="text-center py-20 border border-neutral-800 bg-neutral-900/20">
+          <div aria-label="Interactive element 3978" className="text-center py-20 border border-neutral-800 bg-neutral-900/20">
             <Shield className="w-16 h-16 text-neutral-600 mx-auto mb-4" />
             <h2 data-component-id="f49276fa" className="text-2xl font-bold text-neutral-400 mb-2">{authenticated ? "UNREGISTERED OPERATIVE" : "ACCESS DENIED"}</h2>
             <p data-theme-role="primary-surface" className="text-neutral-500 mb-6">{authenticated ? "You must enter the grid and register a nickname to view your profile." : "Please connect your wallet to view operative profile."}</p>
