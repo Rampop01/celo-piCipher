@@ -170,7 +170,7 @@ export default function Home() {
                     </div>
                   ))}
                   {/* Fake Microphone overlay */}
-                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-24 h-24 bg-black/90 backdrop-blur-md border-2 border-[#35D07F] flex items-center justify-center shadow-[0_0_30px_#35D07F] animate-pulse difficulty-card">
+                  <div data-component-id="1950de1f" className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-24 h-24 bg-black/90 backdrop-blur-md border-2 border-[#35D07F] flex items-center justify-center shadow-[0_0_30px_#35D07F] animate-pulse difficulty-card">
                     <Mic className="w-10 h-10 text-[#35D07F]" />
                   </div>
                 </div>
