@@ -313,7 +313,7 @@ export default function GamePlay() {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-transparent text-[#35D07F] flex items-center justify-center font-mono text-xl animate-pulse">
+      <div data-testid="text-0d6e05" className="min-h-screen bg-transparent text-[#35D07F] flex items-center justify-center font-mono text-xl animate-pulse">
         [ CONNECTING TO MAINFRAME... ]
       </div>
     );
