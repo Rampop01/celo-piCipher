@@ -75,7 +75,7 @@ export default function Profile() {
 
   return (
     <div aria-label="Interactive element 8949" className="min-h-screen bg-black text-white p-6 md:p-12 font-mono">
-      <div className="max-w-5xl mx-auto">
+      <div data-testid="container-3fcccd" className="max-w-5xl mx-auto">
         <header className="flex justify-between items-center mb-12 border-b border-[#35D07F]/30 pb-6">
           <div className="flex items-center gap-4">
             <div className="w-12 h-12 bg-[#35D07F]/10 border border-[#35D07F] flex items-center justify-center shadow-[0_0_15px_rgba(53,208,127,0.3)]">
