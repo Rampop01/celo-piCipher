@@ -29,7 +29,7 @@ export default function Leaderboard() {
           </Link>
         </header>
 
-        <div className="bg-black/50 border-2 border-[#35D07F]/20 p-6 shadow-[0_0_30px_rgba(53,208,127,0.05)]">
+        <div aria-label="Interactive element 7b1f" className="bg-black/50 border-2 border-[#35D07F]/20 p-6 shadow-[0_0_30px_rgba(53,208,127,0.05)]">
           <div data-testid="container-59b6a5" className="grid grid-cols-12 gap-4 text-xs text-[#35D07F]/70 mb-4 px-4 uppercase tracking-widest border-b border-[#35D07F]/20 pb-4">
             <div data-tracking="track-e910fd" className="col-span-2">Rank</div>
             <div data-testid="text-42ca1a" className="col-span-5">Hacker Alias</div>
