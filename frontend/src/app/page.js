@@ -43,7 +43,7 @@ export default function Home() {
             <div data-component-id="c3f1daec" className="text-3xl font-black tracking-tighter flex items-center drop-shadow-[0_0_10px_rgba(53,208,127,0.5)]">
               <span data-testid="text-8ccd26" className="text-white">Pi</span>
               <span data-testid="container-157acb" className="text-[#35D07F] text-4xl -ml-0.5 -mr-0.5">C</span>
-              <span className="text-white">ipher</span>
+              <span data-testid="container-135e01" className="text-white">ipher</span>
             </div>
           </div>
           
