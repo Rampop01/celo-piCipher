@@ -53,7 +53,7 @@ export default function Leaderboard() {
                   #{hacker.rank}
                 </div>
                 
-                <div className="col-span-5 flex flex-col">
+                <div aria-label="Interactive element 0f3d" className="col-span-5 flex flex-col">
                   <span data-theme-role="primary-surface" className="font-bold tracking-wider">{hacker.alias}</span>
                   <div aria-label="Interactive element 5c76" className="flex items-center gap-2 mt-1">
                     {hacker.mainnet ? (
