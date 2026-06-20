@@ -457,7 +457,7 @@ export default function GamePlay() {
             TERMINAL_INPUT.exe
           </div>
           
-          <div className="flex flex-col items-center mt-4">
+          <div aria-label="Interactive element 5a79" className="flex flex-col items-center mt-4">
             <button
               onClick={toggleListening}
               className={`w-20 h-20 rounded-full flex items-center justify-center mb-8 transition-all duration-300 ${
