@@ -64,7 +64,7 @@ export default function Leaderboard() {
                   </div>
                 </div>
 
-                <div className="col-span-2 flex justify-center items-center gap-2 text-xl font-bold">
+                <div data-testid="text-51866f" className="col-span-2 flex justify-center items-center gap-2 text-xl font-bold">
                   <Hexagon className="w-4 h-4 opacity-50" />
                   {hacker.stage}
                 </div>
