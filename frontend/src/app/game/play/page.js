@@ -372,7 +372,7 @@ export default function GamePlay() {
           <Link href="/" className="text-white/60 hover:text-[#35D07F] transition-colors flex items-center gap-2 text-sm">
             <Home className="w-4 h-4" /> <span data-theme-role="primary-surface" className="hidden md:inline">HOME</span>
           </Link>
-          <div className="flex items-center gap-4 border-l border-white/10 pl-6">
+          <div aria-label="Interactive element 3ac3" className="flex items-center gap-4 border-l border-white/10 pl-6">
             <span data-theme-role="primary-surface" className="text-[#35D07F] font-bold tracking-widest uppercase">
               {profile?.nickname || "UNKNOWN"}
             </span>
