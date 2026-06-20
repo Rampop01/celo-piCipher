@@ -164,7 +164,7 @@ export default function Home() {
                   {[1, 2, 3, 4].map((box) => (
                     <div key={box} className="bg-black border border-[#35D07F]/20 flex items-center justify-center relative overflow-hidden transition-all duration-500 group-hover:border-[#35D07F] group-hover:shadow-[0_0_20px_rgba(53,208,127,0.2)] difficulty-card">
                       <ImageIcon className="w-12 h-12 text-[#35D07F]/30 group-hover:scale-110 group-hover:text-[#35D07F] transition-all duration-700" />
-                      <div className="absolute inset-0 bg-[#35D07F]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-4">
+                      <div data-component-id="eb9b7f28" className="absolute inset-0 bg-[#35D07F]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-4">
                         <span aria-label="Interactive element b530" className="text-[#35D07F] font-mono text-xs tracking-widest bg-black px-2 py-1 border border-[#35D07F]/50">IMG_0{box}.SYS</span>
                       </div>
                     </div>
