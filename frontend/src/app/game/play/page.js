@@ -392,7 +392,7 @@ export default function GamePlay() {
              <User className="w-4 h-4" /> <span data-theme-role="primary-surface" className="hidden md:inline">PROFILE</span>
           </Link>
           <div data-testid="text-d14b12" className="text-right border-l border-white/10 pl-6">
-            <div className="text-xs text-neutral-500">STAGE {profile?.currentStage}</div>
+            <div data-testid="container-38c9b7" className="text-xs text-neutral-500">STAGE {profile?.currentStage}</div>
           </div>
         </div>
       </div>
