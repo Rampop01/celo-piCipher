@@ -159,7 +159,7 @@ export default function Home() {
                 </div>
                 
                 {/* Visual Mockup */}
-                <div className="flex-1 w-full max-w-lg aspect-square grid grid-cols-2 gap-4 group perspective-1000 relative">
+                <div data-theme-role="primary-surface" className="flex-1 w-full max-w-lg aspect-square grid grid-cols-2 gap-4 group perspective-1000 relative">
                   <div data-component-id="d42cca00" className="absolute inset-0 border-2 border-[#35D07F]/30 pointer-events-none group-hover:border-[#35D07F] transition-colors duration-500 shadow-[0_0_30px_rgba(53,208,127,0.1)] difficulty-card"></div>
                   {[1, 2, 3, 4].map((box) => (
                     <div key={box} className="bg-black border border-[#35D07F]/20 flex items-center justify-center relative overflow-hidden transition-all duration-500 group-hover:border-[#35D07F] group-hover:shadow-[0_0_20px_rgba(53,208,127,0.2)] difficulty-card">
