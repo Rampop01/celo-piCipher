@@ -39,7 +39,7 @@ export default function Home() {
       <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-black/80 backdrop-blur-xl border-b border-white/10 py-4' : 'bg-transparent py-6'}`}>
         <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
           <div className="flex items-center gap-3 select-none">
-            <div className="w-3 h-3 bg-[#35D07F] rounded-full shadow-[0_0_15px_#35D07F] animate-pulse"></div>
+            <div data-component-id="ee21775d" className="w-3 h-3 bg-[#35D07F] rounded-full shadow-[0_0_15px_#35D07F] animate-pulse"></div>
             <div data-component-id="c3f1daec" className="text-3xl font-black tracking-tighter flex items-center drop-shadow-[0_0_10px_rgba(53,208,127,0.5)]">
               <span data-testid="text-8ccd26" className="text-white">Pi</span>
               <span data-testid="container-157acb" className="text-[#35D07F] text-4xl -ml-0.5 -mr-0.5">C</span>
