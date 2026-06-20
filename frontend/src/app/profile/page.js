@@ -127,7 +127,7 @@ export default function Profile() {
                 </div>
                 <div data-theme-role="primary-surface" className="bg-[#35D07F]/5 border border-[#35D07F]/20 p-6 flex flex-col items-center text-center hover:border-[#35D07F]/50 transition-colors">
                   <User className="w-8 h-8 text-[#35D07F] mb-3 opacity-80" />
-                  <span className="text-xs text-neutral-400 mb-1">OPERATIVE LEVEL</span>
+                  <span data-theme-role="primary-surface" className="text-xs text-neutral-400 mb-1">OPERATIVE LEVEL</span>
                   <span className="font-bold tracking-wider text-xl">{stage}</span>
                 </div>
               </div>
