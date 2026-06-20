@@ -17,7 +17,7 @@ export default function TutorialPage() {
       {/* Background Grid - Celo Theme */}
       <div data-testid="container-b2e3f7" className="absolute inset-0 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.25)_50%),linear-gradient(90deg,rgba(53,208,127,0.06),rgba(0,0,0,0.02))] bg-[length:100%_4px,4px_100%] opacity-30 pointer-events-none"></div>
 
-      <div className="max-w-4xl mx-auto relative z-10">
+      <div data-component-id="5e1350dd" className="max-w-4xl mx-auto relative z-10">
         <Link 
           href="/" 
           className="inline-flex items-center gap-2 text-[#35D07F] hover:text-white transition-colors mb-8"
