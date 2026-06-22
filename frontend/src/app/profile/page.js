@@ -31,8 +31,9 @@ export default function Profile() {
       setIsLoading(true);
       // Always use the public Celo RPC so profile data loads even if wallet is on wrong network
       const provider = new ethers.JsonRpcProvider("https://forno.celo.org");
+      const activeWallet = wallets.find(w => w.address === user?.wallet?.address) || wallets[0];
       const contract = new ethers.Contract(GAME_CONTRACT_ADDRESS, GAME_ABI, provider);
-      const userAddress = wallets[0].address;
+      const userAddress = activeWallet.address;
 
       const userProfile = await contract.profiles(userAddress);
       

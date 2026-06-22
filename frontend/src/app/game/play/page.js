@@ -58,6 +58,11 @@ export default function GamePlay() {
   const recognitionRef = useRef(null);
   const hasWelcomedRef = useRef(false);
 
+  // Reset welcome when active user changes
+  useEffect(() => {
+    hasWelcomedRef.current = false;
+  }, [user?.wallet?.address]);
+
   // 1. Detect MiniPay & Load Profile
   useEffect(() => {
     if (typeof window !== "undefined" && window.ethereum?.isMiniPay) {
@@ -86,10 +91,11 @@ export default function GamePlay() {
   const loadProfile = async () => {
     try {
       setIsLoading(true);
-      const eProvider = await wallets[0].getEthereumProvider();
+      const activeWallet = wallets.find(w => w.address === user?.wallet?.address) || wallets[0];
+      const eProvider = await activeWallet.getEthereumProvider();
       const provider = new ethers.BrowserProvider(eProvider);
       const contract = new ethers.Contract(GAME_CONTRACT_ADDRESS, GAME_ABI, provider);
-      const userAddress = wallets[0].address;
+      const userAddress = activeWallet.address;
 
       const userProfile = await contract.profiles(userAddress);
       
@@ -186,7 +192,8 @@ export default function GamePlay() {
     if (!nicknameInput) return;
     try {
       setIsRegistering(true);
-      const eProvider = await wallets[0].getEthereumProvider();
+      const activeWallet = wallets.find(w => w.address === user?.wallet?.address) || wallets[0];
+      const eProvider = await activeWallet.getEthereumProvider();
       const provider = new ethers.BrowserProvider(eProvider);
       const signer = await provider.getSigner();
       const contract = new ethers.Contract(GAME_CONTRACT_ADDRESS, GAME_ABI, signer);
@@ -267,7 +274,8 @@ export default function GamePlay() {
         playSuccess();
         setFeedback({ type: "success", message: "Correct!" });
         try {
-          const eProvider = await wallets[0].getEthereumProvider();
+          const activeWallet = wallets.find(w => w.address === user?.wallet?.address) || wallets[0];
+          const eProvider = await activeWallet.getEthereumProvider();
           const provider = new ethers.BrowserProvider(eProvider);
           const signer = await provider.getSigner();
           const contract = new ethers.Contract(GAME_CONTRACT_ADDRESS, GAME_ABI, signer);
@@ -299,7 +307,8 @@ export default function GamePlay() {
   const handleBypass = async () => {
     try {
       setFeedback({ type: "loading", message: "Approving cUSD..." });
-      const eProvider = await wallets[0].getEthereumProvider();
+      const activeWallet = wallets.find(w => w.address === user?.wallet?.address) || wallets[0];
+      const eProvider = await activeWallet.getEthereumProvider();
       const provider = new ethers.BrowserProvider(eProvider);
       const signer = await provider.getSigner();
       
@@ -330,7 +339,8 @@ export default function GamePlay() {
   const handleBuyHint = async () => {
     try {
       setFeedback({ type: "loading", message: "Approving cUSD..." });
-      const eProvider = await wallets[0].getEthereumProvider();
+      const activeWallet = wallets.find(w => w.address === user?.wallet?.address) || wallets[0];
+      const eProvider = await activeWallet.getEthereumProvider();
       const provider = new ethers.BrowserProvider(eProvider);
       const signer = await provider.getSigner();
       
