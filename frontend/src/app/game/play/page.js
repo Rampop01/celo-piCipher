@@ -580,6 +580,7 @@ export default function GamePlay() {
           )}
         </div>
       </div>
+      </div>
     );
   }
 
