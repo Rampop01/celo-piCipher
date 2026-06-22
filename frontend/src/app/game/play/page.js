@@ -338,14 +338,32 @@ export default function GamePlay() {
   const checkAnswer = async (guess) => {
     if (!currentStageData || !guess) return;
     if (guess.toUpperCase().trim() === currentStageData.word.toUpperCase().trim()) {
+      setIsSubmitting(true);
+      
+      // If user is playing off-chain, just update local state
+      if (profile?.isOffChain) {
+        setTimeout(() => {
+          playSuccess();
+          speakText("Access granted. Impressive hacking.");
+          setFeedback({ type: "success", message: "Correct! Advancing stage..." });
+          
+          const nextStage = profile.currentStage + 1;
+          setProfile(prev => ({ ...prev, currentStage: nextStage }));
+          setViewingStage(nextStage);
+          loadStage(nextStage, "CAMPAIGN", difficulty);
+          setIsSubmitting(false);
+          setTranscript("");
+        }, 1000);
+        return;
+      }
+
       speakText("Access granted. Impressive hacking.");
       
       const isBlockchainStage = category === "CAMPAIGN" && profile && viewingStage === profile.currentStage;
       
       if (isBlockchainStage) {
-        playSuccess();
-        setFeedback({ type: "success", message: "Correct!" });
         try {
+          setFeedback({ type: "loading", message: "Saving progress..." });
           const activeWallet = getActiveWallet();
           if (!activeWallet) {
             setFeedback({ type: "error", message: "This game is fully on-chain. Connect a Web3 wallet to save progress." });
@@ -356,6 +374,7 @@ export default function GamePlay() {
 
           const balance = await provider.getBalance(activeWallet.address);
           if (balance === 0n) {
+            playError();
             setFeedback({ type: "error", message: "No CELO for gas. Fund your wallet to save progress." });
             return;
           }
@@ -375,6 +394,8 @@ export default function GamePlay() {
             ? "No CELO for gas. Fund your wallet to save progress."
             : "Blockchain submission failed.";
           setFeedback({ type: "error", message: msg });
+        } finally {
+          setIsSubmitting(false);
         }
       } else {
         playSuccess();
@@ -391,6 +412,20 @@ export default function GamePlay() {
 
   // Micro-transactions
   const handleBypass = async () => {
+    // If playing off-chain, bypass locally
+    if (profile?.isOffChain) {
+      playSuccess();
+      speakText(`Stage bypassed. The answer was ${currentStageData.word}`);
+      setFeedback({ type: "success", message: `Bypassed! Answer: ${currentStageData.word}` });
+      setTimeout(() => {
+        const nextStage = profile.currentStage + 1;
+        setProfile(prev => ({ ...prev, currentStage: nextStage }));
+        setViewingStage(nextStage);
+        loadStage(nextStage, "CAMPAIGN", difficulty);
+      }, 4000);
+      return;
+    }
+
     try {
       setFeedback({ type: "loading", message: "Approving cUSD..." });
       const activeWallet = getActiveWallet();
@@ -428,6 +463,14 @@ export default function GamePlay() {
   };
 
   const handleBuyHint = async () => {
+    // If playing off-chain, show hint locally
+    if (profile?.isOffChain) {
+      setShowHint(true);
+      speakText("Hint unlocked.");
+      setFeedback({ type: "success", message: "Hint purchased! (Off-chain)" });
+      return;
+    }
+
     try {
       setFeedback({ type: "loading", message: "Approving cUSD..." });
       const activeWallet = getActiveWallet();
