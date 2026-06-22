@@ -5,10 +5,10 @@ export const GAME_VAULTS = {
     "word": "Celo",
     "hint": "Mobile-first blockchain network",
     "imageUrls": [
-      "https://cryptologos.cc/logos/celo-celo-logo.png",
-      "https://cf-images.us-east-1.prod.boltdns.net/v1/static/6216791181001/1e1cb7d2-6c45-4983-83cb-5e1c68c842f7/d618d48e-36a7-41f7-a97d-716204c2abf9/1280x720/match/image.jpg",
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTz_EvMOuGHM4SdaSU-w7eSOWkFiafzcLGYhTA2-wxf6JKJ4_ezWjo7K0tx&s=10",
-      "https://images.pexels.com/photos/4968630/pexels-photo-4968630.jpeg"
+      "/images/vault/img_0.png",
+      "/images/vault/img_1.jpg",
+      "/images/vault/img_2.jpg",
+      "/images/vault/img_3.jpeg"
     ]
   },
   {
@@ -16,10 +16,10 @@ export const GAME_VAULTS = {
     "word": "Fruit",
     "hint": "Edible natural food from trees or plants",
     "imageUrls": [
-      "https://images.pexels.com/photos/102104/pexels-photo-102104.jpeg",
-      "https://images.pexels.com/photos/2247142/pexels-photo-2247142.jpeg?w=400&h=300&fit=crop",
-      "https://images.pexels.com/photos/1132047/pexels-photo-1132047.jpeg",
-      "https://images.pexels.com/photos/264537/pexels-photo-264537.jpeg"
+      "/images/vault/img_4.jpeg",
+      "/images/vault/img_5.jpeg",
+      "/images/vault/img_6.jpeg",
+      "/images/vault/img_7.jpeg"
     ]
   },
   {
@@ -27,10 +27,10 @@ export const GAME_VAULTS = {
     "word": "MiniPay",
     "hint": "Fast mobile payment system",
     "imageUrls": [
-      "https://images.pexels.com/photos/4968630/pexels-photo-4968630.jpeg",
-      "https://images.pexels.com/photos/5082579/pexels-photo-5082579.jpeg?w=400&h=300&fit=crop",
-      "https://cryptologos.cc/logos/celo-celo-logo.png",
-      "https://cryptologos.cc/logos/usd-coin-usdc-logo.png"
+      "/images/vault/img_8.jpeg",
+      "/images/vault/img_9.jpeg",
+      "/images/vault/img_10.png",
+      "/images/vault/img_11.png"
     ]
   },
   {
@@ -38,10 +38,10 @@ export const GAME_VAULTS = {
     "word": "Ethereum",
     "hint": "Popular blockchain platform",
     "imageUrls": [
-      "https://cryptologos.cc/logos/ethereum-eth-logo.png",
-      "https://images.pexels.com/photos/730547/pexels-photo-730547.jpeg",
-      "https://images.pexels.com/photos/837075/pexels-photo-837075.jpeg",
-      "https://images.pexels.com/photos/844124/pexels-photo-844124.jpeg"
+      "/images/vault/img_12.png",
+      "/images/vault/img_13.jpeg",
+      "https://images.unsplash.com/photo-1620321023374-d1a68fbc720d?w=800&q=80",
+      "/images/vault/img_15.jpeg"
     ]
   },
   {
@@ -49,10 +49,10 @@ export const GAME_VAULTS = {
     "word": "Airport",
     "hint": "Place where flights take off and land",
     "imageUrls": [
-      "https://images.pexels.com/photos/3943882/pexels-photo-3943882.jpeg?w=400&h=300&fit=crop",
-      "https://images.pexels.com/photos/358319/pexels-photo-358319.jpeg",
-      "https://images.pexels.com/photos/358220/pexels-photo-358220.jpeg",
-      "https://images.pexels.com/photos/912050/pexels-photo-912050.jpeg?w=400&h=300&fit=crop"
+      "/images/vault/img_16.jpeg",
+      "/images/vault/img_17.jpeg",
+      "/images/vault/img_18.jpeg",
+      "/images/vault/img_19.jpeg"
     ]
   },
   {
@@ -60,9 +60,9 @@ export const GAME_VAULTS = {
     "word": "Hacker",
     "hint": "Someone skilled in computer systems",
     "imageUrls": [
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNKw2i5QvC2fp_o-AZsWh84xJFqzyA1sYjPBVoBbfSdbRRtZl4ROnsPr73&s=10",
-      "https://images.pexels.com/photos/5380664/pexels-photo-5380664.jpeg",
-      "https://www.csoonline.com/wp-content/uploads/2023/06/hacker_hire-100697015-orig.jpg?quality=50&strip=all",
+      "/images/vault/img_20.jpg",
+      "/images/vault/img_21.jpeg",
+      "/images/vault/img_22.jpg",
       "https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Hacker_behind_PC.svg/960px-Hacker_behind_PC.svg.png?_=20200323021655"
     ]
   },
@@ -71,10 +71,10 @@ export const GAME_VAULTS = {
     "word": "Wallet",
     "hint": "Stores money or digital assets",
     "imageUrls": [
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBu_4q-7t6itj2DfSXeAtcDghezDZnvWiQ1_tKMGQQBQ&s",
-      "https://avatars.githubusercontent.com/u/84845472?v=4",
-      "https://www.rogue-industries.com/cdn/shop/products/Rogue_Front_Pocket_Wallet_Open_2be340d5-5391-41b5-8685-94fe0eb406e6_800x.jpg?v=1698446308",
-      "https://ledger-wp-website-s3-prd.ledger.com/uploads/2024/07/flex_comparison_block.webp"
+      "/images/vault/img_24.jpg",
+      "/images/vault/img_25.jpg",
+      "/images/vault/img_26.jpg",
+      "/images/vault/img_27.webp"
     ]
   },
   {
@@ -82,10 +82,10 @@ export const GAME_VAULTS = {
     "word": "Water",
     "hint": "Essential liquid for life",
     "imageUrls": [
-      "https://images.pexels.com/photos/327090/pexels-photo-327090.jpeg",
-      "https://images.pexels.com/photos/1000084/pexels-photo-1000084.jpeg?w=400&h=300&fit=crop",
-      "https://images.pexels.com/photos/1001682/pexels-photo-1001682.jpeg",
-      "https://images.pexels.com/photos/459225/pexels-photo-459225.jpeg"
+      "/images/vault/img_28.jpeg",
+      "/images/vault/img_29.jpeg",
+      "/images/vault/img_30.jpeg",
+      "/images/vault/img_31.jpeg"
     ]
   },
   {
@@ -93,10 +93,10 @@ export const GAME_VAULTS = {
     "word": "Music",
     "hint": "Art of sound and rhythm",
     "imageUrls": [
-      "https://images.pexels.com/photos/2531728/pexels-photo-2531728.jpeg?w=400&h=300&fit=crop",
-      "https://images.pexels.com/photos/164745/pexels-photo-164745.jpeg",
-      "https://images.pexels.com/photos/210887/pexels-photo-210887.jpeg",
-      "https://images.pexels.com/photos/210764/pexels-photo-210764.jpeg"
+      "/images/vault/img_32.jpeg",
+      "/images/vault/img_33.jpeg",
+      "/images/vault/img_34.jpeg",
+      "/images/vault/img_35.jpeg"
     ]
   },
   {
@@ -104,10 +104,10 @@ export const GAME_VAULTS = {
     "word": "Pizza",
     "hint": "Popular Italian fast food",
     "imageUrls": [
-      "https://images.pexels.com/photos/315755/pexels-photo-315755.jpeg",
-      "https://images.pexels.com/photos/825661/pexels-photo-825661.jpeg",
-      "https://images.pexels.com/photos/1566837/pexels-photo-1566837.jpeg",
-      "https://images.pexels.com/photos/708587/pexels-photo-708587.jpeg?w=400&h=300&fit=crop"
+      "/images/vault/img_36.jpeg",
+      "/images/vault/img_37.jpeg",
+      "/images/vault/img_38.jpeg",
+      "/images/vault/img_39.jpeg"
     ]
   },
   {
@@ -115,10 +115,10 @@ export const GAME_VAULTS = {
     "word": "Beach",
     "hint": "Sandy seaside vacation spot",
     "imageUrls": [
-      "https://images.pexels.com/photos/457882/pexels-photo-457882.jpeg",
-      "https://images.pexels.com/photos/1032650/pexels-photo-1032650.jpeg",
-      "https://images.pexels.com/photos/210205/pexels-photo-210205.jpeg",
-      "https://images.pexels.com/photos/1450353/pexels-photo-1450353.jpeg"
+      "/images/vault/img_40.jpeg",
+      "/images/vault/img_41.jpeg",
+      "/images/vault/img_42.jpeg",
+      "/images/vault/img_43.jpeg"
     ]
   },
   {
@@ -126,10 +126,10 @@ export const GAME_VAULTS = {
     "word": "Football",
     "hint": "World's most popular sport",
     "imageUrls": [
-      "https://images.pexels.com/photos/46798/the-ball-stadion-football-the-pitch-46798.jpeg",
-      "https://images.pexels.com/photos/274422/pexels-photo-274422.jpeg",
-      "https://images.pexels.com/photos/399187/pexels-photo-399187.jpeg",
-      "https://images.pexels.com/photos/1884574/pexels-photo-1884574.jpeg?w=400&h=300&fit=crop"
+      "/images/vault/img_44.jpeg",
+      "/images/vault/img_45.jpeg",
+      "/images/vault/img_46.jpeg",
+      "/images/vault/img_47.jpeg"
     ]
   },
   {
@@ -137,10 +137,10 @@ export const GAME_VAULTS = {
     "word": "Wedding",
     "hint": "Marriage ceremony",
     "imageUrls": [
-      "https://images.pexels.com/photos/265722/pexels-photo-265722.jpeg",
-      "https://images.pexels.com/photos/169198/pexels-photo-169198.jpeg",
-      "https://images.pexels.com/photos/265730/pexels-photo-265730.jpeg",
-      "https://images.pexels.com/photos/265702/pexels-photo-265702.jpeg"
+      "/images/vault/img_48.jpeg",
+      "/images/vault/img_49.jpeg",
+      "/images/vault/img_50.jpeg",
+      "/images/vault/img_51.jpeg"
     ]
   },
   {
@@ -148,10 +148,10 @@ export const GAME_VAULTS = {
     "word": "Rainbow",
     "hint": "Colorful arc after rain",
     "imageUrls": [
-      "https://images.pexels.com/photos/414102/pexels-photo-414102.jpeg",
-      "https://images.pexels.com/photos/1624438/pexels-photo-1624438.jpeg",
-      "https://images.pexels.com/photos/462118/pexels-photo-462118.jpeg",
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJVvEvtfvMhfipLU14Z06QAzELcvhLLYDBBzG_k-7AwQ&s=10"
+      "/images/vault/img_52.jpeg",
+      "/images/vault/img_53.jpeg",
+      "/images/vault/img_54.jpeg",
+      "/images/vault/img_55.jpg"
     ]
   },
   {
@@ -159,10 +159,10 @@ export const GAME_VAULTS = {
     "word": "Party",
     "hint": "Big celebration or event",
     "imageUrls": [
-      "https://images.pexels.com/photos/1190297/pexels-photo-1190297.jpeg",
-      "https://images.pexels.com/photos/2747449/pexels-photo-2747449.jpeg",
-      "https://images.pexels.com/photos/1105666/pexels-photo-1105666.jpeg",
-      "https://images.pexels.com/photos/1763075/pexels-photo-1763075.jpeg"
+      "/images/vault/img_56.jpeg",
+      "/images/vault/img_57.jpeg",
+      "/images/vault/img_58.jpeg",
+      "/images/vault/img_59.jpeg"
     ]
   },
   {
@@ -170,10 +170,10 @@ export const GAME_VAULTS = {
     "word": "Book",
     "hint": "Used for reading stories or knowledge",
     "imageUrls": [
-      "https://images.pexels.com/photos/159711/books-bookstore-book-reading-159711.jpeg",
-      "https://images.pexels.com/photos/46274/pexels-photo-46274.jpeg",
-      "https://images.pexels.com/photos/694740/pexels-photo-694740.jpeg?w=400&h=300&fit=crop",
-      "https://images.pexels.com/photos/34592/pexels-photo.jpg"
+      "/images/vault/img_60.jpeg",
+      "/images/vault/img_61.jpeg",
+      "/images/vault/img_62.jpeg",
+      "/images/vault/img_63.jpg"
     ]
   },
   {
@@ -181,10 +181,10 @@ export const GAME_VAULTS = {
     "word": "Shopping",
     "hint": "Place where people buy and sell goods",
     "imageUrls": [
-      "https://images.pexels.com/photos/264636/pexels-photo-264636.jpeg",
-      "https://images.pexels.com/photos/264547/pexels-photo-264547.jpeg",
-      "https://images.pexels.com/photos/3962285/pexels-photo-3962285.jpeg?w=400&h=300&fit=crop",
-      "https://images.pexels.com/photos/2292953/pexels-photo-2292953.jpeg?w=400&h=300&fit=crop"
+      "/images/vault/img_64.jpeg",
+      "/images/vault/img_65.jpeg",
+      "/images/vault/img_66.jpeg",
+      "/images/vault/img_67.jpeg"
     ]
   },
   {
@@ -192,10 +192,10 @@ export const GAME_VAULTS = {
     "word": "School",
     "hint": "Place for learning and education",
     "imageUrls": [
-      "https://images.pexels.com/photos/256490/pexels-photo-256490.jpeg",
-      "https://images.pexels.com/photos/764681/pexels-photo-764681.jpeg?w=400&h=300&fit=crop",
-      "https://images.pexels.com/photos/267885/pexels-photo-267885.jpeg",
-      "https://images.pexels.com/photos/5212345/pexels-photo-5212345.jpeg?w=400&h=300&fit=crop"
+      "/images/vault/img_68.jpeg",
+      "/images/vault/img_69.jpeg",
+      "/images/vault/img_70.jpeg",
+      "/images/vault/img_71.jpeg"
     ]
   },
   {
@@ -203,10 +203,10 @@ export const GAME_VAULTS = {
     "word": "Hospital",
     "hint": "Place where people go when sick or injured",
     "imageUrls": [
-      "https://images.pexels.com/photos/5452293/pexels-photo-5452293.jpeg",
-      "https://images.pexels.com/photos/263402/pexels-photo-263402.jpeg",
-      "https://images.pexels.com/photos/4386466/pexels-photo-4386466.jpeg",
-      "https://images.pexels.com/photos/263392/pexels-photo-263392.jpeg"
+      "/images/vault/img_72.jpeg",
+      "/images/vault/img_73.jpeg",
+      "/images/vault/img_74.jpeg",
+      "/images/vault/img_75.jpeg"
     ]
   },
   {
@@ -214,10 +214,10 @@ export const GAME_VAULTS = {
     "word": "Birthday",
     "hint": "Sweet baked dessert, often eaten on birthdays",
     "imageUrls": [
-      "https://images.pexels.com/photos/169191/pexels-photo-169191.jpeg",
-      "https://images.pexels.com/photos/587741/pexels-photo-587741.jpeg",
-      "https://images.pexels.com/photos/842876/pexels-photo-842876.jpeg?w=400&h=300&fit=crop",
-      "https://images.pexels.com/photos/1702373/pexels-photo-1702373.jpeg"
+      "/images/vault/img_76.jpeg",
+      "/images/vault/img_77.jpeg",
+      "/images/vault/img_78.jpeg",
+      "/images/vault/img_79.jpeg"
     ]
   },
   {
@@ -225,10 +225,10 @@ export const GAME_VAULTS = {
     "word": "Travel",
     "hint": "Moving from place to place",
     "imageUrls": [
-      "https://images.pexels.com/photos/346885/pexels-photo-346885.jpeg",
-      "https://images.pexels.com/photos/2161449/pexels-photo-2161449.jpeg",
-      "https://images.pexels.com/photos/1008155/pexels-photo-1008155.jpeg",
-      "https://images.pexels.com/photos/21014/pexels-photo.jpg"
+      "/images/vault/img_80.jpeg",
+      "/images/vault/img_81.jpeg",
+      "/images/vault/img_82.jpeg",
+      "/images/vault/img_83.jpg"
     ]
   },
   {
@@ -236,10 +236,10 @@ export const GAME_VAULTS = {
     "word": "Family",
     "hint": "People related to you",
     "imageUrls": [
-      "https://images.pexels.com/photos/2253870/pexels-photo-2253870.jpeg",
-      "https://images.pexels.com/photos/1648387/pexels-photo-1648387.jpeg?w=400&h=300&fit=crop",
-      "https://images.pexels.com/photos/1128318/pexels-photo-1128318.jpeg?w=400&h=300&fit=crop",
-      "https://images.pexels.com/photos/3184183/pexels-photo-3184183.jpeg?w=400&h=300&fit=crop"
+      "/images/vault/img_84.jpeg",
+      "/images/vault/img_85.jpeg",
+      "/images/vault/img_86.jpeg",
+      "/images/vault/img_87.jpeg"
     ]
   },
   {
@@ -247,10 +247,10 @@ export const GAME_VAULTS = {
     "word": "Mountain",
     "hint": "Very high natural land formation",
     "imageUrls": [
-      "https://images.pexels.com/photos/417173/pexels-photo-417173.jpeg",
-      "https://images.pexels.com/photos/355770/pexels-photo-355770.jpeg",
-      "https://images.pexels.com/photos/691668/pexels-photo-691668.jpeg",
-      "https://images.pexels.com/photos/417074/pexels-photo-417074.jpeg"
+      "/images/vault/img_88.jpeg",
+      "/images/vault/img_89.jpeg",
+      "/images/vault/img_90.jpeg",
+      "/images/vault/img_91.jpeg"
     ]
   },
   {
@@ -258,10 +258,10 @@ export const GAME_VAULTS = {
     "word": "Champion",
     "hint": "A 4-pic puzzle for Champion",
     "imageUrls": [
-      "https://blog.likibu.com/wp-content/uploads/2014/06/champion-620x330.jpg",
-      "https://papercart.ph/cdn/shop/products/Academic_DEP-ED_Medal_5cm_Silver.jpg?v=1770079770&width=1646",
-      "https://iprints.com.ng/wp-content/uploads/2024/01/Award-Medals.jpg",
-      "https://www.wikihow.com/images/thumb/8/8c/Be-a-Champion-Step-5-Version-2.jpg/v4-460px-Be-a-Champion-Step-5-Version-2.jpg"
+      "/images/vault/img_92.jpg",
+      "/images/vault/img_93.jpg",
+      "/images/vault/img_94.jpg",
+      "/images/vault/img_95.jpg"
     ]
   },
   {
@@ -269,10 +269,10 @@ export const GAME_VAULTS = {
     "word": "Camera",
     "hint": "Device for taking photos",
     "imageUrls": [
-      "https://images.pexels.com/photos/51383/photo-camera-subject-photographer-51383.jpeg",
-      "https://images.pexels.com/photos/274973/pexels-photo-274973.jpeg",
-      "https://images.pexels.com/photos/1264210/pexels-photo-1264210.jpeg?w=400&h=300&fit=crop",
-      "https://images.pexels.com/photos/1493226/pexels-photo-1493226.jpeg?w=400&h=300&fit=crop"
+      "/images/vault/img_96.jpeg",
+      "/images/vault/img_97.jpeg",
+      "/images/vault/img_98.jpeg",
+      "/images/vault/img_99.jpeg"
     ]
   },
   {
@@ -280,10 +280,10 @@ export const GAME_VAULTS = {
     "word": "Chocolate",
     "hint": "Sweet brown treat",
     "imageUrls": [
-      "https://images.pexels.com/photos/918327/pexels-photo-918327.jpeg",
+      "/images/vault/img_100.jpeg",
       "https://images.pexels.com/photos/302680/pexels-photo-302680.jpeg",
-      "https://images.pexels.com/photos/2067396/pexels-photo-2067396.jpeg?w=400&h=300&fit=crop",
-      "https://images.pexels.com/photos/291528/pexels-photo-291528.jpeg?w=400&h=300&fit=crop"
+      "/images/vault/img_102.jpeg",
+      "/images/vault/img_103.jpeg"
     ]
   },
   {
@@ -291,10 +291,10 @@ export const GAME_VAULTS = {
     "word": "Bicycle",
     "hint": "Two-wheel transport",
     "imageUrls": [
-      "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg",
-      "https://images.pexels.com/photos/100582/pexels-photo-100582.jpeg",
-      "https://images.pexels.com/photos/1174103/pexels-photo-1174103.jpeg?w=400&h=300&fit=crop",
-      "https://images.pexels.com/photos/1619299/pexels-photo-1619299.jpeg?w=400&h=300&fit=crop"
+      "/images/vault/img_104.jpeg",
+      "/images/vault/img_105.jpeg",
+      "/images/vault/img_106.jpeg",
+      "/images/vault/img_107.jpeg"
     ]
   },
   {
@@ -302,10 +302,10 @@ export const GAME_VAULTS = {
     "word": "Robot",
     "hint": "Machine that acts like humans",
     "imageUrls": [
-      "https://images.pexels.com/photos/2599244/pexels-photo-2599244.jpeg",
-      "https://images.pexels.com/photos/373543/pexels-photo-373543.jpeg",
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Nao_Robot_%28Robocup_2016%29.jpg/960px-Nao_Robot_%28Robocup_2016%29.jpg",
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTeP6kH-1RC-eAyo7piyMvV6ZJJ7Yqu0Q-Kv5miUQPjw-6ax8xq0io7vV4&s=10"
+      "/images/vault/img_108.jpeg",
+      "/images/vault/img_109.jpeg",
+      "/images/vault/img_110.jpg",
+      "/images/vault/img_111.jpg"
     ]
   },
   {
@@ -313,10 +313,10 @@ export const GAME_VAULTS = {
     "word": "Internet",
     "hint": "Global network that connects everyone",
     "imageUrls": [
-      "https://images.pexels.com/photos/1591060/pexels-photo-1591060.jpeg",
-      "https://images.pexels.com/photos/267350/pexels-photo-267350.jpeg",
-      "https://images.pexels.com/photos/4218546/pexels-photo-4218546.jpeg?w=400&h=300&fit=crop",
-      "https://images.pexels.com/photos/2881229/pexels-photo-2881229.jpeg?w=400&h=300&fit=crop"
+      "/images/vault/img_112.jpeg",
+      "/images/vault/img_113.jpeg",
+      "/images/vault/img_114.jpeg",
+      "/images/vault/img_115.jpeg"
     ]
   },
   {
@@ -324,10 +324,10 @@ export const GAME_VAULTS = {
     "word": "Savings",
     "hint": "Money kept for future use",
     "imageUrls": [
-      "https://images.pexels.com/photos/3943716/pexels-photo-3943716.jpeg?w=400&h=300&fit=crop",
-      "https://images.pexels.com/photos/164527/pexels-photo-164527.jpeg?w=400&h=300&fit=crop",
-      "https://images.pexels.com/photos/1602726/pexels-photo-1602726.jpeg?w=400&h=300&fit=crop",
-      "https://images.pexels.com/photos/259027/pexels-photo-259027.jpeg"
+      "/images/vault/img_116.jpeg",
+      "/images/vault/img_117.jpeg",
+      "/images/vault/img_118.jpeg",
+      "/images/vault/img_119.jpeg"
     ]
   },
   {
@@ -336,9 +336,9 @@ export const GAME_VAULTS = {
     "hint": "A place with flowers and plants",
     "imageUrls": [
       "https://images.pexels.com/photos/56866/pexels-photo-56866.jpeg?w=400&h=300&fit=crop",
-      "https://images.pexels.com/photos/1301856/pexels-photo-1301856.jpeg?w=400&h=300&fit=crop",
-      "https://images.pexels.com/photos/1084188/pexels-photo-1084188.jpeg?w=400&h=300&fit=crop",
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQw5TBC-zTqedhFJCyYRjCEva_f3on23Wj3GHvFu23iC6X5kn20iy0aCq5D&s=10"
+      "/images/vault/img_121.jpeg",
+      "/images/vault/img_122.jpeg",
+      "/images/vault/img_123.jpg"
     ]
   },
   {
@@ -346,7 +346,7 @@ export const GAME_VAULTS = {
     "word": "Insect",
     "hint": "A popular puzzle word: Insect",
     "imageUrls": [
-      "https://image.pollinations.ai/prompt/Insect%20photography?width=400&height=300&nologo=true&seed=1",
+      "/images/vault/img_124.jpg",
       "https://image.pollinations.ai/prompt/Insect%20photography?width=400&height=300&nologo=true&seed=2",
       "https://image.pollinations.ai/prompt/Insect%20photography?width=400&height=300&nologo=true&seed=3",
       "https://image.pollinations.ai/prompt/Insect%20photography?width=400&height=300&nologo=true&seed=4"

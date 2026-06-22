@@ -729,20 +729,22 @@ export default function GamePlay() {
         </div>
 
         {/* Micro-transaction HUD */}
-        <div data-theme-role="primary-surface" className="flex flex-wrap justify-center items-center gap-4 md:gap-8 mb-8 w-full max-w-md mx-auto">
-          <button 
-            onClick={handleBuyHint}
-            className="flex items-center justify-center gap-2 px-4 py-3 neo-btn text-yellow-500 font-mono text-xs md:text-sm flex-1 whitespace-nowrap"
-          >
-            <AlertCircle className="w-4 h-4" /> 0.01 cUSD HINT
-          </button>
-          <button 
-            onClick={handleBypass}
-            className="flex items-center justify-center gap-2 px-4 py-3 neo-btn text-red-500 font-mono text-xs md:text-sm flex-1 whitespace-nowrap"
-          >
-            <FastForward className="w-4 h-4" /> 0.05 cUSD BYPASS
-          </button>
-        </div>
+        {!profile?.isOffChain && (
+          <div data-theme-role="primary-surface" className="flex flex-wrap justify-center items-center gap-4 md:gap-8 mb-8 w-full max-w-md mx-auto">
+            <button 
+              onClick={handleBuyHint}
+              className="flex items-center justify-center gap-2 px-4 py-3 neo-btn text-yellow-500 font-mono text-xs md:text-sm flex-1 whitespace-nowrap"
+            >
+              <AlertCircle className="w-4 h-4" /> 0.01 cUSD HINT
+            </button>
+            <button 
+              onClick={handleBypass}
+              className="flex items-center justify-center gap-2 px-4 py-3 neo-btn text-red-500 font-mono text-xs md:text-sm flex-1 whitespace-nowrap"
+            >
+              <FastForward className="w-4 h-4" /> 0.05 cUSD BYPASS
+            </button>
+          </div>
+        )}
 
         {/* Hint Display */}
         {showHint && (

@@ -19,7 +19,7 @@ export default function Profile() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    if (authenticated && wallets.length > 0) {
+    if (authenticated) {
       loadProfile();
     } else {
       setIsLoading(false);
@@ -29,9 +29,24 @@ export default function Profile() {
   const loadProfile = async () => {
     try {
       setIsLoading(true);
+      const activeWallet = wallets.find(w => w.address === user?.wallet?.address) || wallets[0];
+      
+      if (!activeWallet) {
+        // Fallback to off-chain profile
+        const localNickname = localStorage.getItem("picipher_nickname");
+        if (localNickname) {
+          setProfile({
+            nickname: localNickname,
+            currentStage: 1, // Progress isn't saved persistently for off-chain yet
+            isRegistered: true,
+            isOffChain: true
+          });
+        }
+        return;
+      }
+
       // Always use the public Celo RPC so profile data loads even if wallet is on wrong network
       const provider = new ethers.JsonRpcProvider("https://forno.celo.org");
-      const activeWallet = wallets.find(w => w.address === user?.wallet?.address) || wallets[0];
       const contract = new ethers.Contract(GAME_CONTRACT_ADDRESS, GAME_ABI, provider);
       const userAddress = activeWallet.address;
 
