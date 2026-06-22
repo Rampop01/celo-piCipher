@@ -95,6 +95,11 @@ export default function GamePlay() {
     setShowOnboarding(false);
   };
 
+  // Helper: get the active wallet for the current user session
+  const getActiveWallet = () => {
+    return wallets.find(w => w.address === user?.wallet?.address) || wallets[0] || null;
+  };
+
   // Load user profile from contract
   const loadProfile = async () => {
     try {
@@ -103,7 +108,12 @@ export default function GamePlay() {
       const provider = new ethers.JsonRpcProvider("https://forno.celo.org");
       const contract = new ethers.Contract(GAME_CONTRACT_ADDRESS, GAME_ABI, provider);
       // Resolve the active wallet address for the current user session
-      const activeWallet = wallets.find(w => w.address === user?.wallet?.address) || wallets[0];
+      const activeWallet = getActiveWallet();
+      if (!activeWallet) {
+        setProfile({ isRegistered: false });
+        setIsLoading(false);
+        return;
+      }
       const userAddress = activeWallet.address;
 
       const userProfile = await contract.profiles(userAddress);
@@ -201,7 +211,12 @@ export default function GamePlay() {
     if (!nicknameInput) return;
     try {
       setIsRegistering(true);
-      const activeWallet = wallets.find(w => w.address === user?.wallet?.address) || wallets[0];
+      const activeWallet = getActiveWallet();
+      if (!activeWallet) {
+        playError();
+        setFeedback({ type: "error", message: "No wallet found. Connect a Web3 wallet to register." });
+        return;
+      }
       const eProvider = await activeWallet.getEthereumProvider();
       const provider = new ethers.BrowserProvider(eProvider);
 
@@ -296,7 +311,11 @@ export default function GamePlay() {
         playSuccess();
         setFeedback({ type: "success", message: "Correct!" });
         try {
-          const activeWallet = wallets.find(w => w.address === user?.wallet?.address) || wallets[0];
+          const activeWallet = getActiveWallet();
+          if (!activeWallet) {
+            setFeedback({ type: "error", message: "No wallet found. Connect a Web3 wallet to save progress." });
+            return;
+          }
           const eProvider = await activeWallet.getEthereumProvider();
           const provider = new ethers.BrowserProvider(eProvider);
 
@@ -339,7 +358,12 @@ export default function GamePlay() {
   const handleBypass = async () => {
     try {
       setFeedback({ type: "loading", message: "Approving cUSD..." });
-      const activeWallet = wallets.find(w => w.address === user?.wallet?.address) || wallets[0];
+      const activeWallet = getActiveWallet();
+      if (!activeWallet) {
+        playError();
+        setFeedback({ type: "error", message: "No wallet found. Connect a Web3 wallet to bypass." });
+        return;
+      }
       const eProvider = await activeWallet.getEthereumProvider();
       const provider = new ethers.BrowserProvider(eProvider);
       const signer = await provider.getSigner();
@@ -371,7 +395,12 @@ export default function GamePlay() {
   const handleBuyHint = async () => {
     try {
       setFeedback({ type: "loading", message: "Approving cUSD..." });
-      const activeWallet = wallets.find(w => w.address === user?.wallet?.address) || wallets[0];
+      const activeWallet = getActiveWallet();
+      if (!activeWallet) {
+        playError();
+        setFeedback({ type: "error", message: "No wallet found. Connect a Web3 wallet to buy hints." });
+        return;
+      }
       const eProvider = await activeWallet.getEthereumProvider();
       const provider = new ethers.BrowserProvider(eProvider);
       const signer = await provider.getSigner();
