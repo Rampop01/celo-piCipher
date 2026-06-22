@@ -110,7 +110,20 @@ export default function GamePlay() {
       // Resolve the active wallet address for the current user session
       const activeWallet = getActiveWallet();
       if (!activeWallet) {
-        setProfile({ isRegistered: false });
+        // Check for off-chain nickname in localStorage
+        const localNickname = localStorage.getItem("picipher_nickname");
+        if (localNickname) {
+          setProfile({
+            nickname: localNickname,
+            currentStage: 1, // Start at stage 1 for off-chain users
+            isRegistered: true,
+            isOffChain: true
+          });
+          setViewingStage(1);
+          loadStage(1, "CAMPAIGN", difficulty);
+        } else {
+          setProfile({ isRegistered: false });
+        }
         setIsLoading(false);
         return;
       }
@@ -209,14 +222,36 @@ export default function GamePlay() {
   // Register User
   const handleRegister = async () => {
     if (!nicknameInput) return;
+    
+    const activeWallet = getActiveWallet();
+    
+    // If no wallet available (email-only user), save nickname locally
+    if (!activeWallet) {
+      setIsRegistering(true);
+      setFeedback({ type: "loading", message: "Initializing identity..." });
+      
+      // Save nickname to localStorage for off-chain play
+      localStorage.setItem("picipher_nickname", nicknameInput);
+      
+      setTimeout(() => {
+        playSuccess();
+        setProfile({
+          nickname: nicknameInput,
+          currentStage: 1,
+          isRegistered: true,
+          isOffChain: true
+        });
+        setViewingStage(1);
+        loadStage(1, "CAMPAIGN", difficulty);
+        setFeedback({ type: "success", message: "Identity registered! (Off-chain mode)" });
+        speakText(`Welcome to the grid, ${nicknameInput}. You are in off-chain mode. Connect a Web3 wallet to save progress on the blockchain.`);
+        setIsRegistering(false);
+      }, 1500);
+      return;
+    }
+
     try {
       setIsRegistering(true);
-      const activeWallet = getActiveWallet();
-      if (!activeWallet) {
-        playError();
-        setFeedback({ type: "error", message: "This game is fully on-chain. Connect a Web3 wallet (e.g. MiniPay) to register." });
-        return;
-      }
       const eProvider = await activeWallet.getEthereumProvider();
       const provider = new ethers.BrowserProvider(eProvider);
 
