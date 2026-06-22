@@ -367,6 +367,13 @@ export default function GamePlay() {
             setIsSubmitting(false);
             return;
           }
+          if (activeWallet.chainId && activeWallet.chainId !== "eip155:42220" && activeWallet.chainId !== "eip155:44787") {
+            playError();
+            speakText("Wrong network detected. Please switch to Celo.");
+            setFeedback({ type: "error", message: "Wrong network! Please switch your wallet to Celo." });
+            setIsSubmitting(false);
+            return;
+          }
           setFeedback({ type: "loading", message: "Correct! Saving progress to blockchain..." });
           const eProvider = await activeWallet.getEthereumProvider();
           const provider = new ethers.BrowserProvider(eProvider);
@@ -418,15 +425,9 @@ export default function GamePlay() {
   const handleBypass = async () => {
     // If playing off-chain, bypass locally
     if (profile?.isOffChain) {
-      playSuccess();
-      speakText(`Stage bypassed. The answer was ${currentStageData.word}`);
-      setFeedback({ type: "success", message: `Bypassed! Answer: ${currentStageData.word}` });
-      setTimeout(() => {
-        const nextStage = profile.currentStage + 1;
-        setProfile(prev => ({ ...prev, currentStage: nextStage }));
-        setViewingStage(nextStage);
-        loadStage(nextStage, "CAMPAIGN", difficulty);
-      }, 4000);
+      playError();
+      speakText("Bypass denied. On-chain clearance required. Connect a Web3 wallet.");
+      setFeedback({ type: "error", message: "Bypass requires on-chain connection." });
       return;
     }
 
@@ -436,6 +437,12 @@ export default function GamePlay() {
       if (!activeWallet) {
         playError();
         setFeedback({ type: "error", message: "This game is fully on-chain. Connect a Web3 wallet to bypass." });
+        return;
+      }
+      if (activeWallet.chainId && activeWallet.chainId !== "eip155:42220" && activeWallet.chainId !== "eip155:44787") {
+        playError();
+        speakText("Wrong network detected. Please switch to Celo.");
+        setFeedback({ type: "error", message: "Wrong network! Please switch your wallet to Celo." });
         return;
       }
       const eProvider = await activeWallet.getEthereumProvider();
@@ -471,7 +478,7 @@ export default function GamePlay() {
     if (profile?.isOffChain) {
       setShowHint(true);
       speakText("Hint unlocked.");
-      setFeedback({ type: "success", message: "Hint purchased! (Off-chain)" });
+      setFeedback({ type: "success", message: "Hint unlocked for free! (Off-chain)" });
       return;
     }
 
@@ -481,6 +488,12 @@ export default function GamePlay() {
       if (!activeWallet) {
         playError();
         setFeedback({ type: "error", message: "This game is fully on-chain. Connect a Web3 wallet to buy hints." });
+        return;
+      }
+      if (activeWallet.chainId && activeWallet.chainId !== "eip155:42220" && activeWallet.chainId !== "eip155:44787") {
+        playError();
+        speakText("Wrong network detected. Please switch to Celo.");
+        setFeedback({ type: "error", message: "Wrong network! Please switch your wallet to Celo." });
         return;
       }
       const eProvider = await activeWallet.getEthereumProvider();
@@ -732,22 +745,20 @@ export default function GamePlay() {
         </div>
 
         {/* Micro-transaction HUD */}
-        {!profile?.isOffChain && (
-          <div data-theme-role="primary-surface" className="flex flex-wrap justify-center items-center gap-4 md:gap-8 mb-8 w-full max-w-md mx-auto">
-            <button 
-              onClick={handleBuyHint}
-              className="flex items-center justify-center gap-2 px-4 py-3 neo-btn text-yellow-500 font-mono text-xs md:text-sm flex-1 whitespace-nowrap"
-            >
-              <AlertCircle className="w-4 h-4" /> 0.01 cUSD HINT
-            </button>
-            <button 
-              onClick={handleBypass}
-              className="flex items-center justify-center gap-2 px-4 py-3 neo-btn text-red-500 font-mono text-xs md:text-sm flex-1 whitespace-nowrap"
-            >
-              <FastForward className="w-4 h-4" /> 0.05 cUSD BYPASS
-            </button>
-          </div>
-        )}
+        <div data-theme-role="primary-surface" className="flex flex-wrap justify-center items-center gap-4 md:gap-8 mb-8 w-full max-w-md mx-auto">
+          <button 
+            onClick={handleBuyHint}
+            className="flex items-center justify-center gap-2 px-4 py-3 neo-btn text-yellow-500 font-mono text-xs md:text-sm flex-1 whitespace-nowrap"
+          >
+            <AlertCircle className="w-4 h-4" /> {profile?.isOffChain ? "FREE HINT" : "0.01 cUSD HINT"}
+          </button>
+          <button 
+            onClick={handleBypass}
+            className="flex items-center justify-center gap-2 px-4 py-3 neo-btn text-red-500 font-mono text-xs md:text-sm flex-1 whitespace-nowrap"
+          >
+            <FastForward className="w-4 h-4" /> {profile?.isOffChain ? "BYPASS" : "0.05 cUSD BYPASS"}
+          </button>
+        </div>
 
         {/* Hint Display */}
         {showHint && (
