@@ -214,7 +214,7 @@ export default function GamePlay() {
       const activeWallet = getActiveWallet();
       if (!activeWallet) {
         playError();
-        setFeedback({ type: "error", message: "No wallet found. Connect a Web3 wallet to register." });
+        setFeedback({ type: "error", message: "This game is fully on-chain. Connect a Web3 wallet (e.g. MiniPay) to register." });
         return;
       }
       const eProvider = await activeWallet.getEthereumProvider();
@@ -313,7 +313,7 @@ export default function GamePlay() {
         try {
           const activeWallet = getActiveWallet();
           if (!activeWallet) {
-            setFeedback({ type: "error", message: "No wallet found. Connect a Web3 wallet to save progress." });
+            setFeedback({ type: "error", message: "This game is fully on-chain. Connect a Web3 wallet to save progress." });
             return;
           }
           const eProvider = await activeWallet.getEthereumProvider();
@@ -361,7 +361,7 @@ export default function GamePlay() {
       const activeWallet = getActiveWallet();
       if (!activeWallet) {
         playError();
-        setFeedback({ type: "error", message: "No wallet found. Connect a Web3 wallet to bypass." });
+        setFeedback({ type: "error", message: "This game is fully on-chain. Connect a Web3 wallet to bypass." });
         return;
       }
       const eProvider = await activeWallet.getEthereumProvider();
@@ -398,7 +398,7 @@ export default function GamePlay() {
       const activeWallet = getActiveWallet();
       if (!activeWallet) {
         playError();
-        setFeedback({ type: "error", message: "No wallet found. Connect a Web3 wallet to buy hints." });
+        setFeedback({ type: "error", message: "This game is fully on-chain. Connect a Web3 wallet to buy hints." });
         return;
       }
       const eProvider = await activeWallet.getEthereumProvider();
