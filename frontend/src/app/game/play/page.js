@@ -340,36 +340,34 @@ export default function GamePlay() {
     if (!currentStageData || !guess) return;
     if (guess.toUpperCase().trim() === currentStageData.word.toUpperCase().trim()) {
       setIsSubmitting(true);
+      playSuccess();
+      speakText("Access granted. Impressive hacking.");
+      setFeedback({ type: "success", message: "Correct! Advancing stage..." });
       
-      // If user is playing off-chain, just update local state
+      // If user is playing off-chain, just update local state after delay
       if (profile?.isOffChain) {
         setTimeout(() => {
-          playSuccess();
-          speakText("Access granted. Impressive hacking.");
-          setFeedback({ type: "success", message: "Correct! Advancing stage..." });
-          
           const nextStage = profile.currentStage + 1;
           setProfile(prev => ({ ...prev, currentStage: nextStage }));
           setViewingStage(nextStage);
           loadStage(nextStage, "CAMPAIGN", difficulty);
           setIsSubmitting(false);
           setTranscript("");
-        }, 1000);
+        }, 1500);
         return;
       }
-
-      speakText("Access granted. Impressive hacking.");
       
       const isBlockchainStage = category === "CAMPAIGN" && profile && viewingStage === profile.currentStage;
       
       if (isBlockchainStage) {
         try {
-          setFeedback({ type: "loading", message: "Saving progress..." });
           const activeWallet = getActiveWallet();
           if (!activeWallet) {
             setFeedback({ type: "error", message: "This game is fully on-chain. Connect a Web3 wallet to save progress." });
+            setIsSubmitting(false);
             return;
           }
+          setFeedback({ type: "loading", message: "Correct! Saving progress to blockchain..." });
           const eProvider = await activeWallet.getEthereumProvider();
           const provider = new ethers.BrowserProvider(eProvider);
 
@@ -377,6 +375,7 @@ export default function GamePlay() {
           if (balance === 0n) {
             playError();
             setFeedback({ type: "error", message: "No CELO for gas. Fund your wallet to save progress." });
+            setIsSubmitting(false);
             return;
           }
 
@@ -387,7 +386,11 @@ export default function GamePlay() {
           await tx.wait();
           
           playUnlock();
-          loadProfile(); // Load next stage
+          setFeedback({ type: "success", message: "Progress Saved!" });
+          setTimeout(() => {
+            loadProfile(); // Load next stage
+            setIsSubmitting(false);
+          }, 1500);
         } catch (err) {
           playError();
           console.error(err);
@@ -395,14 +398,14 @@ export default function GamePlay() {
             ? "No CELO for gas. Fund your wallet to save progress."
             : "Blockchain submission failed.";
           setFeedback({ type: "error", message: msg });
-        } finally {
           setIsSubmitting(false);
         }
       } else {
-        playSuccess();
-        setFeedback({ type: "success", message: "Correct!" });
         playUnlock();
-        loadStage(viewingStage + 1, category, difficulty);
+        setTimeout(() => {
+          loadStage(viewingStage + 1, category, difficulty);
+          setIsSubmitting(false);
+        }, 1500);
       }
     } else {
       playError();
