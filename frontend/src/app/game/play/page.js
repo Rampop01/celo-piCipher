@@ -42,6 +42,7 @@ export default function GamePlay() {
   const [isLoading, setIsLoading] = useState(true);
   const [nicknameInput, setNicknameInput] = useState("");
   const [isRegistering, setIsRegistering] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [currentStageData, setCurrentStageData] = useState(null);
   const [showHint, setShowHint] = useState(false);
   const [isListening, setIsListening] = useState(false);
