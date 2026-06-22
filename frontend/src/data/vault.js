@@ -347,9 +347,9 @@ export const GAME_VAULTS = {
     "hint": "A popular puzzle word: Insect",
     "imageUrls": [
       "/images/vault/img_124.jpg",
-      "/images/vault/pollination_insect_2.jpg",
-      "/images/vault/pollination_insect_3.jpg",
-      "/images/vault/pollination_insect_4.jpg"
+      "https://image.pollinations.ai/prompt/Insect%20photography?width=400&height=300&nologo=true&seed=2",
+      "https://image.pollinations.ai/prompt/Insect%20photography?width=400&height=300&nologo=true&seed=3",
+      "https://image.pollinations.ai/prompt/Insect%20photography?width=400&height=300&nologo=true&seed=4"
     ]
   },
   {
@@ -357,10 +357,10 @@ export const GAME_VAULTS = {
     "word": "Gold",
     "hint": "A popular puzzle word: Gold",
     "imageUrls": [
-      "/images/vault/pollination_gold_1.jpg",
-      "https://loremflickr.com/400/300/Gold?lock=2",
-      "https://loremflickr.com/400/300/Gold?lock=3",
-      "https://loremflickr.com/400/300/Gold?lock=4"
+      "https://image.pollinations.ai/prompt/Gold%20photography?width=400&height=300&nologo=true&seed=1",
+      "https://image.pollinations.ai/prompt/Gold%20photography?width=400&height=300&nologo=true&seed=2",
+      "https://image.pollinations.ai/prompt/Gold%20photography?width=400&height=300&nologo=true&seed=3",
+      "https://image.pollinations.ai/prompt/Gold%20photography?width=400&height=300&nologo=true&seed=4"
     ]
   },
   {
@@ -368,10 +368,10 @@ export const GAME_VAULTS = {
     "word": "Hotel",
     "hint": "A popular puzzle word: Hotel",
     "imageUrls": [
-      "https://loremflickr.com/400/300/Hotel?lock=1",
-      "https://loremflickr.com/400/300/Hotel?lock=2",
-      "https://loremflickr.com/400/300/Hotel?lock=3",
-      "https://loremflickr.com/400/300/Hotel?lock=4"
+      "https://image.pollinations.ai/prompt/Hotel%20photography?width=400&height=300&nologo=true&seed=1",
+      "https://image.pollinations.ai/prompt/Hotel%20photography?width=400&height=300&nologo=true&seed=2",
+      "https://image.pollinations.ai/prompt/Hotel%20photography?width=400&height=300&nologo=true&seed=3",
+      "https://image.pollinations.ai/prompt/Hotel%20photography?width=400&height=300&nologo=true&seed=4"
     ]
   },
   {
@@ -379,10 +379,10 @@ export const GAME_VAULTS = {
     "word": "Food",
     "hint": "A popular puzzle word: Food",
     "imageUrls": [
-      "https://loremflickr.com/400/300/Food?lock=1",
-      "https://loremflickr.com/400/300/Food?lock=2",
-      "https://loremflickr.com/400/300/Food?lock=3",
-      "https://loremflickr.com/400/300/Food?lock=4"
+      "https://image.pollinations.ai/prompt/Food%20photography?width=400&height=300&nologo=true&seed=1",
+      "https://image.pollinations.ai/prompt/Food%20photography?width=400&height=300&nologo=true&seed=2",
+      "https://image.pollinations.ai/prompt/Food%20photography?width=400&height=300&nologo=true&seed=3",
+      "https://image.pollinations.ai/prompt/Food%20photography?width=400&height=300&nologo=true&seed=4"
     ]
   },
   {
@@ -390,10 +390,10 @@ export const GAME_VAULTS = {
     "word": "Volcano",
     "hint": "A popular puzzle word: Volcano",
     "imageUrls": [
-      "https://loremflickr.com/400/300/Volcano?lock=1",
-      "https://loremflickr.com/400/300/Volcano?lock=2",
-      "https://loremflickr.com/400/300/Volcano?lock=3",
-      "https://loremflickr.com/400/300/Volcano?lock=4"
+      "https://image.pollinations.ai/prompt/Volcano%20photography?width=400&height=300&nologo=true&seed=1",
+      "https://image.pollinations.ai/prompt/Volcano%20photography?width=400&height=300&nologo=true&seed=2",
+      "https://image.pollinations.ai/prompt/Volcano%20photography?width=400&height=300&nologo=true&seed=3",
+      "https://image.pollinations.ai/prompt/Volcano%20photography?width=400&height=300&nologo=true&seed=4"
     ]
   },
   {
@@ -401,10 +401,10 @@ export const GAME_VAULTS = {
     "word": "Castle",
     "hint": "A popular puzzle word: Castle",
     "imageUrls": [
-      "https://loremflickr.com/400/300/Castle?lock=1",
-      "https://loremflickr.com/400/300/Castle?lock=2",
-      "https://loremflickr.com/400/300/Castle?lock=3",
-      "https://loremflickr.com/400/300/Castle?lock=4"
+      "https://image.pollinations.ai/prompt/Castle%20photography?width=400&height=300&nologo=true&seed=1",
+      "https://image.pollinations.ai/prompt/Castle%20photography?width=400&height=300&nologo=true&seed=2",
+      "https://image.pollinations.ai/prompt/Castle%20photography?width=400&height=300&nologo=true&seed=3",
+      "https://image.pollinations.ai/prompt/Castle%20photography?width=400&height=300&nologo=true&seed=4"
     ]
   },
   {
@@ -412,10 +412,10 @@ export const GAME_VAULTS = {
     "word": "Space",
     "hint": "A popular puzzle word: Space",
     "imageUrls": [
-      "https://loremflickr.com/400/300/Space?lock=1",
-      "https://loremflickr.com/400/300/Space?lock=2",
-      "https://loremflickr.com/400/300/Space?lock=3",
-      "https://loremflickr.com/400/300/Space?lock=4"
+      "https://image.pollinations.ai/prompt/Space%20photography?width=400&height=300&nologo=true&seed=1",
+      "https://image.pollinations.ai/prompt/Space%20photography?width=400&height=300&nologo=true&seed=2",
+      "https://image.pollinations.ai/prompt/Space%20photography?width=400&height=300&nologo=true&seed=3",
+      "https://image.pollinations.ai/prompt/Space%20photography?width=400&height=300&nologo=true&seed=4"
     ]
   },
   {
@@ -423,10 +423,10 @@ export const GAME_VAULTS = {
     "word": "Ocean",
     "hint": "A popular puzzle word: Ocean",
     "imageUrls": [
-      "https://loremflickr.com/400/300/Ocean?lock=1",
-      "https://loremflickr.com/400/300/Ocean?lock=2",
-      "https://loremflickr.com/400/300/Ocean?lock=3",
-      "https://loremflickr.com/400/300/Ocean?lock=4"
+      "https://image.pollinations.ai/prompt/Ocean%20photography?width=400&height=300&nologo=true&seed=1",
+      "https://image.pollinations.ai/prompt/Ocean%20photography?width=400&height=300&nologo=true&seed=2",
+      "https://image.pollinations.ai/prompt/Ocean%20photography?width=400&height=300&nologo=true&seed=3",
+      "https://image.pollinations.ai/prompt/Ocean%20photography?width=400&height=300&nologo=true&seed=4"
     ]
   },
   {
@@ -434,10 +434,10 @@ export const GAME_VAULTS = {
     "word": "Forest",
     "hint": "A popular puzzle word: Forest",
     "imageUrls": [
-      "https://loremflickr.com/400/300/Forest?lock=1",
-      "https://loremflickr.com/400/300/Forest?lock=2",
-      "https://loremflickr.com/400/300/Forest?lock=3",
-      "https://loremflickr.com/400/300/Forest?lock=4"
+      "https://image.pollinations.ai/prompt/Forest%20photography?width=400&height=300&nologo=true&seed=1",
+      "https://image.pollinations.ai/prompt/Forest%20photography?width=400&height=300&nologo=true&seed=2",
+      "https://image.pollinations.ai/prompt/Forest%20photography?width=400&height=300&nologo=true&seed=3",
+      "https://image.pollinations.ai/prompt/Forest%20photography?width=400&height=300&nologo=true&seed=4"
     ]
   },
   {
@@ -445,10 +445,10 @@ export const GAME_VAULTS = {
     "word": "Desert",
     "hint": "A popular puzzle word: Desert",
     "imageUrls": [
-      "https://loremflickr.com/400/300/Desert?lock=1",
-      "https://loremflickr.com/400/300/Desert?lock=2",
-      "https://loremflickr.com/400/300/Desert?lock=3",
-      "https://loremflickr.com/400/300/Desert?lock=4"
+      "https://image.pollinations.ai/prompt/Desert%20photography?width=400&height=300&nologo=true&seed=1",
+      "https://image.pollinations.ai/prompt/Desert%20photography?width=400&height=300&nologo=true&seed=2",
+      "https://image.pollinations.ai/prompt/Desert%20photography?width=400&height=300&nologo=true&seed=3",
+      "https://image.pollinations.ai/prompt/Desert%20photography?width=400&height=300&nologo=true&seed=4"
     ]
   },
   {
@@ -456,10 +456,10 @@ export const GAME_VAULTS = {
     "word": "Train",
     "hint": "A popular puzzle word: Train",
     "imageUrls": [
-      "https://loremflickr.com/400/300/Train?lock=1",
-      "https://loremflickr.com/400/300/Train?lock=2",
-      "https://loremflickr.com/400/300/Train?lock=3",
-      "https://loremflickr.com/400/300/Train?lock=4"
+      "https://image.pollinations.ai/prompt/Train%20photography?width=400&height=300&nologo=true&seed=1",
+      "https://image.pollinations.ai/prompt/Train%20photography?width=400&height=300&nologo=true&seed=2",
+      "https://image.pollinations.ai/prompt/Train%20photography?width=400&height=300&nologo=true&seed=3",
+      "https://image.pollinations.ai/prompt/Train%20photography?width=400&height=300&nologo=true&seed=4"
     ]
   },
   {
@@ -467,10 +467,10 @@ export const GAME_VAULTS = {
     "word": "Planet",
     "hint": "A popular puzzle word: Planet",
     "imageUrls": [
-      "https://loremflickr.com/400/300/Planet?lock=1",
-      "https://loremflickr.com/400/300/Planet?lock=2",
-      "https://loremflickr.com/400/300/Planet?lock=3",
-      "https://loremflickr.com/400/300/Planet?lock=4"
+      "https://image.pollinations.ai/prompt/Planet%20photography?width=400&height=300&nologo=true&seed=1",
+      "https://image.pollinations.ai/prompt/Planet%20photography?width=400&height=300&nologo=true&seed=2",
+      "https://image.pollinations.ai/prompt/Planet%20photography?width=400&height=300&nologo=true&seed=3",
+      "https://image.pollinations.ai/prompt/Planet%20photography?width=400&height=300&nologo=true&seed=4"
     ]
   },
   {
@@ -478,10 +478,10 @@ export const GAME_VAULTS = {
     "word": "Diamond",
     "hint": "A popular puzzle word: Diamond",
     "imageUrls": [
-      "https://loremflickr.com/400/300/Diamond?lock=1",
-      "https://loremflickr.com/400/300/Diamond?lock=2",
-      "https://loremflickr.com/400/300/Diamond?lock=3",
-      "https://loremflickr.com/400/300/Diamond?lock=4"
+      "https://image.pollinations.ai/prompt/Diamond%20photography?width=400&height=300&nologo=true&seed=1",
+      "https://image.pollinations.ai/prompt/Diamond%20photography?width=400&height=300&nologo=true&seed=2",
+      "https://image.pollinations.ai/prompt/Diamond%20photography?width=400&height=300&nologo=true&seed=3",
+      "https://image.pollinations.ai/prompt/Diamond%20photography?width=400&height=300&nologo=true&seed=4"
     ]
   },
   {
@@ -489,10 +489,10 @@ export const GAME_VAULTS = {
     "word": "Dinosaur",
     "hint": "A popular puzzle word: Dinosaur",
     "imageUrls": [
-      "https://loremflickr.com/400/300/Dinosaur?lock=1",
-      "https://loremflickr.com/400/300/Dinosaur?lock=2",
-      "https://loremflickr.com/400/300/Dinosaur?lock=3",
-      "https://loremflickr.com/400/300/Dinosaur?lock=4"
+      "https://image.pollinations.ai/prompt/Dinosaur%20photography?width=400&height=300&nologo=true&seed=1",
+      "https://image.pollinations.ai/prompt/Dinosaur%20photography?width=400&height=300&nologo=true&seed=2",
+      "https://image.pollinations.ai/prompt/Dinosaur%20photography?width=400&height=300&nologo=true&seed=3",
+      "https://image.pollinations.ai/prompt/Dinosaur%20photography?width=400&height=300&nologo=true&seed=4"
     ]
   },
   {
@@ -500,10 +500,10 @@ export const GAME_VAULTS = {
     "word": "Dragon",
     "hint": "A popular puzzle word: Dragon",
     "imageUrls": [
-      "https://loremflickr.com/400/300/Dragon?lock=1",
-      "https://loremflickr.com/400/300/Dragon?lock=2",
-      "https://loremflickr.com/400/300/Dragon?lock=3",
-      "https://loremflickr.com/400/300/Dragon?lock=4"
+      "https://image.pollinations.ai/prompt/Dragon%20photography?width=400&height=300&nologo=true&seed=1",
+      "https://image.pollinations.ai/prompt/Dragon%20photography?width=400&height=300&nologo=true&seed=2",
+      "https://image.pollinations.ai/prompt/Dragon%20photography?width=400&height=300&nologo=true&seed=3",
+      "https://image.pollinations.ai/prompt/Dragon%20photography?width=400&height=300&nologo=true&seed=4"
     ]
   },
   {
@@ -511,10 +511,10 @@ export const GAME_VAULTS = {
     "word": "Rocket",
     "hint": "A popular puzzle word: Rocket",
     "imageUrls": [
-      "https://loremflickr.com/400/300/Rocket?lock=1",
-      "https://loremflickr.com/400/300/Rocket?lock=2",
-      "https://loremflickr.com/400/300/Rocket?lock=3",
-      "https://loremflickr.com/400/300/Rocket?lock=4"
+      "https://image.pollinations.ai/prompt/Rocket%20photography?width=400&height=300&nologo=true&seed=1",
+      "https://image.pollinations.ai/prompt/Rocket%20photography?width=400&height=300&nologo=true&seed=2",
+      "https://image.pollinations.ai/prompt/Rocket%20photography?width=400&height=300&nologo=true&seed=3",
+      "https://image.pollinations.ai/prompt/Rocket%20photography?width=400&height=300&nologo=true&seed=4"
     ]
   },
   {
@@ -522,10 +522,10 @@ export const GAME_VAULTS = {
     "word": "Winter",
     "hint": "A popular puzzle word: Winter",
     "imageUrls": [
-      "https://loremflickr.com/400/300/Winter?lock=1",
-      "https://loremflickr.com/400/300/Winter?lock=2",
-      "https://loremflickr.com/400/300/Winter?lock=3",
-      "https://loremflickr.com/400/300/Winter?lock=4"
+      "https://image.pollinations.ai/prompt/Winter%20photography?width=400&height=300&nologo=true&seed=1",
+      "https://image.pollinations.ai/prompt/Winter%20photography?width=400&height=300&nologo=true&seed=2",
+      "https://image.pollinations.ai/prompt/Winter%20photography?width=400&height=300&nologo=true&seed=3",
+      "https://image.pollinations.ai/prompt/Winter%20photography?width=400&height=300&nologo=true&seed=4"
     ]
   },
   {
@@ -533,10 +533,10 @@ export const GAME_VAULTS = {
     "word": "Summer",
     "hint": "A popular puzzle word: Summer",
     "imageUrls": [
-      "https://loremflickr.com/400/300/Summer?lock=1",
-      "https://loremflickr.com/400/300/Summer?lock=2",
-      "https://loremflickr.com/400/300/Summer?lock=3",
-      "https://loremflickr.com/400/300/Summer?lock=4"
+      "https://image.pollinations.ai/prompt/Summer%20photography?width=400&height=300&nologo=true&seed=1",
+      "https://image.pollinations.ai/prompt/Summer%20photography?width=400&height=300&nologo=true&seed=2",
+      "https://image.pollinations.ai/prompt/Summer%20photography?width=400&height=300&nologo=true&seed=3",
+      "https://image.pollinations.ai/prompt/Summer%20photography?width=400&height=300&nologo=true&seed=4"
     ]
   },
   {
@@ -544,10 +544,10 @@ export const GAME_VAULTS = {
     "word": "Coffee",
     "hint": "A popular puzzle word: Coffee",
     "imageUrls": [
-      "https://loremflickr.com/400/300/Coffee?lock=1",
-      "https://loremflickr.com/400/300/Coffee?lock=2",
-      "https://loremflickr.com/400/300/Coffee?lock=3",
-      "https://loremflickr.com/400/300/Coffee?lock=4"
+      "https://image.pollinations.ai/prompt/Coffee%20photography?width=400&height=300&nologo=true&seed=1",
+      "https://image.pollinations.ai/prompt/Coffee%20photography?width=400&height=300&nologo=true&seed=2",
+      "https://image.pollinations.ai/prompt/Coffee%20photography?width=400&height=300&nologo=true&seed=3",
+      "https://image.pollinations.ai/prompt/Coffee%20photography?width=400&height=300&nologo=true&seed=4"
     ]
   }
 ],
