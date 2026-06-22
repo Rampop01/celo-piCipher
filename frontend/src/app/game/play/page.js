@@ -253,6 +253,18 @@ export default function GamePlay() {
 
     try {
       setIsRegistering(true);
+      if (activeWallet.chainId && activeWallet.chainId !== "eip155:42220" && activeWallet.chainId !== "eip155:44787") {
+        try {
+          await activeWallet.switchChain(42220);
+        } catch (e) {
+          playError();
+          speakText("Wrong network detected. Please switch to Celo.");
+          setFeedback({ type: "error", message: "Wrong network! Please switch your wallet to Celo." });
+          setIsRegistering(false);
+          return;
+        }
+      }
+      
       const eProvider = await activeWallet.getEthereumProvider();
       const provider = new ethers.BrowserProvider(eProvider);
 
@@ -324,9 +336,19 @@ export default function GamePlay() {
     };
 
     recognitionRef.current.onerror = (event) => {
-      console.error(event.error);
+      console.warn("Speech recognition error:", event.error);
       setIsListening(false);
-      setFeedback({ type: "error", message: "Voice recognition failed." });
+      
+      let errorMessage = "Voice recognition failed.";
+      if (event.error === "network") {
+        errorMessage = "Voice offline. Please type your answer.";
+      } else if (event.error === "not-allowed") {
+        errorMessage = "Mic denied. Please type your answer.";
+      } else if (event.error === "no-speech") {
+        errorMessage = "No speech detected. Try again.";
+      }
+      
+      setFeedback({ type: "error", message: errorMessage });
     };
 
     recognitionRef.current.onend = () => {
@@ -368,11 +390,15 @@ export default function GamePlay() {
             return;
           }
           if (activeWallet.chainId && activeWallet.chainId !== "eip155:42220" && activeWallet.chainId !== "eip155:44787") {
-            playError();
-            speakText("Wrong network detected. Please switch to Celo.");
-            setFeedback({ type: "error", message: "Wrong network! Please switch your wallet to Celo." });
-            setIsSubmitting(false);
-            return;
+            try {
+              await activeWallet.switchChain(42220);
+            } catch (e) {
+              playError();
+              speakText("Wrong network detected. Please switch to Celo.");
+              setFeedback({ type: "error", message: "Wrong network! Please switch your wallet to Celo." });
+              setIsSubmitting(false);
+              return;
+            }
           }
           setFeedback({ type: "loading", message: "Correct! Saving progress to blockchain..." });
           const eProvider = await activeWallet.getEthereumProvider();
@@ -440,10 +466,14 @@ export default function GamePlay() {
         return;
       }
       if (activeWallet.chainId && activeWallet.chainId !== "eip155:42220" && activeWallet.chainId !== "eip155:44787") {
-        playError();
-        speakText("Wrong network detected. Please switch to Celo.");
-        setFeedback({ type: "error", message: "Wrong network! Please switch your wallet to Celo." });
-        return;
+        try {
+          await activeWallet.switchChain(42220);
+        } catch (e) {
+          playError();
+          speakText("Wrong network detected. Please switch to Celo.");
+          setFeedback({ type: "error", message: "Wrong network! Please switch your wallet to Celo." });
+          return;
+        }
       }
       const eProvider = await activeWallet.getEthereumProvider();
       const provider = new ethers.BrowserProvider(eProvider);
@@ -491,10 +521,14 @@ export default function GamePlay() {
         return;
       }
       if (activeWallet.chainId && activeWallet.chainId !== "eip155:42220" && activeWallet.chainId !== "eip155:44787") {
-        playError();
-        speakText("Wrong network detected. Please switch to Celo.");
-        setFeedback({ type: "error", message: "Wrong network! Please switch your wallet to Celo." });
-        return;
+        try {
+          await activeWallet.switchChain(42220);
+        } catch (e) {
+          playError();
+          speakText("Wrong network detected. Please switch to Celo.");
+          setFeedback({ type: "error", message: "Wrong network! Please switch your wallet to Celo." });
+          return;
+        }
       }
       const eProvider = await activeWallet.getEthereumProvider();
       const provider = new ethers.BrowserProvider(eProvider);
