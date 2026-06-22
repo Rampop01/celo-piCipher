@@ -533,9 +533,24 @@ export default function GamePlay() {
   // Registration View
   if (profile && !profile.isRegistered) {
     return (
-      <div className="min-h-screen bg-transparent text-white flex flex-col items-center justify-center p-6">
-        <div aria-label="Interactive element 11ae" className="w-full max-w-md p-8 border-2 border-[#35D07F] bg-transparent/50 backdrop-blur shadow-[0_0_30px_rgba(53,208,127,0.2)]">
-          <h2 aria-label="Interactive element cb96" className="text-3xl font-black mb-6 text-[#35D07F]">REGISTER IDENTITY</h2>
+      <div className="min-h-screen bg-transparent text-white flex flex-col items-center">
+        {/* Top HUD */}
+        <div className="w-full border-b border-[#35D07F]/30 bg-black/60 backdrop-blur-md sticky top-0 z-50 p-2 md:p-4 flex justify-between items-center font-mono shadow-[0_4px_20px_rgba(53,208,127,0.1)]">
+          <div className="flex items-center gap-2 md:gap-6">
+            <Link href="/" className="text-white/60 hover:text-[#35D07F] transition-colors flex items-center gap-1 md:gap-2 text-[10px] md:text-sm">
+              <Home className="w-4 h-4 md:w-4 md:h-4" /> <span className="hidden md:inline">HOME</span>
+            </Link>
+            <div className="flex items-center gap-2 md:gap-4 border-l border-white/10 pl-2 md:pl-6">
+              <span className="text-[#35D07F] font-bold tracking-widest uppercase text-xs md:text-base">
+                UNREGISTERED
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div className="flex-1 w-full flex items-center justify-center p-6 mt-10 md:mt-20">
+          <div aria-label="Interactive element 11ae" className="w-full max-w-md p-8 border-2 border-[#35D07F] bg-transparent/50 backdrop-blur shadow-[0_0_30px_rgba(53,208,127,0.2)]">
+            <h2 aria-label="Interactive element cb96" className="text-3xl font-black mb-6 text-[#35D07F]">REGISTER IDENTITY</h2>
           <p data-theme-role="primary-surface" className="text-neutral-400 mb-8 font-mono text-sm">
             You must mint your Beginner Badge NFT to enter the grid. Enter a hacker alias below.
           </p>
