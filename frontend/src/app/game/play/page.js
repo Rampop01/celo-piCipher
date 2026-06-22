@@ -244,7 +244,7 @@ export default function GamePlay() {
         });
         setViewingStage(1);
         loadStage(1, "CAMPAIGN", difficulty);
-        setFeedback({ type: "success", message: "Identity registered! (Off-chain mode)" });
+        setFeedback({ type: "success", message: "Registered (Off-chain)" });
         speakText(`Welcome to the grid, ${nicknameInput}. You are in off-chain mode. Connect a Web3 wallet to save progress on the blockchain.`);
         setIsRegistering(false);
       }, 1500);
