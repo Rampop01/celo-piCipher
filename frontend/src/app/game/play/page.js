@@ -4,7 +4,7 @@ import { usePrivy, useWallets } from "@privy-io/react-auth";
 import { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import { Mic, MicOff, AlertCircle, Play, FastForward, CheckCircle2, Lock, Home, Trophy, User } from "lucide-react";
+import { Mic, MicOff, AlertCircle, Play, FastForward, CheckCircle2, Lock, Home, Trophy, User, HelpCircle } from "lucide-react";
 import { ethers } from "ethers";
 import { GAME_VAULTS } from "../../../data/vault";
 import { useSoundEffects } from "../../../hooks/useSoundEffects";
@@ -533,6 +533,8 @@ export default function GamePlay() {
   // Registration View
   if (profile && !profile.isRegistered) {
     return (
+      <>
+      {showOnboarding && <OnboardingOverlay onComplete={handleOnboardingComplete} networkName="CELO" speakText={speakText} />}
       <div className="min-h-screen bg-transparent text-white flex flex-col items-center">
         {/* Top HUD */}
         <div className="w-full border-b border-[#35D07F]/30 bg-black/60 backdrop-blur-md sticky top-0 z-50 p-2 md:p-4 flex justify-between items-center font-mono shadow-[0_4px_20px_rgba(53,208,127,0.1)]">
@@ -545,6 +547,14 @@ export default function GamePlay() {
                 UNREGISTERED
               </span>
             </div>
+          </div>
+          <div className="flex items-center gap-3 md:gap-6">
+            <button 
+              onClick={() => setShowOnboarding(true)}
+              className="text-white/60 hover:text-[#35D07F] transition-colors flex items-center gap-1 md:gap-2 text-[10px] md:text-sm"
+            >
+              <HelpCircle className="w-4 h-4" /> <span className="hidden md:inline">TUTORIAL</span>
+            </button>
           </div>
         </div>
 
@@ -581,6 +591,7 @@ export default function GamePlay() {
         </div>
       </div>
       </div>
+      </>
     );
   }
 
@@ -641,6 +652,12 @@ export default function GamePlay() {
           <Link href="/profile" className="text-white/60 hover:text-[#35D07F] transition-colors flex items-center gap-1 md:gap-2 text-[10px] md:text-sm">
              <User className="w-4 h-4" /> <span data-theme-role="primary-surface" className="hidden md:inline">PROFILE</span>
           </Link>
+          <button 
+            onClick={() => setShowOnboarding(true)}
+            className="text-white/60 hover:text-[#35D07F] transition-colors flex items-center gap-1 md:gap-2 text-[10px] md:text-sm"
+          >
+            <HelpCircle className="w-4 h-4" /> <span className="hidden md:inline">TUTORIAL</span>
+          </button>
           <div className="flex items-center gap-2 md:gap-4 border-l border-white/10 pl-2 md:pl-6">
             <div className="flex flex-col items-end">
               <select 

@@ -8,24 +8,24 @@ export default function OnboardingOverlay({ onComplete, networkName, speakText }
 
   const steps = [
     {
-      title: "WELCOME TO THE GRID",
+      title: "WELCOME TO THE GAME",
       icon: <TerminalSquare className="w-16 h-16 text-[#35D07F] mb-4" />,
-      content: `You have successfully infiltrated the ${networkName} mainframe. Your mission: decrypt hidden data by solving visual anomalies.`
+      content: "Welcome! Your mission is simple: guess the hidden word by looking at parts of a picture."
     },
     {
-      title: "REVEAL ANOMALIES",
+      title: "REVEAL PICTURES",
       icon: <Eye className="w-16 h-16 text-[#35D07F] mb-4" />,
-      content: "Click on the locked grid panels to reveal parts of the hidden image. Beware: revealing more decreases your final reward multiplier."
+      content: "Click on the locked squares to reveal pieces of the image. But be careful: the fewer squares you open, the better!"
     },
     {
-      title: "VOICE OVERRIDE",
+      title: "GUESS THE WORD",
       icon: <Mic className="w-16 h-16 text-[#35D07F] mb-4" />,
-      content: "Use your microphone or terminal input to submit the decrypted keyword. Only precise matches will bypass the firewall."
+      content: "Use your microphone or type in the box below to guess what the picture shows. Guess correctly to pass the level."
     },
     {
-      title: "STRATEGIC ASSISTANCE",
+      title: "NEED HELP?",
       icon: <HelpCircle className="w-16 h-16 text-[#35D07F] mb-4" />,
-      content: "Stuck? Purchase encrypted hints or execute a bypass script using network tokens. This will guarantee your progression."
+      content: "If you get stuck, you can buy a hint to help you out, or pay to skip the level completely. Good luck!"
     }
   ];
 
