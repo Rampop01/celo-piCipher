@@ -27,7 +27,7 @@ This project is built to demonstrate seamless integration of Celo smart contract
 ### 💻 Tech Stack
 - **Smart Contracts:** Solidity, Hardhat
 - **Frontend:** Next.js 14, TailwindCSS, Lucide Icons, Web Speech API, Web Audio API
-- **Web3 Integration:** Privy, ethers.js v6, Celo Alfajores Testnet
+- **Web3 Integration:** Privy, ethers.js v6, Celo Mainnet
 
 ## 🚀 Getting Started
 
@@ -56,7 +56,7 @@ Navigate to `http://localhost:3000` and connect your Celo wallet to begin your i
 
 The core engine of PiCipher lies in the `PicCipherGame.sol` contract. It handles state transitions, verifies players, and interfaces with the ERC20 cUSD token for micro-transactions.
 
-- **Contract Address:** `0xa8fE1f02F2f7a6A305AEa11C0927Fa5d35949778` (Celo Alfajores)
+- **Contract Address:** `0xa8fE1f02F2f7a6A305AEa11C0927Fa5d35949778` (Celo Mainnet)
 
 ## 🎨 Design Philosophy
 PiCipher abandons the traditional "Web3 Dapp" look in favor of an immersive terminal interface. The goal is to make the player forget they are signing transactions and instead feel like they are executing shell commands against a secure firewall.
