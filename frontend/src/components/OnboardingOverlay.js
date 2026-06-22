@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Mic, Eye, HelpCircle, Check, TerminalSquare } from "lucide-react";
+import { Mic, Eye, HelpCircle, Check, TerminalSquare, Lightbulb } from "lucide-react";
 import { useSoundEffects } from "../hooks/useSoundEffects";
 
 export default function OnboardingOverlay({ onComplete, networkName, speakText }) {
@@ -21,6 +21,11 @@ export default function OnboardingOverlay({ onComplete, networkName, speakText }
       title: "GUESS THE WORD",
       icon: <Mic className="w-16 h-16 text-[#35D07F] mb-4" />,
       content: "Use your microphone or type in the box below to guess what the picture shows. Guess correctly to pass the level."
+    },
+    {
+      title: "EXAMPLE: CELO",
+      icon: <Lightbulb className="w-16 h-16 text-[#35D07F] mb-4" />,
+      content: "For example, in the first stage you might see pictures of the Celo logo, an L2 network, and a chain of blocks connecting the dots. Since they all describe the Celo ecosystem, the hidden word is 'CELO'!"
     },
     {
       title: "NEED HELP?",
