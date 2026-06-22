@@ -70,6 +70,14 @@ export default function GamePlay() {
     }
     if (authenticated && wallets.length > 0) {
       loadProfile();
+    } else if (authenticated && wallets.length === 0) {
+      // Email user: embedded wallet may still be initializing.
+      // Set a timeout so we don't hang forever.
+      const timeout = setTimeout(() => {
+        setIsLoading(false);
+        setProfile({ isRegistered: false });
+      }, 8000);
+      return () => clearTimeout(timeout);
     } else if (!authenticated) {
       router.push("/");
     }
