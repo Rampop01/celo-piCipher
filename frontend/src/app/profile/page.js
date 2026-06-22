@@ -29,8 +29,8 @@ export default function Profile() {
   const loadProfile = async () => {
     try {
       setIsLoading(true);
-      const eProvider = await wallets[0].getEthereumProvider();
-      const provider = new ethers.BrowserProvider(eProvider);
+      // Always use the public Celo RPC so profile data loads even if wallet is on wrong network
+      const provider = new ethers.JsonRpcProvider("https://forno.celo.org");
       const contract = new ethers.Contract(GAME_CONTRACT_ADDRESS, GAME_ABI, provider);
       const userAddress = wallets[0].address;
 
@@ -60,35 +60,43 @@ export default function Profile() {
 
   const stage = profile ? profile.currentStage : 1;
   const stagesCleared = Math.max(0, stage - 1);
-  const totalBounty = stagesCleared * 50; // Mock calculation based on progress
+  const totalXRP = stagesCleared * 10; // 10 XRP per cleared stage
 
   // Derive rank based on stages cleared
   let rank = "ROOKIE_GLITCH";
-  if (stagesCleared > 2) rank = "CYBER_NOMAD";
-  if (stagesCleared > 5) rank = "NEON_VIPER";
-  if (stagesCleared > 9) rank = "GRID_OVERLORD";
+  if (stagesCleared >= 10) rank = "CYBER_NOMAD";
+  if (stagesCleared >= 25) rank = "NEON_VIPER";
+  if (stagesCleared >= 50) rank = "GRID_OVERLORD";
 
   const recentActivity = profile ? [
     { type: "IDENTITY_SYNCED", stage: null, reward: null, time: "Just now" },
-    ...(stagesCleared > 0 ? [{ type: "STAGE_CLEARED", stage: stagesCleared, reward: "50 CELO", time: "Recent" }] : [])
+    ...(stagesCleared > 0 ? [{ type: "STAGE_CLEARED", stage: stagesCleared, reward: "10 XRP", time: "Recent" }] : [])
   ] : [];
 
+  // Determine badge unlocks based on contract logic
+  const badges = [
+    { name: "BEGINNER", unlocked: profile?.isRegistered },
+    { name: "STAGE 10", unlocked: stagesCleared >= 10 },
+    { name: "STAGE 25", unlocked: stagesCleared >= 25 },
+    { name: "CAMPAIGN CLEARED", unlocked: stagesCleared >= 50 }
+  ];
+
   return (
-    <div aria-label="Interactive element 8949" className="min-h-screen bg-black text-white p-6 md:p-12 font-mono">
+    <div aria-label="Interactive element 8949" className="min-h-screen bg-black text-white p-4 md:p-12 font-mono">
       <div data-testid="container-3fcccd" className="max-w-5xl mx-auto">
-        <header className="flex justify-between items-center mb-12 border-b border-[#35D07F]/30 pb-6">
+        <header className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 mb-8 md:mb-12 border-b border-[#35D07F]/30 pb-6">
           <div className="flex items-center gap-4">
             <div className="w-12 h-12 bg-[#35D07F]/10 border border-[#35D07F] flex items-center justify-center shadow-[0_0_15px_rgba(53,208,127,0.3)]">
               <User className="w-6 h-6 text-[#35D07F]" />
             </div>
-            <div>
-              <h1 aria-label="Interactive element 0fff" className="text-3xl font-black text-[#35D07F] tracking-widest drop-shadow-[0_0_10px_rgba(53,208,127,0.5)] uppercase">
+            <div className="flex-1 min-w-0">
+              <h1 aria-label="Interactive element 0fff" className="text-lg md:text-3xl font-black text-[#35D07F] tracking-wider md:tracking-widest drop-shadow-[0_0_10px_rgba(53,208,127,0.5)] uppercase truncate">
                 OPERATIVE_PROFILE
               </h1>
-              <p data-testid="text-149f0c" className="text-neutral-500 text-sm">
-                ID: {authenticated ? (user?.email?.address || user?.wallet?.address?.slice(0, 12) + "...") : "UNAUTHORIZED"}
-                {profile && <span aria-label="Interactive element d068" className="ml-2 text-[#35D07F]">| ALIAS: {profile.nickname}</span>}
-              </p>
+              <div data-testid="text-149f0c" className="text-neutral-500 text-[10px] md:text-sm flex flex-col md:block mt-1">
+                <span>ID: {authenticated ? (user?.email?.address || user?.wallet?.address?.slice(0, 12) + "...") : "UNAUTHORIZED"}</span>
+                {profile && <span aria-label="Interactive element d068" className="md:ml-2 text-[#35D07F] truncate block md:inline">| ALIAS: {profile.nickname}</span>}
+              </div>
             </div>
           </div>
           <Link href="/" className="px-6 py-2 border border-[#35D07F]/50 text-[#35D07F] hover:bg-[#35D07F]/10 transition-colors">
@@ -112,8 +120,8 @@ export default function Profile() {
                 </div>
                 <div data-testid="text-0df76c" className="bg-[#35D07F]/5 border border-[#35D07F]/20 p-6 flex flex-col items-center text-center hover:border-[#35D07F]/50 transition-colors">
                   <Coins className="w-8 h-8 text-[#35D07F] mb-3 opacity-80" />
-                  <span data-theme-role="primary-surface" className="text-xs text-neutral-400 mb-1">TOTAL BOUNTY</span>
-                  <span aria-label="Interactive element 3cd9" className="font-bold tracking-wider text-[#35D07F] drop-shadow-[0_0_8px_rgba(53,208,127,0.5)]">{totalBounty} cUSD</span>
+                  <span data-theme-role="primary-surface" className="text-xs text-neutral-400 mb-1">ACQUIRED XRP</span>
+                  <span aria-label="Interactive element 3cd9" className="font-bold tracking-wider text-[#35D07F] drop-shadow-[0_0_8px_rgba(53,208,127,0.5)]">{totalXRP} XRP</span>
                 </div>
                 <div className="bg-[#35D07F]/5 border border-[#35D07F]/20 p-6 flex flex-col items-center text-center hover:border-[#35D07F]/50 transition-colors">
                   <Zap className="w-8 h-8 text-[#35D07F] mb-3 opacity-80" />
@@ -132,26 +140,32 @@ export default function Profile() {
                 </div>
               </div>
 
-              <div data-cy="cy-f374df" className="border border-[#35D07F]/20 p-6 bg-black">
+              <div data-cy="cy-f374df" className="border border-[#35D07F]/20 p-4 md:p-6 bg-black">
                 <h3 className="text-xl font-bold mb-6 text-[#35D07F] flex items-center gap-2">
-                  <Hexagon className="w-5 h-5" /> ACQUIRED_BADGES
+                  <Hexagon className="w-5 h-5" /> ONCHAIN_NFT_BADGES
                 </h3>
-                <div aria-label="Interactive element d14f" className="flex flex-wrap gap-4">
-                  {Array.from({ length: Math.min(5, stagesCleared) }).map((_, i) => (
-                    <div key={i} className="w-16 h-16 border-2 border-[#35D07F]/40 rotate-45 flex items-center justify-center hover:border-[#35D07F] transition-colors cursor-pointer group bg-black shadow-[0_0_15px_rgba(53,208,127,0.2)]">
-                      <div className="-rotate-45 text-[#35D07F]/50 group-hover:text-[#35D07F] group-hover:scale-110 transition-transform font-bold">
-                        B{i + 1}
+                <div aria-label="Interactive element d14f" className="flex flex-wrap justify-center sm:justify-start gap-4 md:gap-8">
+                  {badges.map((badge, i) => (
+                    <div key={i} className="flex flex-col items-center gap-3">
+                      <div className={`w-16 h-16 border-2 rotate-45 flex items-center justify-center transition-colors cursor-pointer group shadow-[0_0_15px_rgba(53,208,127,0.1)] ${
+                        badge.unlocked ? "border-[#35D07F]/80 bg-[#35D07F]/10 hover:border-[#35D07F]" : "border-neutral-800 bg-black"
+                      }`}>
+                        <div className={`-rotate-45 font-bold text-center text-xs px-1 ${
+                          badge.unlocked ? "text-[#35D07F] group-hover:scale-110 transition-transform drop-shadow-[0_0_5px_rgba(53,208,127,0.8)]" : "text-neutral-600"
+                        }`}>
+                          {badge.unlocked ? "B" + (i + 1) : "?"}
+                        </div>
                       </div>
+                      <span className={`text-[10px] font-bold tracking-widest text-center uppercase w-20 ${badge.unlocked ? "text-[#35D07F]" : "text-neutral-600"}`}>
+                        {badge.name}
+                      </span>
                     </div>
                   ))}
-                  <div className="w-16 h-16 border-2 border-neutral-800 rotate-45 flex items-center justify-center bg-black">
-                    <div aria-label="Interactive element cae0" className="-rotate-45 text-neutral-600 font-bold">?</div>
-                  </div>
                 </div>
               </div>
             </div>
 
-            <div data-component-id="56333480" className="border-l border-[#35D07F]/20 pl-8">
+            <div data-component-id="56333480" className="md:border-l border-[#35D07F]/20 md:pl-8 mt-8 md:mt-0 pt-8 md:pt-0 border-t md:border-t-0">
               <h3 className="text-lg font-bold mb-6 text-white tracking-widest border-b border-[#35D07F]/20 pb-4">
                 SYSTEM_LOGS
               </h3>

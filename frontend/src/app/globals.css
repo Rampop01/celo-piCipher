@@ -121,3 +121,27 @@
     inset -2px -2px 8px rgba(255, 255, 255, 0.05);
   transform: translateY(2px);
 }
+
+@keyframes spin-orbit {
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes counter-spin-orbit {
+  100% { transform: rotate(-360deg); }
+}
+
+.animate-orbit {
+  animation: spin-orbit 30s linear infinite;
+}
+
+.animate-orbit-paused {
+  animation-play-state: paused;
+}
+
+.animate-counter-orbit {
+  animation: counter-spin-orbit 30s linear infinite;
+}
+
+.animate-counter-orbit-paused {
+  animation-play-state: paused;
+}

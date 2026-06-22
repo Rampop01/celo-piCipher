@@ -90,9 +90,9 @@ export default function Home() {
           <section className="min-h-screen pt-32 pb-24 px-6 flex flex-col items-center justify-center">
             <div data-testid="text-0fd74a" className="w-full max-w-6xl animate-in fade-in slide-in-from-bottom-8 duration-700">
               <div className="text-center mb-16">
-                <GlitchText text="ENTER THE GRID" className="text-5xl md:text-7xl mb-6 drop-shadow-[0_0_15px_rgba(53,208,127,0.5)]" />
+                <GlitchText text="ENTER THE GRID" className="text-4xl md:text-7xl mb-6 drop-shadow-[0_0_15px_rgba(53,208,127,0.5)]" />
 
-                <p data-testid="container-e8dfc6" className="text-xl text-neutral-400 max-w-2xl mx-auto font-mono">
+                <p data-testid="container-e8dfc6" className="text-base md:text-xl text-neutral-400 max-w-2xl mx-auto font-mono">
                   &gt; Decrypt the visual anomalies. Speak the truth. Progress through 50 stages of increasing difficulty to earn your Celo bounties and exclusive NFT Badges.
                 </p>
               </div>
@@ -117,18 +117,18 @@ export default function Home() {
             <div className="pointer-events-none fixed inset-0 z-50 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.25)_50%),linear-gradient(90deg,rgba(255,0,0,0.06),rgba(0,255,0,0.02),rgba(0,0,255,0.06))] bg-[length:100%_4px,3px_100%] opacity-20"></div>
 
             {/* Hero Section */}
-            <section className="pt-40 pb-20 md:pt-52 md:pb-32 px-6 flex flex-col items-center justify-center text-center">
-              <h2 data-cy="cy-75ef60" className="text-6xl md:text-8xl lg:text-9xl font-black tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-white via-[#35D07F] to-[#1e9a58] drop-shadow-[0_0_25px_rgba(53,208,127,0.4)] glitch-effect mb-8">
+            <section className="pt-32 pb-16 md:pt-52 md:pb-32 px-4 md:px-6 flex flex-col items-center justify-center text-center">
+              <h2 data-cy="cy-75ef60" className="text-5xl md:text-8xl lg:text-9xl font-black tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-white via-[#35D07F] to-[#1e9a58] drop-shadow-[0_0_25px_rgba(53,208,127,0.4)] glitch-effect mb-6 md:mb-8">
                 {glitchText}
               </h2>
-              <p data-component-id="3b297e53" className="text-neutral-400 text-lg md:text-xl tracking-widest uppercase max-w-2xl leading-relaxed mb-12">
+              <p data-component-id="3b297e53" className="text-neutral-400 text-base md:text-xl tracking-widest uppercase max-w-2xl leading-relaxed mb-8 md:mb-12">
                 Decrypt the AI visuals. <br/> Speak the hidden word. <br/> Claim the bounty.
               </p>
               
               <div className="pt-4 animate-in fade-in slide-in-from-bottom-8 duration-700">
                 <button 
                   onClick={login}
-                  className="gaming-btn group relative px-10 py-5 bg-transparent border-2 border-[#35D07F] text-[#35D07F] font-bold text-xl md:text-2xl tracking-[0.2em] uppercase hover:text-black shadow-[0_0_20px_rgba(53,208,127,0.3)]"
+                  className="gaming-btn group relative px-6 md:px-10 py-4 md:py-5 bg-transparent border-2 border-[#35D07F] text-[#35D07F] font-bold text-sm md:text-2xl tracking-[0.2em] uppercase hover:text-black shadow-[0_0_20px_rgba(53,208,127,0.3)]"
                 >
                   &gt; Press Start to Connect &lt;
                 </button>
@@ -136,11 +136,11 @@ export default function Home() {
             </section>
 
             {/* Interactive Preview Section */}
-            <section className="py-24 px-6 relative border-y border-[#35D07F]/20 bg-black/80 overflow-hidden">
-              <div data-testid="text-ae180f" className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-16">
-                <div data-theme-role="primary-surface" className="flex-1 space-y-8">
-                  <h2 data-theme-role="primary-surface" className="text-4xl md:text-5xl font-black text-[#35D07F] drop-shadow-[0_0_4px_rgba(53,208,127,0.6)]">THE ULTIMATE TEST OF PERCEPTION</h2>
-                  <p data-component-id="28893f60" className="text-lg text-neutral-400 leading-relaxed font-mono">
+            <section className="py-16 md:py-24 px-4 md:px-6 relative border-y border-[#35D07F]/20 bg-black/80 overflow-hidden">
+              <div data-testid="text-ae180f" className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-8 md:gap-16">
+                <div data-theme-role="primary-surface" className="flex-1 space-y-6 md:space-y-8">
+                  <h2 data-theme-role="primary-surface" className="text-3xl md:text-5xl font-black text-[#35D07F] drop-shadow-[0_0_4px_rgba(53,208,127,0.6)]">THE ULTIMATE TEST OF PERCEPTION</h2>
+                  <p data-component-id="28893f60" className="text-sm md:text-lg text-neutral-400 leading-relaxed font-mono">
                     &gt; You are presented with 4 seemingly random AI-generated images. They all share one conceptual link. Can you find it?
                     The catch: revealing fewer images rewards you with a significantly higher multiplier on your Celo bounty.
                   </p>
@@ -178,9 +178,9 @@ export default function Home() {
             </section>
 
             {/* Features Grid */}
-            <section id="how-it-works" className="py-32 px-6 max-w-7xl mx-auto border-b border-[#35D07F]/20">
-              <div className="text-center mb-20">
-                <h2 data-tracking="track-d0a2d9" className="text-5xl font-black mb-6 text-white drop-shadow-[0_0_10px_rgba(255,255,255,0.5)]">SYSTEM ARCHITECTURE</h2>
+            <section id="how-it-works" className="py-20 md:py-32 px-4 md:px-6 max-w-7xl mx-auto border-b border-[#35D07F]/20">
+              <div className="text-center mb-12 md:mb-20">
+                <h2 data-tracking="track-d0a2d9" className="text-3xl md:text-5xl font-black mb-4 md:mb-6 text-white drop-shadow-[0_0_10px_rgba(255,255,255,0.5)]">SYSTEM ARCHITECTURE</h2>
                 <div data-cy="cy-a1bb34" className="h-1 w-32 bg-[#35D07F] mx-auto shadow-[0_0_15px_#35D07F]"></div>
               </div>
 
@@ -203,14 +203,14 @@ export default function Home() {
             </section>
 
             {/* Footer CTA */}
-            <section className="py-32 px-6 text-center relative overflow-hidden">
+            <section className="py-20 md:py-32 px-4 md:px-6 text-center relative overflow-hidden">
               <div data-testid="container-e9eca1" className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(53,208,127,0.1)_0%,transparent_50%)]" />
               <div data-testid="text-550902" className="relative z-10 max-w-3xl mx-auto">
-                <h2 aria-label="Interactive element f325" className="text-5xl md:text-7xl font-black mb-8 drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]">READY TO CONNECT?</h2>
-                <p data-theme-role="primary-surface" className="text-xl text-[#35D07F] mb-12 font-mono tracking-widest">&gt; AWAITING PLAYER INITIALIZATION...</p>
+                <h2 aria-label="Interactive element f325" className="text-4xl md:text-7xl font-black mb-6 md:mb-8 drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]">READY TO CONNECT?</h2>
+                <p data-theme-role="primary-surface" className="text-sm md:text-xl text-[#35D07F] mb-8 md:mb-12 font-mono tracking-widest">&gt; AWAITING PLAYER INITIALIZATION...</p>
                 <button 
                   onClick={login}
-                  className="gaming-btn px-12 py-6 border-2 border-[#35D07F] text-[#35D07F] font-black text-2xl hover:text-black hover:bg-[#35D07F]"
+                  className="gaming-btn px-8 md:px-12 py-4 md:py-6 border-2 border-[#35D07F] text-[#35D07F] font-black text-lg md:text-2xl hover:text-black hover:bg-[#35D07F]"
                 >
                   CONNECT WALLET
                 </button>
