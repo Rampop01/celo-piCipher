@@ -347,9 +347,9 @@ export const GAME_VAULTS = {
     "hint": "A popular puzzle word: Insect",
     "imageUrls": [
       "/images/vault/img_124.jpg",
-      "https://loremflickr.com/400/300/Insect?lock=2",
-      "https://loremflickr.com/400/300/Insect?lock=3",
-      "https://loremflickr.com/400/300/Insect?lock=4"
+      "/images/vault/pollination_insect_2.jpg",
+      "/images/vault/pollination_insect_3.jpg",
+      "/images/vault/pollination_insect_4.jpg"
     ]
   },
   {
@@ -357,7 +357,7 @@ export const GAME_VAULTS = {
     "word": "Gold",
     "hint": "A popular puzzle word: Gold",
     "imageUrls": [
-      "https://loremflickr.com/400/300/Gold?lock=1",
+      "/images/vault/pollination_gold_1.jpg",
       "https://loremflickr.com/400/300/Gold?lock=2",
       "https://loremflickr.com/400/300/Gold?lock=3",
       "https://loremflickr.com/400/300/Gold?lock=4"
