@@ -15,7 +15,7 @@ export default function OnboardingOverlay({ onComplete, networkName, speakText }
     {
       title: "REVEAL PICTURES",
       icon: <Eye className="w-16 h-16 text-[#35D07F] mb-4" />,
-      content: "Click on the locked squares to reveal pieces of the image. But be careful: the fewer squares you open, the better!"
+      content: "Click on the locked circles to reveal pieces of the image. But be careful: the fewer circles you open, the better!"
     },
     {
       title: "GUESS THE WORD",
