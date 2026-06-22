@@ -2,9 +2,9 @@
 
 PiCipher is an immersive, cyberpunk-themed puzzle game built on the Celo blockchain. Players act as rogue hackers tasked with infiltrating the Celo Mainframe by decrypting visual anomalies (AI-generated images). 
 
-## 🏆 Hackathon Submission
+## 🏆 Project Overview
 
-This project was built to demonstrate seamless integration of Celo smart contracts with modern web technologies and mobile-first MiniPay, pushing the boundaries of Web3 gaming UX.
+This project is built to demonstrate seamless integration of Celo smart contracts with modern web technologies and mobile-first MiniPay, pushing the boundaries of Web3 gaming UX.
 
 ### Key Features
 1. **Fully On-Chain Logic:** Registrations, level progressions, bypassing, and purchasing hints are all executed securely on the Celo blockchain via Solidity smart contracts.
