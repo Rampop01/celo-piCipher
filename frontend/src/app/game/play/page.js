@@ -91,10 +91,11 @@ export default function GamePlay() {
   const loadProfile = async () => {
     try {
       setIsLoading(true);
-      const activeWallet = wallets.find(w => w.address === user?.wallet?.address) || wallets[0];
-      const eProvider = await activeWallet.getEthereumProvider();
-      const provider = new ethers.BrowserProvider(eProvider);
+      // Use public RPC for read-only calls so it works even if the wallet has no CELO
+      const provider = new ethers.JsonRpcProvider("https://forno.celo.org");
       const contract = new ethers.Contract(GAME_CONTRACT_ADDRESS, GAME_ABI, provider);
+      // Resolve the active wallet address for the current user session
+      const activeWallet = wallets.find(w => w.address === user?.wallet?.address) || wallets[0];
       const userAddress = activeWallet.address;
 
       const userProfile = await contract.profiles(userAddress);
@@ -195,6 +196,16 @@ export default function GamePlay() {
       const activeWallet = wallets.find(w => w.address === user?.wallet?.address) || wallets[0];
       const eProvider = await activeWallet.getEthereumProvider();
       const provider = new ethers.BrowserProvider(eProvider);
+
+      // Check if user has enough gas before attempting registration
+      const balance = await provider.getBalance(activeWallet.address);
+      if (balance === 0n) {
+        playError();
+        setFeedback({ type: "error", message: "No CELO for gas. Fund your wallet to register." });
+        speakText("Insufficient gas detected. You need CELO to register on the blockchain.");
+        return;
+      }
+
       const signer = await provider.getSigner();
       const contract = new ethers.Contract(GAME_CONTRACT_ADDRESS, GAME_ABI, signer);
       
@@ -214,7 +225,10 @@ export default function GamePlay() {
       }
       playError();
       console.error(error);
-      setFeedback({ type: "error", message: "Registration failed." });
+      const msg = error?.message?.includes("insufficient funds")
+        ? "No CELO for gas. Fund your wallet to register."
+        : "Registration failed.";
+      setFeedback({ type: "error", message: msg });
     } finally {
       setIsRegistering(false);
     }
@@ -277,6 +291,13 @@ export default function GamePlay() {
           const activeWallet = wallets.find(w => w.address === user?.wallet?.address) || wallets[0];
           const eProvider = await activeWallet.getEthereumProvider();
           const provider = new ethers.BrowserProvider(eProvider);
+
+          const balance = await provider.getBalance(activeWallet.address);
+          if (balance === 0n) {
+            setFeedback({ type: "error", message: "No CELO for gas. Fund your wallet to save progress." });
+            return;
+          }
+
           const signer = await provider.getSigner();
           const contract = new ethers.Contract(GAME_CONTRACT_ADDRESS, GAME_ABI, signer);
           
@@ -288,7 +309,10 @@ export default function GamePlay() {
         } catch (err) {
           playError();
           console.error(err);
-          setFeedback({ type: "error", message: "Blockchain submission failed." });
+          const msg = err?.message?.includes("insufficient funds")
+            ? "No CELO for gas. Fund your wallet to save progress."
+            : "Blockchain submission failed.";
+          setFeedback({ type: "error", message: msg });
         }
       } else {
         playSuccess();
