@@ -87,18 +87,21 @@ export default function GamePlay() {
     }
   }, [authenticated, wallets, router]);
 
+  // Onboarding Check
   useEffect(() => {
-    if (typeof window !== "undefined" && profile) {
-      const hasSeenOnboarding = localStorage.getItem("hasSeenOnboarding");
-      // Only trigger tutorial if they haven't seen it AND they are fully registered/in the game
-      if (!hasSeenOnboarding && (profile.isRegistered || profile.isOffChain)) {
+    const activeWallet = getActiveWallet();
+    const storageKey = activeWallet?.address ? `hasSeenOnboarding_${activeWallet.address}` : "hasSeenOnboarding";
+    
+    if (profile && (profile.isRegistered || profile.isOffChain)) {
+      const hasSeen = localStorage.getItem(storageKey);
+      if (!hasSeen) {
         setShowOnboarding(true);
+        localStorage.setItem(storageKey, "true");
       }
     }
   }, [profile]);
 
   const handleOnboardingComplete = () => {
-    localStorage.setItem("hasSeenOnboarding", "true");
     setShowOnboarding(false);
   };
 
@@ -884,7 +887,7 @@ export default function GamePlay() {
               disabled={isSyncing}
               className="w-full bg-[#35D07F]/10 text-[#35D07F] text-xs md:text-sm px-4 py-4 border-2 border-[#35D07F] hover:bg-[#35D07F] hover:text-black font-bold tracking-widest transition-colors animate-pulse uppercase"
             >
-              {isSyncing ? "[ SAVING TO BLOCKCHAIN... ]" : `[ SAVE ${pendingAnswers.length} STAGES TO BLOCKCHAIN ]`}
+              {isSyncing ? "[ SAVING TO BLOCKCHAIN... ]" : `[ SAVE ${pendingAnswers.length} ${pendingAnswers.length === 1 ? 'STAGE' : 'STAGES'} TO BLOCKCHAIN ]`}
             </button>
           </div>
         )}

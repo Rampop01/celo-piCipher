@@ -181,7 +181,7 @@ export default function Leaderboard() {
             <div data-tracking="track-e910fd" className="col-span-2 md:col-span-2">Rank</div>
             <div data-testid="text-42ca1a" className="col-span-5 md:col-span-5">Hacker Alias</div>
             <div data-testid="container-0f4fa7" className="col-span-2 md:col-span-2 text-center">Stage</div>
-            <div data-testid="container-1dd53c" className="col-span-3 md:col-span-3 text-right">XRP</div>
+            <div data-testid="container-1dd53c" className="col-span-3 md:col-span-3 text-right">XP</div>
           </div>
 
           {isLoading ? (
