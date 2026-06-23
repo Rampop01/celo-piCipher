@@ -13,7 +13,7 @@ import OnboardingOverlay from "../../../components/OnboardingOverlay";
 import TiltCard from "../../../components/TiltCard";
 
 // Contract Addresses
-const GAME_CONTRACT_ADDRESS = process.env.NEXT_PUBLIC_CONTRACT_ADDRESS || "0xa8fE1f02F2f7a6A305AEa11C0927Fa5d35949778";
+const GAME_CONTRACT_ADDRESS = process.env.NEXT_PUBLIC_CONTRACT_ADDRESS || "0x511eb648f6946bFEED42014c6D95AeCa97cB03eA";
 const CUSD_ADDRESS = "0x765DE816845861e75A25fCA122bb6898B8B1282a";
 
 // Simplified ABIs
@@ -21,6 +21,7 @@ const GAME_ABI = [
   "function profiles(address) view returns (string nickname, uint256 currentStage, bool isRegistered)",
   "function registerUser(string calldata _nickname) external",
   "function submitStageAnswer(string calldata _answer) external",
+  "function submitBatchAnswers(string[] calldata _answers) external",
   "function bypassStage() external",
   "function buyHint() external",
   "function bypassFee() view returns (uint256)",
@@ -54,6 +55,8 @@ export default function GamePlay() {
   const [difficulty, setDifficulty] = useState("EASY"); // EASY, MEDIUM, HARD
   const [category, setCategory] = useState("CAMPAIGN"); // CAMPAIGN, CYBERPUNK, GAMING
   const [viewingStage, setViewingStage] = useState(1);
+  const [pendingAnswers, setPendingAnswers] = useState([]);
+  const [isSyncing, setIsSyncing] = useState(false);
 
   // Refs
   const recognitionRef = useRef(null);
@@ -82,14 +85,17 @@ export default function GamePlay() {
     } else if (!authenticated) {
       router.push("/");
     }
+  }, [authenticated, wallets, router]);
 
-    if (typeof window !== "undefined") {
+  useEffect(() => {
+    if (typeof window !== "undefined" && profile) {
       const hasSeenOnboarding = localStorage.getItem("hasSeenOnboarding");
-      if (!hasSeenOnboarding) {
+      // Only trigger tutorial if they haven't seen it AND they are fully registered/in the game
+      if (!hasSeenOnboarding && (profile.isRegistered || profile.isOffChain)) {
         setShowOnboarding(true);
       }
     }
-  }, [authenticated, wallets]);
+  }, [profile]);
 
   const handleOnboardingComplete = () => {
     localStorage.setItem("hasSeenOnboarding", "true");
@@ -134,13 +140,22 @@ export default function GamePlay() {
       
       if (userProfile.isRegistered) {
         const stageNum = Number(userProfile.currentStage);
+        
+        // Check for pending off-chain answers
+        const savedPending = localStorage.getItem(`pending_answers_${userAddress}`);
+        const parsedPending = savedPending ? JSON.parse(savedPending) : [];
+        setPendingAnswers(parsedPending);
+        
+        const localCurrentStage = stageNum + parsedPending.length;
+
         setProfile({
           nickname: userProfile.nickname,
           currentStage: stageNum,
+          localCurrentStage: localCurrentStage,
           isRegistered: true
         });
-        setViewingStage(stageNum);
-        loadStage(stageNum, "CAMPAIGN", difficulty);
+        setViewingStage(localCurrentStage);
+        loadStage(localCurrentStage, "CAMPAIGN", difficulty);
         if (!hasWelcomedRef.current) {
           speakText(`Welcome back to the grid, ${userProfile.nickname}.`);
           hasWelcomedRef.current = true;
@@ -379,60 +394,32 @@ export default function GamePlay() {
         return;
       }
       
-      const isBlockchainStage = category === "CAMPAIGN" && profile && viewingStage === profile.currentStage;
+      const isBlockchainStage = category === "CAMPAIGN" && profile && viewingStage === profile.localCurrentStage;
       
       if (isBlockchainStage) {
-        try {
-          const activeWallet = getActiveWallet();
-          if (!activeWallet) {
-            setFeedback({ type: "error", message: "This game is fully on-chain. Connect a Web3 wallet to save progress." });
-            setIsSubmitting(false);
-            return;
-          }
-          if (activeWallet.chainId && activeWallet.chainId !== "eip155:42220" && activeWallet.chainId !== "eip155:44787") {
-            try {
-              await activeWallet.switchChain(42220);
-            } catch (e) {
-              playError();
-              speakText("Wrong network detected. Please switch to Celo.");
-              setFeedback({ type: "error", message: "Wrong network! Please switch your wallet to Celo." });
-              setIsSubmitting(false);
-              return;
-            }
-          }
-          setFeedback({ type: "loading", message: "Correct! Saving progress to blockchain..." });
-          const eProvider = await activeWallet.getEthereumProvider();
-          const provider = new ethers.BrowserProvider(eProvider);
-
-          const balance = await provider.getBalance(activeWallet.address);
-          if (balance === 0n) {
-            playError();
-            setFeedback({ type: "error", message: "No CELO for gas. Fund your wallet to save progress." });
-            setIsSubmitting(false);
-            return;
-          }
-
-          const signer = await provider.getSigner();
-          const contract = new ethers.Contract(GAME_CONTRACT_ADDRESS, GAME_ABI, signer);
-          
-          const tx = await contract.submitStageAnswer(guess);
-          await tx.wait();
-          
-          playUnlock();
-          setFeedback({ type: "success", message: "Progress Saved!" });
-          setTimeout(() => {
-            loadProfile(); // Load next stage
-            setIsSubmitting(false);
-          }, 1500);
-        } catch (err) {
-          playError();
-          console.error(err);
-          const msg = err?.message?.includes("insufficient funds")
-            ? "No CELO for gas. Fund your wallet to save progress."
-            : "Blockchain submission failed.";
-          setFeedback({ type: "error", message: msg });
+        const activeWallet = getActiveWallet();
+        if (!activeWallet) {
+          setFeedback({ type: "error", message: "This game is fully on-chain. Connect a Web3 wallet to save progress." });
           setIsSubmitting(false);
+          return;
         }
+
+        const newPending = [...pendingAnswers, guess];
+        setPendingAnswers(newPending);
+        localStorage.setItem(`pending_answers_${activeWallet.address}`, JSON.stringify(newPending));
+        
+        const nextStage = profile.localCurrentStage + 1;
+        setProfile(prev => ({ ...prev, localCurrentStage: nextStage }));
+        
+        playUnlock();
+        setFeedback({ type: "success", message: "Progress Saved Locally!" });
+        
+        setTimeout(() => {
+          setViewingStage(nextStage);
+          loadStage(nextStage, category, difficulty);
+          setIsSubmitting(false);
+          setTranscript("");
+        }, 1500);
       } else {
         playUnlock();
         setTimeout(() => {
@@ -444,6 +431,68 @@ export default function GamePlay() {
       playError();
       speakText("Incorrect. Security systems alerted.");
       setFeedback({ type: "error", message: `Incorrect guess: ${guess}` });
+    }
+  };
+
+  // Sync progress to blockchain
+  const handleSyncProgress = async () => {
+    if (pendingAnswers.length === 0) return;
+    setIsSyncing(true);
+    setFeedback({ type: "loading", message: "Syncing progress to blockchain..." });
+    
+    try {
+      const activeWallet = getActiveWallet();
+      if (!activeWallet) throw new Error("No wallet connected");
+
+      if (activeWallet.chainId && activeWallet.chainId !== "eip155:42220" && activeWallet.chainId !== "eip155:44787") {
+        try {
+          await activeWallet.switchChain(42220);
+        } catch (e) {
+          playError();
+          speakText("Wrong network detected. Please switch to Celo.");
+          setFeedback({ type: "error", message: "Wrong network! Please switch your wallet to Celo." });
+          setIsSyncing(false);
+          return;
+        }
+      }
+
+      const eProvider = await activeWallet.getEthereumProvider();
+      const provider = new ethers.BrowserProvider(eProvider);
+
+      const balance = await provider.getBalance(activeWallet.address);
+      if (balance === 0n) {
+        playError();
+        setFeedback({ type: "error", message: "No CELO for gas. Fund your wallet to sync progress." });
+        setIsSyncing(false);
+        return;
+      }
+
+      const signer = await provider.getSigner();
+      const contract = new ethers.Contract(GAME_CONTRACT_ADDRESS, GAME_ABI, signer);
+      
+      // Sanitize the answers to ensure exact case matches what the contract expects
+      const sanitizedAnswers = pendingAnswers.map((_, i) => {
+        const stage = GAME_VAULTS["CAMPAIGN"].find(s => s.stageId === profile.currentStage + i);
+        return stage ? stage.word : "";
+      });
+
+      const tx = await contract.submitBatchAnswers(sanitizedAnswers);
+      await tx.wait();
+      
+      playSuccess();
+      setFeedback({ type: "success", message: "Progress Synced Successfully!" });
+      setPendingAnswers([]);
+      localStorage.removeItem(`pending_answers_${activeWallet.address}`);
+      
+      setTimeout(() => {
+        loadProfile(); // Refresh from chain
+        setIsSyncing(false);
+      }, 1500);
+    } catch (err) {
+      playError();
+      console.error(err);
+      setFeedback({ type: "error", message: "Sync failed. Try again." });
+      setIsSyncing(false);
     }
   };
 
@@ -672,7 +721,7 @@ export default function GamePlay() {
               {profile?.nickname || "UNKNOWN"}
             </span>
             {isMiniPay && (
-              <span data-testid="container-2526f1" className="bg-yellow-500/20 text-yellow-500 text-xs px-2 py-1 rounded border border-yellow-500/50">
+              <span className="bg-yellow-500/20 text-yellow-500 text-xs px-2 py-1 rounded border border-yellow-500/50">
                 MINIPAY
               </span>
             )}
@@ -826,6 +875,20 @@ export default function GamePlay() {
             <FastForward className="w-4 h-4" /> {profile?.isOffChain ? "BYPASS" : "0.05 cUSD BYPASS"}
           </button>
         </div>
+
+        {/* Sync Progress HUD */}
+        {pendingAnswers.length > 0 && (
+          <div className="flex w-full max-w-md mx-auto mb-8 mt-[-1rem]">
+            <button 
+              onClick={handleSyncProgress}
+              disabled={isSyncing}
+              className="w-full bg-[#35D07F]/10 text-[#35D07F] text-xs md:text-sm px-4 py-4 border-2 border-[#35D07F] hover:bg-[#35D07F] hover:text-black font-bold tracking-widest transition-colors animate-pulse uppercase"
+            >
+              {isSyncing ? "[ SAVING TO BLOCKCHAIN... ]" : `[ SAVE ${pendingAnswers.length} STAGES TO BLOCKCHAIN ]`}
+            </button>
+          </div>
+        )}
+
 
         {/* Hint Display */}
         {showHint && (

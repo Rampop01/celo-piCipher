@@ -6,7 +6,7 @@ import { useState, useEffect } from "react";
 import { ethers } from "ethers";
 import { useWallets } from "@privy-io/react-auth";
 
-const GAME_CONTRACT_ADDRESS = process.env.NEXT_PUBLIC_CONTRACT_ADDRESS || "0xa8fE1f02F2f7a6A305AEa11C0927Fa5d35949778";
+const GAME_CONTRACT_ADDRESS = process.env.NEXT_PUBLIC_CONTRACT_ADDRESS || "0x511eb648f6946bFEED42014c6D95AeCa97cB03eA";
 
 const GAME_ABI = [
   "function nextTokenId() view returns (uint256)",

@@ -281,7 +281,7 @@ export const GAME_VAULTS = {
       "hint": "Sweet brown treat",
       "imageUrls": [
         "/images/vault/img_100.jpeg",
-        "https://images.pexels.com/photos/302680/pexels-photo-302680.jpeg",
+        "/images/vault/img_101.jpeg",
         "/images/vault/img_102.jpeg",
         "/images/vault/img_103.jpeg"
       ]

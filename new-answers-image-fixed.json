@@ -1,0 +1,554 @@
+[
+  {
+    "level": 1,
+    "answer": "=Fruit",
+    "hint": "Edible natural food from trees or plants",
+    "images": [
+      "https://images.pexels.com/photos/102104/pexels-photo-102104.jpeg",
+      "https://images.pexels.com/photos/2247142/pexels-photo-2247142.jpeg?w=400&h=300&fit=crop",
+      "https://images.pexels.com/photos/1132047/pexels-photo-1132047.jpeg",
+      "https://images.pexels.com/photos/264537/pexels-photo-264537.jpeg"
+    ]
+  },
+  {
+    "level": 2,
+    "answer": "=Water",
+    "hint": "Essential liquid for life",
+    "images": [
+      "https://images.pexels.com/photos/327090/pexels-photo-327090.jpeg",
+      "https://images.pexels.com/photos/1000084/pexels-photo-1000084.jpeg?w=400&h=300&fit=crop",
+      "https://images.pexels.com/photos/1001682/pexels-photo-1001682.jpeg",
+      "https://images.pexels.com/photos/459225/pexels-photo-459225.jpeg"
+    ]
+  },
+  {
+    "level": 3,
+    "answer": "=Music",
+    "hint": "Art of sound and rhythm",
+    "images": [
+      "https://images.pexels.com/photos/2531728/pexels-photo-2531728.jpeg?w=400&h=300&fit=crop",
+      "https://images.pexels.com/photos/164745/pexels-photo-164745.jpeg",
+      "https://images.pexels.com/photos/210887/pexels-photo-210887.jpeg",
+      "https://images.pexels.com/photos/210764/pexels-photo-210764.jpeg"
+    ]
+  },
+  {
+    "level": 4,
+    "answer": "=Pizza",
+    "hint": "Popular Italian fast food",
+    "images": [
+      "https://images.pexels.com/photos/315755/pexels-photo-315755.jpeg",
+      "https://images.pexels.com/photos/825661/pexels-photo-825661.jpeg",
+      "https://images.pexels.com/photos/1566837/pexels-photo-1566837.jpeg",
+      "https://images.pexels.com/photos/708587/pexels-photo-708587.jpeg?w=400&h=300&fit=crop"
+    ]
+  },
+  {
+    "level": 5,
+    "answer": "=Beach",
+    "hint": "Sandy seaside vacation spot",
+    "images": [
+      "https://images.pexels.com/photos/457882/pexels-photo-457882.jpeg",
+      "https://images.pexels.com/photos/1032650/pexels-photo-1032650.jpeg",
+      "https://images.pexels.com/photos/210205/pexels-photo-210205.jpeg",
+      "https://images.pexels.com/photos/1450353/pexels-photo-1450353.jpeg"
+    ]
+  },
+  {
+    "level": 6,
+    "answer": "=Football",
+    "hint": "World's most popular sport",
+    "images": [
+      "https://images.pexels.com/photos/46798/the-ball-stadion-football-the-pitch-46798.jpeg",
+      "https://images.pexels.com/photos/274422/pexels-photo-274422.jpeg",
+      "https://images.pexels.com/photos/399187/pexels-photo-399187.jpeg",
+      "https://images.pexels.com/photos/1884574/pexels-photo-1884574.jpeg?w=400&h=300&fit=crop"
+    ]
+  },
+  {
+    "level": 7,
+    "answer": "=Airport",
+    "hint": "Place where flights take off and land",
+    "images": [
+      "https://images.pexels.com/photos/3943882/pexels-photo-3943882.jpeg?w=400&h=300&fit=crop",
+      "https://images.pexels.com/photos/358319/pexels-photo-358319.jpeg",
+      "https://images.pexels.com/photos/358220/pexels-photo-358220.jpeg",
+      "https://images.pexels.com/photos/912050/pexels-photo-912050.jpeg?w=400&h=300&fit=crop"
+    ]
+  },
+  {
+    "level": 8,
+    "answer": "=Wedding",
+    "hint": "Marriage ceremony",
+    "images": [
+      "https://images.pexels.com/photos/265722/pexels-photo-265722.jpeg",
+      "https://images.pexels.com/photos/169198/pexels-photo-169198.jpeg",
+      "https://images.pexels.com/photos/265730/pexels-photo-265730.jpeg",
+      "https://images.pexels.com/photos/265702/pexels-photo-265702.jpeg"
+    ]
+  },
+  {
+    "level": 9,
+    "answer": "=Rainbow",
+    "hint": "Colorful arc after rain",
+    "images": [
+      "https://images.pexels.com/photos/414102/pexels-photo-414102.jpeg",
+      "https://images.pexels.com/photos/1624438/pexels-photo-1624438.jpeg",
+      "https://images.pexels.com/photos/462118/pexels-photo-462118.jpeg",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJVvEvtfvMhfipLU14Z06QAzELcvhLLYDBBzG_k-7AwQ&s=10"
+    ]
+  },
+  {
+    "level": 10,
+    "answer": "=Party",
+    "hint": "Big celebration or event",
+    "images": [
+      "https://images.pexels.com/photos/1190297/pexels-photo-1190297.jpeg",
+      "https://images.pexels.com/photos/2747449/pexels-photo-2747449.jpeg",
+      "https://images.pexels.com/photos/1105666/pexels-photo-1105666.jpeg",
+      "https://images.pexels.com/photos/1763075/pexels-photo-1763075.jpeg"
+    ]
+  }
+]
+
+[
+  {
+    "level": 11,
+    "answer": "=Book",
+    "hint": "Used for reading stories or knowledge",
+    "images": [
+      "https://images.pexels.com/photos/159711/books-bookstore-book-reading-159711.jpeg",
+      "https://images.pexels.com/photos/46274/pexels-photo-46274.jpeg",
+      "https://images.pexels.com/photos/694740/pexels-photo-694740.jpeg?w=400&h=300&fit=crop",
+      "https://images.pexels.com/photos/34592/pexels-photo.jpg"
+    ]
+  },
+  {
+    "level": 12,
+    "answer": "=Shopping",
+    "hint": "Place where people buy and sell goods",
+    "images": [
+      "https://images.pexels.com/photos/264636/pexels-photo-264636.jpeg",
+      "https://images.pexels.com/photos/264547/pexels-photo-264547.jpeg",
+      "https://images.pexels.com/photos/3962285/pexels-photo-3962285.jpeg?w=400&h=300&fit=crop",
+      "https://images.pexels.com/photos/2292953/pexels-photo-2292953.jpeg?w=400&h=300&fit=crop"
+    ]
+  },
+  {
+    "level": 13,
+    "answer": "=School",
+    "hint": "Place for learning and education",
+    "images": [
+      "https://images.pexels.com/photos/256490/pexels-photo-256490.jpeg",
+      "https://images.pexels.com/photos/764681/pexels-photo-764681.jpeg?w=400&h=300&fit=crop",
+      "https://images.pexels.com/photos/267885/pexels-photo-267885.jpeg",
+      "https://images.pexels.com/photos/5212345/pexels-photo-5212345.jpeg?w=400&h=300&fit=crop"
+    ]
+  },
+  {
+    "level": 14,
+    "answer": "Education", //replace with something else
+    "hint": "Process of gaining knowledge",
+    "images": [
+      "https://images.pexels.com/photos/414503/pexels-photo-414503.jpeg",
+      "https://images.pexels.com/photos/256455/pexels-photo-256455.jpeg",
+      "https://images.pexels.com/photos/414379/pexels-photo-414379.jpeg",
+      "https://images.pexels.com/photos/267507/pexels-photo-267507.jpeg"
+    ]
+  },
+  {
+    "level": 15,
+    "answer": "=Hospital",
+    "hint": "Place where people go when sick or injured",
+    "images": [
+      "https://images.pexels.com/photos/5452293/pexels-photo-5452293.jpeg",
+      "https://images.pexels.com/photos/263402/pexels-photo-263402.jpeg",
+      "https://images.pexels.com/photos/4386466/pexels-photo-4386466.jpeg",
+      "https://images.pexels.com/photos/263392/pexels-photo-263392.jpeg"
+    ]
+  },
+  {
+    "level": 16,
+    "answer": "=Birthday",
+    "hint": "Sweet baked dessert, often eaten on birthdays",
+    "images": [
+      "https://images.pexels.com/photos/169191/pexels-photo-169191.jpeg",
+      "https://images.pexels.com/photos/587741/pexels-photo-587741.jpeg",
+      "https://images.pexels.com/photos/842876/pexels-photo-842876.jpeg?w=400&h=300&fit=crop",
+      "https://images.pexels.com/photos/1702373/pexels-photo-1702373.jpeg"
+    ]
+  },
+  {
+    "level": 17,
+    "answer": "Friendship", //replace entirely
+    "hint": "Bond between close friends",
+    "images": [
+      "https://images.pexels.com/photos/1642883/pexels-photo-1642883.jpeg",
+      "https://images.pexels.com/photos/936554/pexels-photo-936554.jpeg",
+      "https://images.pexels.com/photos/1642883/pexels-photo-1642883.jpeg",
+      "https://images.pexels.com/photos/935756/pexels-photo-935756.jpeg"
+    ]
+  },
+  {
+    "level": 18,
+    "answer": "=Travel",
+    "hint": "Moving from place to place",
+    "images": [
+      "https://images.pexels.com/photos/346885/pexels-photo-346885.jpeg",
+      "https://images.pexels.com/photos/2161449/pexels-photo-2161449.jpeg",
+      "https://images.pexels.com/photos/1008155/pexels-photo-1008155.jpeg",
+      "https://images.pexels.com/photos/21014/pexels-photo.jpg"
+    ]
+  },
+  {
+    "level": 19,
+    "answer": "=Family",
+    "hint": "People related to you",
+    "images": [
+      "https://images.pexels.com/photos/2253870/pexels-photo-2253870.jpeg",
+      "https://images.pexels.com/photos/1648387/pexels-photo-1648387.jpeg?w=400&h=300&fit=crop",
+      "https://images.pexels.com/photos/1128318/pexels-photo-1128318.jpeg?w=400&h=300&fit=crop",
+      "https://images.pexels.com/photos/3184183/pexels-photo-3184183.jpeg?w=400&h=300&fit=crop"
+    ]
+  },
+  {
+    "level": 20,
+    "answer": "Money",
+    "hint": "Used for buying goods and services",
+    "images": [
+      "https://images.pexels.com/photos/259027/pexels-photo-259027.jpeg",
+      "https://images.pexels.com/photos/47344/pexels-photo-47344.jpeg=broken",
+      "https://images.pexels.com/photos/21014/pexels-photo.jpg", //not money image
+      "https://images.pexels.com/photos/4386373/pexels-photo-4386373.jpeg"
+    ]
+  },
+  {
+    "level": 21,
+    "answer": "=Mountain",
+    "hint": "Very high natural land formation",
+    "images": [
+      "https://images.pexels.com/photos/417173/pexels-photo-417173.jpeg",
+      "https://images.pexels.com/photos/355770/pexels-photo-355770.jpeg",
+      "https://images.pexels.com/photos/691668/pexels-photo-691668.jpeg",
+      "https://images.pexels.com/photos/417074/pexels-photo-417074.jpeg"
+    ]
+  },
+  {
+    "level": 22,
+    "answer": "=Champion",
+    "images": [
+      "https://blog.likibu.com/wp-content/uploads/2014/06/champion-620x330.jpg",
+      "https://papercart.ph/cdn/shop/products/Academic_DEP-ED_Medal_5cm_Silver.jpg?v=1770079770&width=1646",
+      "https://iprints.com.ng/wp-content/uploads/2024/01/Award-Medals.jpg",
+      "https://www.wikihow.com/images/thumb/8/8c/Be-a-Champion-Step-5-Version-2.jpg/v4-460px-Be-a-Champion-Step-5-Version-2.jpg"
+    ]
+  },
+  {
+    "level": 23,
+    "answer": "=Camera",
+    "hint": "Device for taking photos",
+    "images": [
+      "https://images.pexels.com/photos/51383/photo-camera-subject-photographer-51383.jpeg",
+      "https://images.pexels.com/photos/274973/pexels-photo-274973.jpeg",
+      "https://images.pexels.com/photos/1264210/pexels-photo-1264210.jpeg?w=400&h=300&fit=crop",
+      "https://images.pexels.com/photos/1493226/pexels-photo-1493226.jpeg?w=400&h=300&fit=crop"{
+        "level": 24,
+        "answer": "=Chocolate",
+        "hint": "Sweet brown treat",
+        "images": [
+          "https://images.pexels.com/photos/918327/pexels-photo-918327.jpeg",
+          "https://images.pexels.com/photos/302680/pexels-photo-302680.jpeg=broken",
+          "https://images.pexels.com/photos/2067396/pexels-photo-2067396.jpeg?w=400&h=300&fit=crop",
+          "https://images.pexels.com/photos/291528/pexels-photo-291528.jpeg?w=400&h=300&fit=crop"
+        ]
+      },
+      {
+        "level": 25,
+        "answer": "=Bicycle",
+        "hint": "Two-wheel transport",
+        "images": [
+          "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg",
+          "https://images.pexels.com/photos/100582/pexels-photo-100582.jpeg",
+          "https://images.pexels.com/photos/1174103/pexels-photo-1174103.jpeg?w=400&h=300&fit=crop",
+          "https://images.pexels.com/photos/1619299/pexels-photo-1619299.jpeg?w=400&h=300&fit=crop"
+        ]
+      },
+      {
+        "level": 26,
+        "answer": "Adventure", //replace with hotel
+        "hint": "Exciting experience",
+        "images": [
+          "https://images.pexels.com/photos/346529/pexels-photo-346529.jpeg",
+          "https://images.pexels.com/photos/161931/explorer-adventure-map-hiking-161931.jpeg",
+          "https://images.pexels.com/photos/2387873/pexels-photo-2387873.jpeg",
+          "https://images.pexels.com/photos/290597/pexels-photo-290597.jpeg"
+        ]
+      },
+      {
+        "level": 27,
+        "answer": "Treasure", //image not related at all, can be replaced with food
+        "hint": "Hidden valuable items",
+        "images": [
+          "https://images.pexels.com/photos/276267/pexels-photo-276267.jpeg",
+          "https://images.pexels.com/photos/276268/pexels-photo-276268.jpeg",
+          "https://images.pexels.com/photos/276269/pexels-photo-276269.jpeg",
+          "https://images.pexels.com/photos/276270/pexels-photo-276270.jpeg"
+        ]
+      },
+      {
+        "level": 28,
+        "answer": "=Robot",
+        "hint": "Machine that acts like humans",
+        "images": [
+          "https://images.pexels.com/photos/2599244/pexels-photo-2599244.jpeg",
+          "https://images.pexels.com/photos/373543/pexels-photo-373543.jpeg",
+          "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Nao_Robot_%28Robocup_2016%29.jpg/960px-Nao_Robot_%28Robocup_2016%29.jpg",
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTeP6kH-1RC-eAyo7piyMvV6ZJJ7Yqu0Q-Kv5miUQPjw-6ax8xq0io7vV4&s=10"
+        ]
+      },
+      {
+        "level": 29,
+        "answer": "Diamond", //NONSENSE images can be replaced with gold 
+        "hint": "Precious gemstone",
+        "images": [
+          "https://images.pexels.com/photos/1251863/pexels-photo-1251863.jpeg",
+          "https://images.pexels.com/photos/248077/pexels-photo-248077.jpeg",
+          "https://images.pexels.com/photos/1251864/pexels-photo-1251864.jpeg",
+          "https://images.pexels.com/photos/1251865/pexels-photo-1251865.jpeg"
+        ]
+      },
+      {
+        "level": 30,
+        "answer": "Volcano", //images not related
+        "hint": "Mountain that erupts lava",
+        "images": [
+          "https://images.pexels.com/photos/239107/pexels-photo-239107.jpeg",
+          "https://images.pexels.com/photos/167699/pexels-photo-167699.jpeg",
+          "https://images.pexels.com/photos/672142/pexels-photo-672142.jpeg",
+          "https://images.pexels.com/photos/167699/pexels-photo-167699.jpeg"
+        ]
+      }
+    ]
+
+[
+      {
+        "level": 31,
+        "answer": "=Internet",
+        "hint": "Global network that connects everyone",
+        "images": [
+          "https://images.pexels.com/photos/1591060/pexels-photo-1591060.jpeg",
+          "https://images.pexels.com/photos/267350/pexels-photo-267350.jpeg",
+          "https://images.pexels.com/photos/4218546/pexels-photo-4218546.jpeg?w=400&h=300&fit=crop",
+          "https://images.pexels.com/photos/2881229/pexels-photo-2881229.jpeg?w=400&h=300&fit=crop"
+        ]
+      },
+      {
+        "level": 32,
+        "answer": "=Hacker",
+        "hint": "Someone skilled in computer systems",
+        "images": [
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNKw2i5QvC2fp_o-AZsWh84xJFqzyA1sYjPBVoBbfSdbRRtZl4ROnsPr73&s=10",
+          "https://images.pexels.com/photos/5380664/pexels-photo-5380664.jpeg",
+          "https://www.csoonline.com/wp-content/uploads/2023/06/hacker_hire-100697015-orig.jpg?quality=50&strip=all",
+          "https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Hacker_behind_PC.svg/960px-Hacker_behind_PC.svg.png?_=20200323021655"
+        ]
+      },
+      {
+        "level": 33,
+        "answer": "=Flower",
+        "hint": "",
+        "images": [
+          "https://images.pexels.com/photos/2132227/pexels-photo-2132227.jpeg",
+          "https://images.pexels.com/photos/931177/pexels-photo-931177.jpeg",
+          "https://www.gardenia.net/wp-content/uploads/2023/05/Platycodon-grandiflorus-Astra-Double-Blue-673x533.webp",
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzdORU8-zLMLbsc5zcV0zDCImQUwY5r81W2mN3oPMOc6ToRgs_PwGj62m2q4Yr5EfmvRnT_-OyOxn4-2QZdrcunmPh-zAGr5YtV7Jdmg&s=10"
+        ]
+      },
+      {
+        "level": 34,
+        "answer": "River", //change to insect
+        "hint": "Flowing natural water body",
+        "images": [
+          "https://images.pexels.com/photos/327090/pexels-photo-327090.jpeg",
+          "https://images.pexels.com/photos/417173/pexels-photo-417173.jpeg",
+          "https://images.pexels.com/photos/355770/pexels-photo-355770.jpeg",
+          "https://images.pexels.com/photos/210243/pexels-photo-210243.jpeg"
+        ]
+      },
+      {
+        "level": 35,
+        "answer": "Castle",
+        "hint": "Old royal fortress",
+        "images": [
+          "https://images.pexels.com/photos/460672/pexels-photo-460672.jpeg",
+          "https://images.pexels.com/photos/161931/castle-fantasy-medieval-161931.jpeg=broken",
+          "https://images.pexels.com/photos/208701/pexels-photo-208701.jpeg",
+          "https://images.pexels.com/photos/2363/castle-old-architecture.jpg=broken"
+        ]
+      },
+      {
+        "level": 36,
+        "answer": "Reward", //images not related to reward, can be replaced something else
+        "hint": "Something given for achievement",
+        "images": [
+          "https://images.pexels.com/photos/2698465/pexels-photo-2698465.jpeg",
+          "https://images.pexels.com/photos/46177/medal-trophy-award-46177.jpeg",
+          "https://images.pexels.com/photos/210881/pexels-photo-210881.jpeg",
+          "https://images.pexels.com/photos/240244/pexels-photo-240244.jpeg"
+        ]
+      },
+      {
+        "level": 37,
+        "answer": "=Wallet",
+        "hint": "Stores money or digital assets",
+        "images": [
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBu_4q-7t6itj2DfSXeAtcDghezDZnvWiQ1_tKMGQQBQ&s",
+          "https://avatars.githubusercontent.com/u/84845472?v=4",
+          "https://www.rogue-industries.com/cdn/shop/products/Rogue_Front_Pocket_Wallet_Open_2be340d5-5391-41b5-8685-94fe0eb406e6_800x.jpg?v=1698446308",
+          "https://ledger-wp-website-s3-prd.ledger.com/uploads/2024/07/flex_comparison_block.webp"
+        ]
+      },
+      {
+        "level": 38,
+        "answer": "Payment", //can be better
+        "hint": "Transaction for goods or services",
+        "images": [
+          "https://images.pexels.com/photos/3943716/pexels-photo-3943716.jpeg",
+          "https://images.pexels.com/photos/4386375/pexels-photo-4386375.jpeg",
+          "https://images.pexels.com/photos/4968630/pexels-photo-4968630.jpeg",
+          "https://images.pexels.com/photos/6863254/pexels-photo-6863254.jpeg"
+        ]
+      },
+      {
+        "level": 39,
+        "answer": "Token", //replace with something else we have cryto already
+        "hint": "Digital value unit in crypto systems",
+        "images": [
+          "https://images.pexels.com/photos/844124/pexels-photo-844124.jpeg",
+          "https://images.pexels.com/photos/837075/pexels-photo-837075.jpeg=broken",
+          "https://images.pexels.com/photos/730547/pexels-photo-730547.jpeg",
+          "https://images.pexels.com/photos/259132/pexels-photo-259132.jpeg" //replace with token related
+        ]
+      },
+      {
+        "level": 40,
+        "answer": "Crypto", //add crypto chart image 
+        "hint": "Digital currency system",
+        "images": [
+          "https://images.pexels.com/photos/730547/pexels-photo-730547.jpeg",
+          "https://images.pexels.com/photos/844124/pexels-photo-844124.jpeg",
+          "https://images.pexels.com/photos/837075/pexels-photo-837075.jpeg",
+          "https://images.pexels.com/photos/259132/pexels-photo-259132.jpeg"
+        ]
+      },
+      {
+        "level": 41,
+        "answer": "=Blockchain",
+        "hint": "Technology behind crypto systems",
+        "images": [
+          "https://money.com/wp-content/uploads/2022/06/What-Is-Blockchain-Infographic.jpg?quality=60",
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcST1gF5CYaE3vZkSSVukFzXAbxZskjYSI5S3n5Y5Y68hIySrinJojEjHS0G&s=10",
+          "https://www.patriotsoftware.com/wp-content/uploads/2022/01/what-is-blockchain-1.jpg",
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpC1M5LPDBr7SSXOQ10t35VzDayiI9Cu5ks52KrfDrwGJ-bsQ-KJclaoU&s=10"
+        ]
+      },
+      {
+        "level": 42,
+        "answer": "=Ethereum",
+        "hint": "Popular blockchain platform",
+        "images": [
+          "https://cryptologos.cc/logos/ethereum-eth-logo.png",
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrq9hzVCs5H2rTQo5YRk10I5nJ2ggW9OigjlRIg3LZsitU2LZKgjFMhw9W2pGBPLyQLUQQbqIQN3Xz91x6vo3fPaPDK8aBWQn1TrnL5A&s=10", //bitcoin image
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTI4o2jGDPz0bObPg52Ez0TXBMw1LgFoBmFq1IY1l71VheHnUdc9suOtv1I&s=10",
+          "https://media.licdn.com/dms/image/v2/D4D12AQGcfymcURqqKg/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1737120030552?e=2147483647&v=beta&t=hbuudrMqmxBXniJLkxz5bjmq7MtBUgU4rL_RRJJQ_3s" //not related
+        ]
+      },
+      {
+        "level": 43,
+        "answer": "=Savings",
+        "hint": "Money kept for future use",
+        "images": [
+          "https://images.pexels.com/photos/3943716/pexels-photo-3943716.jpeg?w=400&h=300&fit=crop",
+          "https://images.pexels.com/photos/164527/pexels-photo-164527.jpeg?w=400&h=300&fit=crop",
+          "https://images.pexels.com/photos/1602726/pexels-photo-1602726.jpeg?w=400&h=300&fit=crop",
+          "https://images.pexels.com/photos/259027/pexels-photo-259027.jpeg"
+        ]
+      },
+      {
+        "level": 44,
+        "answer": "=Garden",
+        "hint": "A place with flowers and plants",
+        "images": [
+          "https://images.pexels.com/photos/56866/pexels-photo-56866.jpeg?w=400&h=300&fit=crop",
+          "https://images.pexels.com/photos/1301856/pexels-photo-1301856.jpeg?w=400&h=300&fit=crop",
+          "https://images.pexels.com/photos/1084188/pexels-photo-1084188.jpeg?w=400&h=300&fit=crop",
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQw5TBC-zTqedhFJCyYRjCEva_f3on23Wj3GHvFu23iC6X5kn20iy0aCq5D&s=10"
+        ]
+      },
+      {
+        "level": 45,
+        "answer": "=MiniPay",
+        "hint": "Fast mobile payment system",
+        "images": [
+          "https://images.pexels.com/photos/4968630/pexels-photo-4968630.jpeg",
+          "https://images.pexels.com/photos/5082579/pexels-photo-5082579.jpeg?w=400&h=300&fit=crop",
+          "https://cryptologos.cc/logos/celo-celo-logo.png",
+          "https://cryptologos.cc/logos/usd-coin-usdc-logo.png"
+        ]
+      },
+      {
+        "level": 46,
+        "answer": "=Celo",
+        "hint": "Mobile-first blockchain network",
+        "images": [
+          "https://cryptologos.cc/logos/celo-celo-logo.png",
+          "https://cf-images.us-east-1.prod.boltdns.net/v1/static/6216791181001/1e1cb7d2-6c45-4983-83cb-5e1c68c842f7/d618d48e-36a7-41f7-a97d-716204c2abf9/1280x720/match/image.jpg",
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTz_EvMOuGHM4SdaSU-w7eSOWkFiafzcLGYhTA2-wxf6JKJ4_ezWjo7K0tx&s=10",
+          "https://images.pexels.com/photos/4968630/pexels-photo-4968630.jpeg"
+        ]
+      },
+      {
+        "level": 47,
+        "answer": "Festival", //replace
+        "hint": "Big celebration with crowds",
+        "images": [
+          "https://images.pexels.com/photos/1105666/pexels-photo-1105666.jpeg",
+          "https://images.pexels.com/photos/1190297/pexels-photo-1190297.jpeg",
+          "https://images.pexels.com/photos/2747449/pexels-photo-2747449.jpeg",
+          "https://images.pexels.com/photos/1190298/pexels-photo-1190298.jpeg"
+        ]
+      },
+      {
+        "level": 48,
+        "answer": "Internet",
+        "hint": "Global digital connection system",
+        "images": [
+          "https://images.pexels.com/photos/1181671/pexels-photo-1181671.jpeg",
+          "https://images.pexels.com/photos/267350/pexels-photo-267350.jpeg",
+          "https://images.pexels.com/photos/373543/pexels-photo-373543.jpeg",
+          "https://images.pexels.com/photos/1591060/pexels-photo-1591060.jpeg"
+        ]
+      },
+      {
+        "level": 49,
+        "answer": "Hacker",
+        "hint": "Cybersecurity expert or attacker",
+        "images": [
+          "https://images.pexels.com/photos/5380664/pexels-photo-5380664.jpeg",
+          "https://images.pexels.com/photos/574071/pexels-photo-574071.jpeg",
+          "https://images.pexels.com/photos/546819/pexels-photo-546819.jpeg",
+          "https://images.pexels.com/photos/1181673/pexels-photo-1181673.jpeg"
+        ]
+      },
+      {
+        "level": 50,
+        "answer": "Champion",
+        "hint": "Final winner of competition",
+        "images": [
+          "https://images.pexels.com/photos/209841/pexels-photo-209841.jpeg",
+          "https://images.pexels.com/photos/262524/pexels-photo-262524.jpeg",
+          "https://images.pexels.com/photos/1618200/pexels-photo-1618200.jpeg",
+          "https://images.pexels.com/photos/47547/pexels-photo-47547.jpeg"
+        ]
+      }
+    ]

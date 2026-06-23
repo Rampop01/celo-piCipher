@@ -5,7 +5,7 @@ import { usePrivy, useWallets } from "@privy-io/react-auth";
 import { useState, useEffect } from "react";
 import { ethers } from "ethers";
 
-const GAME_CONTRACT_ADDRESS = process.env.NEXT_PUBLIC_CONTRACT_ADDRESS || "0xa8fE1f02F2f7a6A305AEa11C0927Fa5d35949778";
+const GAME_CONTRACT_ADDRESS = process.env.NEXT_PUBLIC_CONTRACT_ADDRESS || "0x511eb648f6946bFEED42014c6D95AeCa97cB03eA";
 
 const GAME_ABI = [
   "function profiles(address) view returns (string nickname, uint256 currentStage, bool isRegistered)"

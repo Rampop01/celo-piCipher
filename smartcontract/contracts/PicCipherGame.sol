@@ -74,6 +74,25 @@ contract PicCipherGame is ERC721, Ownable {
         _advanceStage(msg.sender);
     }
 
+    function submitBatchAnswers(string[] calldata _answers) external {
+        require(profiles[msg.sender].isRegistered, "Not registered");
+        uint256 currentStage = profiles[msg.sender].currentStage;
+
+        // Verify all answers first
+        for (uint i = 0; i < _answers.length; i++) {
+            bytes32 correctHash = stageAnswerHashes[currentStage + i];
+            require(correctHash != bytes32(0), "Stage not available yet");
+            
+            bytes32 answerHash = sha256(abi.encodePacked(_answers[i]));
+            require(answerHash == correctHash, "Incorrect answer in batch");
+        }
+
+        // Advance stages and mint badges
+        for (uint i = 0; i < _answers.length; i++) {
+            _advanceStage(msg.sender);
+        }
+    }
+
     function bypassStage() external {
         require(profiles[msg.sender].isRegistered, "Not registered");
         uint256 currentStage = profiles[msg.sender].currentStage;
