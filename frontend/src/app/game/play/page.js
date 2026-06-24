@@ -164,8 +164,30 @@ export default function GamePlay() {
           hasWelcomedRef.current = true;
         }
       } else {
-        setProfile({ isRegistered: false });
-        speakText("Unregistered identity detected. Please register a nickname.");
+        const localNickname = localStorage.getItem("picipher_nickname");
+        if (localNickname) {
+          const savedPending = localStorage.getItem(`pending_answers_${userAddress}`);
+          const parsedPending = savedPending ? JSON.parse(savedPending) : [];
+          setPendingAnswers(parsedPending);
+          const localCurrentStage = 1 + parsedPending.length;
+
+          setProfile({
+            nickname: localNickname,
+            currentStage: 1,
+            localCurrentStage: localCurrentStage,
+            isRegistered: true,
+            isOffChain: true
+          });
+          setViewingStage(localCurrentStage);
+          loadStage(localCurrentStage, "CAMPAIGN", difficulty);
+          if (!hasWelcomedRef.current) {
+            speakText(`Welcome back, ${localNickname}. You are in off-chain mode.`);
+            hasWelcomedRef.current = true;
+          }
+        } else {
+          setProfile({ isRegistered: false });
+          speakText("Unregistered identity detected. Please register a nickname.");
+        }
       }
     } catch (error) {
       console.error("Error loading profile", error);
@@ -289,9 +311,27 @@ export default function GamePlay() {
       // Check if user has enough gas before attempting registration
       const balance = await provider.getBalance(activeWallet.address);
       if (balance === 0n) {
-        playError();
-        setFeedback({ type: "error", message: "No CELO for gas. Fund your wallet to register." });
-        speakText("Insufficient gas detected. You need CELO to register on the blockchain.");
+        setIsRegistering(true);
+        setFeedback({ type: "loading", message: "Initializing identity..." });
+        
+        // Save nickname to localStorage for off-chain play
+        localStorage.setItem("picipher_nickname", nicknameInput);
+        
+        setTimeout(() => {
+          playSuccess();
+          setProfile({
+            nickname: nicknameInput,
+            currentStage: 1,
+            localCurrentStage: 1,
+            isRegistered: true,
+            isOffChain: true
+          });
+          setViewingStage(1);
+          loadStage(1, "CAMPAIGN", difficulty);
+          setFeedback({ type: "success", message: "Registered (Off-chain)" });
+          speakText(`Welcome to the grid, ${nicknameInput}. You are in off-chain mode. Fund your wallet to save progress on the blockchain.`);
+          setIsRegistering(false);
+        }, 1500);
         return;
       }
 
