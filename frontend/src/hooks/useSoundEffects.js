@@ -1,11 +1,18 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export function useSoundEffects() {
   const audioCtxRef = useRef(null);
+  const [isMuted, setIsMuted] = useState(false);
 
   useEffect(() => {
+    // Load from local storage
+    const savedMute = localStorage.getItem("picipher_muted");
+    if (savedMute === "true") {
+      setIsMuted(true);
+    }
+
     // Initialize AudioContext on first user interaction
     const initAudio = () => {
       if (!audioCtxRef.current) {
@@ -28,8 +35,20 @@ export function useSoundEffects() {
     };
   }, []);
 
+  const toggleMute = () => {
+    setIsMuted((prev) => {
+      const newVal = !prev;
+      localStorage.setItem("picipher_muted", String(newVal));
+      // if we are muting and speech synthesis is playing, cancel it
+      if (newVal && "speechSynthesis" in window) {
+        window.speechSynthesis.cancel();
+      }
+      return newVal;
+    });
+  };
+
   const playOscillator = (freq, type, duration, vol = 0.1) => {
-    if (!audioCtxRef.current) return;
+    if (isMuted || !audioCtxRef.current) return;
     const ctx = audioCtxRef.current;
     
     const osc = ctx.createOscillator();
@@ -57,23 +76,23 @@ export function useSoundEffects() {
   };
 
   const playSuccess = () => {
-    if (!audioCtxRef.current) return;
+    if (isMuted || !audioCtxRef.current) return;
     playOscillator(600, "sine", 0.1, 0.1);
     setTimeout(() => playOscillator(800, "sine", 0.2, 0.1), 100);
     setTimeout(() => playOscillator(1200, "sine", 0.3, 0.1), 200);
   };
 
   const playError = () => {
-    if (!audioCtxRef.current) return;
+    if (isMuted || !audioCtxRef.current) return;
     playOscillator(150, "sawtooth", 0.3, 0.1);
     setTimeout(() => playOscillator(100, "sawtooth", 0.4, 0.15), 150);
   };
 
   const playUnlock = () => {
-    if (!audioCtxRef.current) return;
+    if (isMuted || !audioCtxRef.current) return;
     playOscillator(1200, "sine", 0.1, 0.1);
     setTimeout(() => playOscillator(1600, "sine", 0.3, 0.1), 100);
   };
 
-  return { playBlip, playKeystroke, playSuccess, playError, playUnlock };
+  return { playBlip, playKeystroke, playSuccess, playError, playUnlock, isMuted, toggleMute };
 }

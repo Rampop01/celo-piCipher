@@ -4,7 +4,7 @@ import { usePrivy, useWallets } from "@privy-io/react-auth";
 import { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import { Mic, MicOff, AlertCircle, Play, FastForward, CheckCircle2, Lock, Home, Trophy, User, HelpCircle } from "lucide-react";
+import { Mic, MicOff, AlertCircle, Play, FastForward, CheckCircle2, Lock, Home, Trophy, User, HelpCircle, Volume2, VolumeX } from "lucide-react";
 import { ethers } from "ethers";
 import { GAME_VAULTS } from "../../../data/vault";
 import { useSoundEffects } from "../../../hooks/useSoundEffects";
@@ -36,7 +36,7 @@ export default function GamePlay() {
   const { authenticated, user } = usePrivy();
   const { wallets } = useWallets();
   const router = useRouter();
-  const { playBlip, playKeystroke, playSuccess, playError, playUnlock } = useSoundEffects();
+  const { playBlip, playKeystroke, playSuccess, playError, playUnlock, isMuted, toggleMute } = useSoundEffects();
 
   // State
   const [profile, setProfile] = useState(null);
@@ -238,6 +238,7 @@ export default function GamePlay() {
 
   // AI Voice Guide
   const speakText = (text) => {
+    if (isMuted) return;
     if ("speechSynthesis" in window) {
       window.speechSynthesis.cancel();
       const utterance = new SpeechSynthesisUtterance(text);
@@ -675,6 +676,13 @@ export default function GamePlay() {
             </div>
           </div>
           <div className="flex items-center gap-3 md:gap-6">
+            <button
+              onClick={toggleMute}
+              className="text-white/60 hover:text-[#35D07F] transition-colors flex items-center gap-1 md:gap-2 text-[10px] md:text-sm"
+              title={isMuted ? "Unmute Sound" : "Mute Sound"}
+            >
+              {isMuted ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4" />}
+            </button>
             <button 
               onClick={() => setShowOnboarding(true)}
               className="text-white/60 hover:text-[#35D07F] transition-colors flex items-center gap-1 md:gap-2 text-[10px] md:text-sm"
@@ -778,6 +786,13 @@ export default function GamePlay() {
           <Link href="/profile" className="text-white/60 hover:text-[#35D07F] transition-colors flex items-center gap-1 md:gap-2 text-[10px] md:text-sm">
              <User className="w-4 h-4" /> <span data-theme-role="primary-surface" className="hidden md:inline">PROFILE</span>
           </Link>
+          <button
+            onClick={toggleMute}
+            className="text-white/60 hover:text-[#35D07F] transition-colors flex items-center gap-1 md:gap-2 text-[10px] md:text-sm"
+            title={isMuted ? "Unmute Sound" : "Mute Sound"}
+          >
+            {isMuted ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4" />}
+          </button>
           <button 
             onClick={() => setShowOnboarding(true)}
             className="text-white/60 hover:text-[#35D07F] transition-colors flex items-center gap-1 md:gap-2 text-[10px] md:text-sm"
