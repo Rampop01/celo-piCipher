@@ -13,6 +13,13 @@ export default function Home() {
   const router = useRouter();
   const [scrolled, setScrolled] = useState(false);
   const [glitchText, setGlitchText] = useState("PIC CIPHER");
+  const [isMiniPay, setIsMiniPay] = useState(false);
+
+  useEffect(() => {
+    if (typeof window !== "undefined" && window.ethereum?.isMiniPay) {
+      setIsMiniPay(true);
+    }
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -75,7 +82,7 @@ export default function Home() {
                   onClick={login}
                   className="gaming-btn px-6 py-2 border-2 border-[#35D07F] text-[#35D07F] text-sm hover:text-black hover:bg-[#35D07F] shadow-[0_0_15px_rgba(53,208,127,0.2)]"
                 >
-                  PLAY NOW
+                  {isMiniPay ? "CONNECT MINIPAY" : "PLAY NOW"}
                 </button>
               </>
             )}
@@ -130,7 +137,7 @@ export default function Home() {
                   onClick={login}
                   className="gaming-btn group relative px-6 md:px-10 py-4 md:py-5 bg-transparent border-2 border-[#35D07F] text-[#35D07F] font-bold text-sm md:text-2xl tracking-[0.2em] uppercase hover:text-black shadow-[0_0_20px_rgba(53,208,127,0.3)]"
                 >
-                  &gt; Press Start to Connect &lt;
+                  &gt; Press Start to Connect {isMiniPay ? "MiniPay " : ""}&lt;
                 </button>
               </div>
             </section>
@@ -212,7 +219,7 @@ export default function Home() {
                   onClick={login}
                   className="gaming-btn px-8 md:px-12 py-4 md:py-6 border-2 border-[#35D07F] text-[#35D07F] font-black text-lg md:text-2xl hover:text-black hover:bg-[#35D07F]"
                 >
-                  CONNECT WALLET
+                  {isMiniPay ? "CONNECT MINIPAY" : "CONNECT WALLET"}
                 </button>
               </div>
             </section>
